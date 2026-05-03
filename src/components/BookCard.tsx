@@ -31,12 +31,17 @@ export function BookCard({ book, onClick }: BookCardProps) {
         </div>
       </div>
       
-      {/* Footer info: Rating or Notes indicator */}
-      <div className="flex items-center gap-4 mt-2 transition-colors relative z-10">
+      {/* Footer info: Rating or Notes or Session indicator */}
+      <div className="flex items-center gap-2 mt-2 transition-colors relative z-10 flex-wrap">
         {book.status === 'READ' && book.rating && (
-          <div className="flex items-center gap-1 text-sm font-medium text-on-secondary-container bg-secondary-container px-2 py-1 rounded-full">
-            <Star className="w-4 h-4 fill-current" />
+          <div className="flex items-center gap-1 text-xs font-medium text-on-secondary-container bg-secondary-container px-2 py-1 rounded-full">
+            <Star className="w-3 h-3 fill-current" />
             {book.rating}/5
+          </div>
+        )}
+        {book.status === 'READING' && book.currentPage !== undefined && (
+          <div className="flex items-center gap-1 text-xs font-medium text-tertiary bg-tertiary-container/30 px-2 py-1 rounded-full border border-tertiary/20">
+            <BookOpen className="w-3 h-3" /> Str. {book.currentPage}
           </div>
         )}
         {book.notes && (

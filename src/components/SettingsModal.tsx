@@ -1,12 +1,14 @@
-import React from 'react';
-import { X, Check } from 'lucide-react';
-import { UserSettings, AppThemeMode, AppColorTheme } from '../types';
+import React, { useRef } from 'react';
+import { X, Check, Download, Upload } from 'lucide-react';
+import { UserSettings, AppThemeMode, AppColorTheme, Book } from '../types';
 import { motion } from 'motion/react';
 
 interface SettingsModalProps {
   settings: UserSettings;
   onChange: (settings: UserSettings) => void;
   onClose: () => void;
+  books: Book[];
+  onImport: (books: Book[]) => void;
 }
 
 const THEME_OPTIONS: { value: AppThemeMode, label: string }[] = [
@@ -30,8 +32,45 @@ const COLOR_OPTIONS: { value: AppColorTheme, label: string }[] = [
   { value: '#14B8A6', label: 'Morski' },
 ];
 
-export function SettingsModal({ settings, onChange, onClose }: SettingsModalProps) {
+export function SettingsModal({ settings, onChange, onClose, books, onImport }: SettingsModalProps) {
   const isCustomColor = !COLOR_OPTIONS.find(c => c.value.toLowerCase() === settings.colorTheme.toLowerCase());
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleExport = () => {
+    const dataStr = JSON.stringify(books, null, 2);
+    const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+    
+    const exportFileDefaultName = `biblioteka_backup_${new Date().toISOString().split('T')[0]}.json`;
+    
+    const linkElement = document.createElement('a');
+    linkElement.setAttribute('href', dataUri);
+    linkElement.setAttribute('download', exportFileDefaultName);
+    linkElement.click();
+  };
+
+  const handleImport = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      try {
+        const content = e.target?.result as string;
+        const parsed = JSON.parse(content);
+        if (Array.isArray(parsed)) {
+          onImport(parsed);
+          window.alert('Pomyślnie wczytano ' + parsed.length + ' książek z kopii zapasowej.');
+        } else {
+          window.alert('Nieprawidłowy format pliku z kopią zapasową.');
+        }
+      } catch (error) {
+        console.error("Failed to parse the imported file:", error);
+         window.alert('Nie udało się odczytać pliku. Upewnij się, że jest to poprawny plik JSON z kopią zapasową.');
+      }
+    };
+    reader.readAsText(file);
+    event.target.value = '';
+  };
 
   return (
     <motion.div 
@@ -120,6 +159,48 @@ export function SettingsModal({ settings, onChange, onClose }: SettingsModalProp
             </div>
             <p className="text-xs text-on-surface-variant">
               Wybierz gotowy kolor lub użyj próbnika, aby wygenerować pełną paletę Material You (Tonal Palettes) na podstawie wybranego koloru.
+            </p>
+          </div>
+
+          {/* Data Backup */}
+          <div className="flex flex-col gap-3">
+            <h3 className="text-sm font-medium text-on-surface-variant uppercase tracking-wider">Archiwizacja Danych</h3>
+            <div className="flex flex-col gap-3 bg-surface-variant p-4 rounded-2xl border border-outline-variant">
+              <button
+                onClick={handleExport}
+                className="flex items-center gap-3 w-full p-3 bg-surface border border-outline-variant text-on-surface rounded-xl hover:bg-surface-container transition-colors shadow-sm"
+              >
+                <div className="p-2 bg-primary-container text-on-primary-container rounded-lg">
+                  <Download className="w-5 h-5" />
+                </div>
+                <div className="flex flex-col items-start leading-tight">
+                  <span className="font-medium">Eksportuj książki</span>
+                  <span className="text-xs text-on-surface-variant">Zapisz bibliotekę do pliku na urządzeniu</span>
+                </div>
+              </button>
+
+              <button
+                onClick={() => fileInputRef.current?.click()}
+                className="flex items-center gap-3 w-full p-3 bg-surface border border-outline-variant text-on-surface rounded-xl hover:bg-surface-container transition-colors shadow-sm"
+              >
+                <div className="p-2 bg-secondary-container text-on-secondary-container rounded-lg">
+                  <Upload className="w-5 h-5" />
+                </div>
+                <div className="flex flex-col items-start leading-tight">
+                  <span className="font-medium">Importuj książki</span>
+                  <span className="text-xs text-on-surface-variant">Odczytaj bibliotekę z pliku (zastępuje aktualne)</span>
+                </div>
+              </button>
+              <input 
+                type="file" 
+                ref={fileInputRef} 
+                onChange={handleImport} 
+                accept=".json" 
+                className="hidden" 
+              />
+            </div>
+            <p className="text-xs text-on-surface-variant">
+              Dane są zapisywane tylko na Twoim urządzeniu. Eksportuj często, aby uniknąć ich utraty w razie wyczyszczenia przeglądarki.
             </p>
           </div>
 

@@ -10,6 +10,7 @@ export interface Book {
   addedAt: number;
   coverImage?: string; // URL or base64
   isbn?: string;
+  currentPage?: number;
 }
 
 export type AppThemeMode = 'light' | 'dark' | 'system';

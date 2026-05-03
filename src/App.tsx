@@ -4,28 +4,38 @@ import { argbFromHex, themeFromSourceColor, applyTheme } from "@material/materia
 import { Book, BookStatus, UserSettings } from './types';
 import { BookCard } from './components/BookCard';
 import { BookForm } from './components/BookForm';
+import { BookQuickView } from './components/BookQuickView';
 import { SettingsModal } from './components/SettingsModal';
 import { BookShelf } from './components/BookShelf';
-import { Plus, BookOpen, ArrowUpDown, Settings, Bookmark, Library, BookCheck } from 'lucide-react';
+import { ReaderHero } from './components/ReaderHero';
+import { ReadingSessionModal } from './components/ReadingSessionModal';
+import { StatsDashboard } from './components/StatsDashboard';
+import { Plus, BookOpen, ArrowUpDown, Settings, Bookmark, Library, BookCheck, Search, X, BarChart2 } from 'lucide-react';
 
-type AppTab = BookStatus | 'SHELF';
+type AppTab = BookStatus | 'SHELF' | 'STATS';
 
 const TABS: { id: AppTab; label: string; icon: React.ElementType }[] = [
   { id: 'SHELF', label: 'Półka', icon: Library },
   { id: 'TO_READ', label: 'Będę czytać', icon: Bookmark },
   { id: 'READING', label: 'Czytam', icon: BookOpen },
   { id: 'READ', label: 'Przeczytane', icon: BookCheck },
+  { id: 'STATS', label: 'Statystyki', icon: BarChart2 },
 ];
 
 type SortOption = 'date' | 'title' | 'author' | 'rating';
 
 export default function App() {
   const [books, setBooks] = useState<Book[]>([]);
+  const [searchQuery, setSearchQuery] = useState('');
   const [activeTab, setActiveTab] = useState<AppTab>('SHELF');
   const [sortBy, setSortBy] = useState<SortOption>('date');
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [editingBook, setEditingBook] = useState<Book | undefined>(undefined);
+  const [viewingBook, setViewingBook] = useState<Book | undefined>(undefined);
   const [isLoading, setIsLoading] = useState(true);
+
+  // Session state
+  const [isSessionModalOpen, setIsSessionModalOpen] = useState(false);
 
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [settings, setSettings] = useState<UserSettings>(() => {
@@ -108,7 +118,17 @@ export default function App() {
     closeForm();
   };
 
-  const openForm = (book?: Book) => {
+  const openBookView = (book: Book) => {
+    setViewingBook(book);
+  };
+
+  const openNewForm = () => {
+    setEditingBook(undefined);
+    setIsFormOpen(true);
+  };
+
+  const openEditForm = (book: Book) => {
+    setViewingBook(undefined);
     setEditingBook(book);
     setIsFormOpen(true);
   };
@@ -149,7 +169,35 @@ export default function App() {
     });
   };
 
-  const filteredBooks = books
+  const handleStopReading = (details: { durationInSeconds: number }) => {
+    setIsSessionModalOpen(true);
+  };
+
+  const handleSaveReadingSession = (bookId: string, page: number) => {
+    setBooks(prev => prev.map(b => {
+      if (b.id === bookId) {
+        return {
+          ...b,
+          status: 'READING',
+          currentPage: page
+        };
+      }
+      return b;
+    }));
+    setIsSessionModalOpen(false);
+  };
+
+  const searchedBooks = books.filter(book => {
+    if (!searchQuery.trim()) return true;
+    const q = searchQuery.toLowerCase();
+    return (
+      book.title.toLowerCase().includes(q) ||
+      book.author.toLowerCase().includes(q) ||
+      book.isbn?.toLowerCase().includes(q)
+    );
+  });
+
+  const filteredBooks = searchedBooks
     .filter(b => b.status === activeTab)
     .sort((a, b) => {
       switch (sortBy) {
@@ -162,7 +210,7 @@ export default function App() {
     });
 
   return (
-    <div className="min-h-screen bg-background text-on-background font-sans selection:bg-primary-container selection:text-on-primary-container transition-colors duration-300">
+    <div className="min-h-screen w-full overflow-x-hidden bg-background text-on-background font-sans selection:bg-primary-container selection:text-on-primary-container transition-colors duration-300">
       
       {/* App Bar */}
       <header className="bg-surface/90 backdrop-blur-md pt-12 pb-4 px-6 sticky top-0 z-50 flex items-center justify-between transition-colors duration-300 border-b border-outline-variant/30">
@@ -180,12 +228,39 @@ export default function App() {
         </button>
       </header>
 
+      {/* Search Bar */}
+      <div className="px-4 mt-6 max-w-4xl mx-auto">
+        <div className="relative">
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-on-surface-variant pointer-events-none" />
+          <input
+            type="text"
+            placeholder="Szukaj po tytule, autorze lub ISBN..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full bg-surface-variant border border-outline-variant text-on-surface placeholder:text-on-surface-variant pl-12 pr-12 py-3 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all shadow-sm"
+          />
+          {searchQuery && (
+            <button
+              onClick={() => setSearchQuery('')}
+              className="absolute right-4 top-1/2 -translate-y-1/2 p-1 hover:bg-surface-container rounded-full text-on-surface-variant transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          )}
+        </div>
+      </div>
+
       {/* Tabs removed, will be added at bottom */}
 
       {/* Main Content */}
-      <main className="px-4 pb-36 max-w-4xl mx-auto">
+      <main className="px-4 pt-6 pb-36 w-full max-w-4xl mx-auto">
         {activeTab === 'SHELF' ? (
-          <BookShelf books={books} onBookClick={openForm} onMoveBook={handleMoveBook} />
+          <div className="flex flex-col gap-6">
+            <BookShelf books={searchedBooks} onBookClick={openBookView} onMoveBook={handleMoveBook} />
+            <ReaderHero onStopReading={handleStopReading} />
+          </div>
+        ) : activeTab === 'STATS' ? (
+          <StatsDashboard books={books} />
         ) : (
           <>
             {/* Sorting Control */}
@@ -236,7 +311,7 @@ export default function App() {
                     >
                       <BookCard 
                         book={book} 
-                        onClick={() => openForm(book)} 
+                        onClick={() => openBookView(book)} 
                       />
                     </motion.div>
                   ))}
@@ -249,7 +324,7 @@ export default function App() {
 
       {/* FAB - Material You Style */}
       <button
-        onClick={() => openForm()}
+        onClick={() => openNewForm()}
         className="fixed right-6 bottom-24 md:right-10 md:bottom-28 bg-primary-container text-on-primary-container p-4 rounded-3xl shadow-lg hover:shadow-xl hover:scale-105 transition-all focus:outline-none focus:ring-4 focus:ring-primary active:scale-95 z-20"
       >
         <Plus className="w-7 h-7" />
@@ -265,20 +340,47 @@ export default function App() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className="flex flex-col items-center justify-center flex-1 h-full gap-1 group"
+                className="flex flex-col items-center justify-center flex-1 h-full gap-1 group relative focus:outline-none"
               >
                 <div 
-                  className={`px-5 py-1 rounded-full transition-colors ${
+                  className={`px-5 py-1 rounded-full transition-colors relative z-10 ${
                     isActive 
-                      ? 'bg-secondary-container text-on-secondary-container' 
+                      ? 'text-on-secondary-container' 
                       : 'text-on-surface-variant group-hover:bg-surface-variant'
                   }`}
                 >
-                  <Icon className="w-6 h-6 mx-auto" />
+                  {isActive && (
+                    <motion.div
+                      layoutId="nav-indicator"
+                      className="absolute inset-0 bg-secondary-container rounded-full -z-10"
+                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                    />
+                  )}
+                  <motion.div
+                    initial={false}
+                    animate={{
+                      scale: isActive ? [1, 0.8, 1.15, 1] : 1,
+                      y: isActive ? [0, -2, 0] : 0,
+                      rotate: isActive ? [0, -10, 10, 0] : 0,
+                    }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                  >
+                    <Icon className={`w-6 h-6 mx-auto ${isActive ? 'fill-current opacity-20 relative' : ''}`} />
+                    {isActive && (
+                      <Icon className="w-6 h-6 mx-auto absolute inset-0" />
+                    )}
+                  </motion.div>
                 </div>
-                <span className={`text-xs font-medium ${isActive ? 'text-on-surface' : 'text-on-surface-variant'}`}>
+                <motion.span 
+                  initial={false}
+                  animate={{
+                     scale: isActive ? 1.05 : 1,
+                     fontWeight: isActive ? 600 : 500,
+                  }}
+                  className={`text-xs ${isActive ? 'text-on-surface' : 'text-on-surface-variant'}`}
+                >
                   {tab.label}
-                </span>
+                </motion.span>
               </button>
             );
           })}
@@ -286,6 +388,26 @@ export default function App() {
       </nav>
 
       {/* Modals */}
+      <AnimatePresence>
+        {isSessionModalOpen && (
+          <ReadingSessionModal
+            books={books}
+            onClose={() => setIsSessionModalOpen(false)}
+            onSave={handleSaveReadingSession}
+          />
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {viewingBook && (
+          <BookQuickView 
+            book={viewingBook} 
+            onClose={() => setViewingBook(undefined)}
+            onEdit={() => openEditForm(viewingBook)}
+          />
+        )}
+      </AnimatePresence>
+
       <AnimatePresence>
         {isFormOpen && (
           <BookForm 
@@ -302,6 +424,8 @@ export default function App() {
           <SettingsModal
             settings={settings}
             onChange={setSettings}
+            books={books}
+            onImport={setBooks}
             onClose={() => setIsSettingsOpen(false)}
           />
         )}
