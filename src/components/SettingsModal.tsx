@@ -1,7 +1,8 @@
 import React, { useRef } from 'react';
 import { X, Check, Download, Upload } from 'lucide-react';
-import { UserSettings, AppThemeMode, AppColorTheme, Book } from '../types';
+import { UserSettings, AppThemeMode, AppColorTheme, Book, Language } from '../types';
 import { motion } from 'motion/react';
+import { useTranslation } from '../lib/i18n';
 
 interface SettingsModalProps {
   settings: UserSettings;
@@ -33,8 +34,15 @@ const COLOR_OPTIONS: { value: AppColorTheme, label: string }[] = [
 ];
 
 export function SettingsModal({ settings, onChange, onClose, books, onImport }: SettingsModalProps) {
+  const { t } = useTranslation();
   const isCustomColor = !COLOR_OPTIONS.find(c => c.value.toLowerCase() === settings.colorTheme.toLowerCase());
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const THEME_OPTIONS: { value: AppThemeMode, label: string }[] = [
+    { value: 'system', label: t('themeSystem') },
+    { value: 'light', label: t('themeLight') },
+    { value: 'dark', label: t('themeDark') },
+  ];
 
   const handleExport = async () => {
     const dataStr = JSON.stringify(books, null, 2);
@@ -85,13 +93,13 @@ export function SettingsModal({ settings, onChange, onClose, books, onImport }: 
         const parsed = JSON.parse(content);
         if (Array.isArray(parsed)) {
           onImport(parsed);
-          window.alert('Pomyślnie wczytano ' + parsed.length + ' książek z kopii zapasowej.');
+          window.alert(t('importSuccess') + parsed.length);
         } else {
-          window.alert('Nieprawidłowy format pliku z kopią zapasową.');
+          window.alert(t('importFormatError'));
         }
       } catch (error) {
         console.error("Failed to parse the imported file:", error);
-         window.alert('Nie udało się odczytać pliku. Upewnij się, że jest to poprawny plik JSON z kopią zapasową.');
+         window.alert(t('importError'));
       }
     };
     reader.readAsText(file);
@@ -114,7 +122,7 @@ export function SettingsModal({ settings, onChange, onClose, books, onImport }: 
       >
         <div className="flex items-center justify-between p-4 border-b border-outline-variant bg-surface">
           <h2 className="text-xl font-medium text-on-surface">
-            Ustawienia
+            {t('settings')}
           </h2>
           <button 
             onClick={onClose}
@@ -126,9 +134,29 @@ export function SettingsModal({ settings, onChange, onClose, books, onImport }: 
 
         <div className="p-6 flex flex-col gap-8 overflow-y-auto bg-surface">
           
+          <div className="flex flex-col gap-3">
+            <h3 className="text-sm font-medium text-on-surface-variant uppercase tracking-wider">{t('language')}</h3>
+            <div className="flex items-center gap-2 bg-surface-variant p-2 rounded-2xl border border-outline-variant">
+              <select
+                value={settings.language}
+                onChange={(e) => onChange({ ...settings, language: e.target.value as Language })}
+                className="w-full bg-surface border border-outline-variant text-on-surface p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all shadow-sm"
+              >
+                <option value="en">English (English)</option>
+                <option value="pl">Polski (Polish)</option>
+                <option value="fr">Français (French)</option>
+                <option value="de">Deutsch (German)</option>
+                <option value="es">Español (Spanish)</option>
+                <option value="hu">Magyar (Hungarian)</option>
+                <option value="ro">Română (Romanian)</option>
+                <option value="cs">Čeština (Czech)</option>
+              </select>
+            </div>
+          </div>
+
           {/* Theme Mode */}
           <div className="flex flex-col gap-3">
-            <h3 className="text-sm font-medium text-on-surface-variant uppercase tracking-wider">Motyw aplikacji</h3>
+            <h3 className="text-sm font-medium text-on-surface-variant uppercase tracking-wider">{t('theme')}</h3>
             <div className="grid grid-cols-3 gap-2 bg-surface-variant p-2 rounded-2xl border border-outline-variant">
               {THEME_OPTIONS.map(mod => (
                 <button
@@ -148,7 +176,7 @@ export function SettingsModal({ settings, onChange, onClose, books, onImport }: 
 
           {/* Color Theme */}
           <div className="flex flex-col gap-3">
-            <h3 className="text-sm font-medium text-on-surface-variant uppercase tracking-wider">Kolor główny (Dynamic Color)</h3>
+            <h3 className="text-sm font-medium text-on-surface-variant uppercase tracking-wider">{t('primaryColorTitle')}</h3>
             <div className="flex items-center justify-center gap-4 bg-surface-variant p-4 rounded-2xl border border-outline-variant flex-wrap">
               {COLOR_OPTIONS.map(col => (
                 <button
@@ -164,7 +192,7 @@ export function SettingsModal({ settings, onChange, onClose, books, onImport }: 
                 </button>
               ))}
               
-              <div className="relative w-12 h-12 rounded-full flex items-center justify-center transition-transform hover:scale-110 focus-within:ring-4 ring-offset-2 dark:ring-offset-stone-900 overflow-hidden" title="Własny kolor">
+              <div className="relative w-12 h-12 rounded-full flex items-center justify-center transition-transform hover:scale-110 focus-within:ring-4 ring-offset-2 dark:ring-offset-stone-900 overflow-hidden" title={t('customColor')}>
                 <input
                   type="color"
                   value={settings.colorTheme}
@@ -184,13 +212,13 @@ export function SettingsModal({ settings, onChange, onClose, books, onImport }: 
               </div>
             </div>
             <p className="text-xs text-on-surface-variant">
-              Wybierz gotowy kolor lub użyj próbnika, aby wygenerować pełną paletę Material You (Tonal Palettes) na podstawie wybranego koloru.
+              {t('primaryColorDesc')}
             </p>
           </div>
 
           {/* Data Backup */}
           <div className="flex flex-col gap-3">
-            <h3 className="text-sm font-medium text-on-surface-variant uppercase tracking-wider">Archiwizacja Danych</h3>
+            <h3 className="text-sm font-medium text-on-surface-variant uppercase tracking-wider">{t('dataBackupTitle')}</h3>
             <div className="flex flex-col gap-3 bg-surface-variant p-4 rounded-2xl border border-outline-variant">
               <button
                 onClick={handleExport}
@@ -200,8 +228,7 @@ export function SettingsModal({ settings, onChange, onClose, books, onImport }: 
                   <Download className="w-5 h-5" />
                 </div>
                 <div className="flex flex-col items-start leading-tight">
-                  <span className="font-medium">Eksportuj książki</span>
-                  <span className="text-xs text-on-surface-variant">Zapisz bibliotekę do pliku na urządzeniu</span>
+                  <span className="font-medium">{t('exportData')}</span>
                 </div>
               </button>
 
@@ -213,8 +240,7 @@ export function SettingsModal({ settings, onChange, onClose, books, onImport }: 
                   <Upload className="w-5 h-5" />
                 </div>
                 <div className="flex flex-col items-start leading-tight">
-                  <span className="font-medium">Importuj książki</span>
-                  <span className="text-xs text-on-surface-variant">Odczytaj bibliotekę z pliku (zastępuje aktualne)</span>
+                  <span className="font-medium">{t('importData')}</span>
                 </div>
               </button>
               <input 
@@ -226,7 +252,7 @@ export function SettingsModal({ settings, onChange, onClose, books, onImport }: 
               />
             </div>
             <p className="text-xs text-on-surface-variant">
-              Dane są zapisywane tylko na Twoim urządzeniu. Eksportuj często, aby uniknąć ich utraty w razie wyczyszczenia przeglądarki.
+              {t('dataBackupDesc')}
             </p>
           </div>
 

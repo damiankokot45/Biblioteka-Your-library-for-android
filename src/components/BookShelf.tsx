@@ -1,6 +1,7 @@
 import React from 'react';
 import { Book, BookStatus } from '../types';
 import { DragDropContext, Droppable, Draggable, DropResult } from '@hello-pangea/dnd';
+import { useTranslation } from '../lib/i18n';
 
 interface BookShelfProps {
   books: Book[];
@@ -9,6 +10,7 @@ interface BookShelfProps {
 }
 
 export function BookShelf({ books, onBookClick, onMoveBook }: BookShelfProps) {
+  const { t } = useTranslation();
   
   const handleDragEnd = (result: DropResult) => {
     const { source, destination, draggableId } = result;
@@ -132,7 +134,7 @@ export function BookShelf({ books, onBookClick, onMoveBook }: BookShelfProps) {
                 })
               ) : (
                 <div className="w-full flex items-center justify-center pb-6 text-on-surface-variant text-sm opacity-60 min-w-[100px]">
-                  Pusta półka
+                  {t('emptyShelfTitle')}
                 </div>
               )}
               {provided.placeholder}
@@ -150,9 +152,9 @@ export function BookShelf({ books, onBookClick, onMoveBook }: BookShelfProps) {
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
       <div className="flex flex-col gap-2 pt-2 pb-8 max-w-4xl mx-auto w-full overflow-hidden">
-        {renderShelf('TO_READ', 'Będę czytać')}
-        {renderShelf('READING', 'Czytam')}
-        {renderShelf('READ', 'Przeczytane')}
+        {renderShelf('TO_READ', t('statusToRead'))}
+        {renderShelf('READING', t('statusReading'))}
+        {renderShelf('READ', t('statusRead'))}
       </div>
     </DragDropContext>
   );

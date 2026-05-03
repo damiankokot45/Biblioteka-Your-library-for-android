@@ -1,6 +1,7 @@
 import React from 'react';
 import { Book } from '../types';
 import { Star, BookOpen } from 'lucide-react';
+import { useTranslation } from '../lib/i18n';
 
 interface BookCardProps {
   book: Book;
@@ -9,6 +10,7 @@ interface BookCardProps {
 }
 
 export function BookCard({ book, onClick }: BookCardProps) {
+  const { t } = useTranslation();
   return (
     <div 
       onClick={() => onClick(book)}
@@ -41,12 +43,12 @@ export function BookCard({ book, onClick }: BookCardProps) {
         )}
         {book.status === 'READING' && book.currentPage !== undefined && (
           <div className="flex items-center gap-1 text-xs font-medium text-tertiary bg-tertiary-container/30 px-2 py-1 rounded-full border border-tertiary/20">
-            <BookOpen className="w-3 h-3" /> Str. {book.currentPage}
+            <BookOpen className="w-3 h-3" /> {t('page')} {book.currentPage}
           </div>
         )}
         {book.notes && (
           <div className="text-xs text-on-surface-variant flex items-center gap-1 bg-surface-variant border border-outline-variant px-2 py-1 rounded-full">
-            <BookOpen className="w-3 h-3" /> Note
+            <BookOpen className="w-3 h-3" /> {t('notes')}
           </div>
         )}
       </div>

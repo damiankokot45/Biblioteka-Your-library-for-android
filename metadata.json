@@ -1,6 +1,6 @@
 {
   "name": "Biblioteka",
   "description": "Aplikacja do zarządzania czytanymi książkami, ocenami i notatkami.",
-  "requestFramePermissions": ["camera"],
+  "requestFramePermissions": [],
   "majorCapabilities": []
 }

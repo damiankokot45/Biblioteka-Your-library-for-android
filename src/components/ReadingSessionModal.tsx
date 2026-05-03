@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Book } from '../types';
 import { X, ChevronDown, Check } from 'lucide-react';
+import { useTranslation } from '../lib/i18n';
 
 interface ReadingSessionModalProps {
   books: Book[];
@@ -10,6 +11,7 @@ interface ReadingSessionModalProps {
 }
 
 export function ReadingSessionModal({ books, onClose, onSave }: ReadingSessionModalProps) {
+  const { t } = useTranslation();
   const [selectedBookId, setSelectedBookId] = useState<string>('');
   const [pageNumber, setPageNumber] = useState<string>('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -52,7 +54,7 @@ export function ReadingSessionModal({ books, onClose, onSave }: ReadingSessionMo
         className="bg-surface w-full max-w-md rounded-t-3xl sm:rounded-3xl shadow-xl flex flex-col border border-outline-variant max-h-[90vh]"
       >
         <div className="flex items-center justify-between p-4 border-b border-outline-variant">
-           <h2 className="text-xl font-medium text-on-surface">Zakończono czytanie</h2>
+           <h2 className="text-xl font-medium text-on-surface">{t('updateProgressMessage')}</h2>
            <button onClick={onClose} className="p-2 hover:bg-surface-variant rounded-full text-on-surface-variant">
              <X className="w-5 h-5"/>
            </button>
@@ -60,11 +62,11 @@ export function ReadingSessionModal({ books, onClose, onSave }: ReadingSessionMo
 
         <form onSubmit={handleSubmit} className="p-6 flex flex-col gap-6 overflow-y-auto">
           {availableBooks.length === 0 ? (
-            <p className="text-on-surface-variant">Nie masz jeszcze żadnych dodanych książek o statusie "Będę czytać" lub "Czytam". Najpierw dodaj książkę.</p>
+            <p className="text-on-surface-variant">{t('addBookFirst')}</p>
           ) : (
             <>
               <div className="flex flex-col gap-2 relative">
-                <label className="text-sm font-medium text-on-surface ml-1">Jaką książkę czytałeś?</label>
+                <label className="text-sm font-medium text-on-surface ml-1">{t('whatBookReading')}</label>
                 
                 {/* Custom Select */}
                 <div 
@@ -73,7 +75,7 @@ export function ReadingSessionModal({ books, onClose, onSave }: ReadingSessionMo
                 >
                   <div className="w-full bg-surface-variant border border-outline-variant text-on-surface px-4 py-3 rounded-2xl flex items-center justify-between cursor-pointer">
                     <span className={selectedBook ? "text-on-surface line-clamp-1" : "text-on-surface-variant"}>
-                      {selectedBook ? `${selectedBook.title} - ${selectedBook.author}` : "Wybierz książkę..."}
+                      {selectedBook ? `${selectedBook.title} - ${selectedBook.author}` : t('selectBook')}
                     </span>
                     <ChevronDown className={`w-5 h-5 text-on-surface-variant transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
                   </div>
@@ -116,7 +118,7 @@ export function ReadingSessionModal({ books, onClose, onSave }: ReadingSessionMo
               </div>
 
               <div className="flex flex-col gap-2">
-                <label className="text-sm font-medium text-on-surface ml-1">Na której stronie skończyłeś?</label>
+                <label className="text-sm font-medium text-on-surface ml-1">{t('whatPageFinished')}</label>
                 <div className="flex flex-col gap-1">
                   <input 
                     type="number"
@@ -125,7 +127,6 @@ export function ReadingSessionModal({ books, onClose, onSave }: ReadingSessionMo
                     className="w-full bg-surface-variant border border-outline-variant text-on-surface px-4 py-3 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary"
                     required
                     min="1"
-                    placeholder="np. 42"
                   />
                   <AnimatePresence>
                     {selectedBook?.currentPage && (
@@ -135,7 +136,7 @@ export function ReadingSessionModal({ books, onClose, onSave }: ReadingSessionMo
                         exit={{ opacity: 0, height: 0 }}
                         className="text-xs text-on-surface-variant ml-2 mt-1"
                       >
-                        Ostatnio zapisana strona: <strong className="text-primary">{selectedBook.currentPage}</strong>
+                        {t('lastSavedPage')} <strong className="text-primary">{selectedBook.currentPage}</strong>
                       </motion.span>
                     )}
                   </AnimatePresence>
@@ -150,14 +151,14 @@ export function ReadingSessionModal({ books, onClose, onSave }: ReadingSessionMo
                onClick={onClose}
                className="px-6 py-2 rounded-full font-medium text-on-surface hover:bg-surface-variant transition-colors"
              >
-               Anuluj
+               {t('cancel')}
             </button>
             <button
                type="submit"
                disabled={!selectedBookId || !pageNumber || availableBooks.length === 0}
                className="px-6 py-2 rounded-full font-medium bg-primary text-on-primary disabled:opacity-50 transition-colors"
              >
-               Zapisz postęp
+               {t('saveProgress')}
             </button>
           </div>
         </form>

@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Play, Square, Clock } from 'lucide-react';
+import { useTranslation } from '../lib/i18n';
 
 interface ReaderHeroProps {
   onStopReading: (durationDetails: { durationInSeconds: number }) => void;
 }
 
 export function ReaderHero({ onStopReading }: ReaderHeroProps) {
+  const { t } = useTranslation();
   const [isReading, setIsReading] = useState(() => localStorage.getItem('biblioteka_isReading') === 'true');
   const [seconds, setSeconds] = useState(() => {
     const start = localStorage.getItem('biblioteka_readingStartTime');
@@ -52,25 +54,7 @@ export function ReaderHero({ onStopReading }: ReaderHeroProps) {
     setSeconds(0);
   };
 
-  useEffect(() => {
-    const handleWidget = (e: any) => {
-      if (e.detail === 'start') {
-        setIsReading(true);
-        if (localStorage.getItem('biblioteka_isReading') !== 'true') {
-           setSeconds(0);
-        }
-      } else if (e.detail === 'stop') {
-        if (localStorage.getItem('biblioteka_isReading') === 'true') {
-            handleStop();
-        } else {
-            // just open modal if not reading
-            onStopReading({ durationInSeconds: 0 });
-        }
-      }
-    };
-    window.addEventListener('widget-action', handleWidget);
-    return () => window.removeEventListener('widget-action', handleWidget);
-  }, [seconds, onStopReading]);
+
 
   const formatTime = (totalSeconds: number) => {
     const h = Math.floor(totalSeconds / 3600);
@@ -90,9 +74,9 @@ export function ReaderHero({ onStopReading }: ReaderHeroProps) {
       />
 
       <div className="flex-1 z-10 w-full md:text-left text-center">
-        <h2 className="text-2xl font-bold text-on-surface mb-2">Czas na lekturę?</h2>
+        <h2 className="text-2xl font-bold text-on-surface mb-2">{t('readingTimeTitle')}</h2>
         <p className="text-on-surface-variant mb-6 text-sm">
-          {isReading ? 'Zanurz się w opowieści...' : 'Zrelaksuj się i rozpocznij czytanie. Zmierz swój czas i śledź postępy.'}
+          {isReading ? t('readingTimeDescReading') : t('readingTimeDescIdle')}
         </p>
 
         <div className="flex items-center justify-center md:justify-start gap-4">
@@ -102,7 +86,7 @@ export function ReaderHero({ onStopReading }: ReaderHeroProps) {
               className="bg-primary text-on-primary px-6 py-3 rounded-full font-medium shadow-md shadow-primary/20 hover:shadow-lg hover:scale-105 active:scale-95 transition-all flex items-center gap-2"
             >
               <Play className="w-5 h-5 fill-current" />
-              Zacznij czytać
+              {t('startReading')}
             </button>
           ) : (
             <div className="flex items-center gap-4">
@@ -111,7 +95,7 @@ export function ReaderHero({ onStopReading }: ReaderHeroProps) {
                 className="bg-error text-on-error px-6 py-3 rounded-full font-medium shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all flex items-center gap-2"
               >
                 <Square className="w-5 h-5 fill-current" />
-                Skończ czytać
+                {t('stopReading')}
               </button>
               <div className="flex items-center gap-2 text-primary font-mono bg-primary/10 px-4 py-2 rounded-2xl w-[100px] justify-center">
                 <Clock className="w-4 h-4" />

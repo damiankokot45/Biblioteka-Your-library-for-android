@@ -2,6 +2,7 @@ import React from 'react';
 import { Book } from '../types';
 import { X, Edit2, Star, BookOpen, Bookmark, CheckCircle2 } from 'lucide-react';
 import { motion } from 'motion/react';
+import { useTranslation } from '../lib/i18n';
 
 interface BookQuickViewProps {
   book: Book;
@@ -9,13 +10,15 @@ interface BookQuickViewProps {
   onEdit: () => void;
 }
 
-const statusConfig = {
-  TO_READ: { label: 'Będę czytać', icon: Bookmark, color: 'text-primary' },
-  READING: { label: 'Czytam', icon: BookOpen, color: 'text-tertiary' },
-  READ: { label: 'Przeczytane', icon: CheckCircle2, color: 'text-secondary' },
-};
-
 export function BookQuickView({ book, onClose, onEdit }: BookQuickViewProps) {
+  const { t } = useTranslation();
+  
+  const statusConfig = {
+    TO_READ: { label: t('statusToRead'), icon: Bookmark, color: 'text-primary' },
+    READING: { label: t('statusReading'), icon: BookOpen, color: 'text-tertiary' },
+    READ: { label: t('statusRead'), icon: CheckCircle2, color: 'text-secondary' },
+  };
+
   const StatusIcon = statusConfig[book.status].icon;
 
   return (
@@ -43,7 +46,7 @@ export function BookQuickView({ book, onClose, onEdit }: BookQuickViewProps) {
             <button 
               onClick={onEdit}
               className="p-2 hover:bg-surface-variant rounded-full text-on-surface transition-colors"
-              title="Edytuj"
+              title={t('editBook')}
             >
               <Edit2 className="w-5 h-5" />
             </button>
@@ -79,7 +82,7 @@ export function BookQuickView({ book, onClose, onEdit }: BookQuickViewProps) {
               {book.currentPage !== undefined && book.status === 'READING' && (
                 <div className="flex items-center gap-2 mt-2 font-medium text-tertiary">
                   <BookOpen className="w-4 h-4" />
-                  <span>Obecnie na stronie {book.currentPage}</span>
+                  <span>{t('page')} {book.currentPage}</span>
                 </div>
               )}
 
@@ -98,7 +101,7 @@ export function BookQuickView({ book, onClose, onEdit }: BookQuickViewProps) {
 
           {book.notes && (
             <div className="bg-surface-variant/50 p-4 rounded-2xl border border-outline-variant/50">
-              <h4 className="text-sm font-medium text-on-surface mb-2">Notatki</h4>
+              <h4 className="text-sm font-medium text-on-surface mb-2">{t('notes')}</h4>
               <p className="text-on-surface-variant text-sm whitespace-pre-wrap">{book.notes}</p>
             </div>
           )}

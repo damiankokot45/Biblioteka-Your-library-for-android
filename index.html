@@ -1,9 +1,27 @@
 <!doctype html>
-<html lang="en">
+<html lang="pl">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#141218" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#FEF7FF" media="(prefers-color-scheme: light)" />
+    <title>Biblioteka</title>
+    <script>
+      try {
+        const saved = localStorage.getItem('biblioteka_settings');
+        const settings = saved ? JSON.parse(saved) : { themeMode: 'system' };
+        const isDark = settings.themeMode === 'system' 
+          ? window.matchMedia('(prefers-color-scheme: dark)').matches 
+          : settings.themeMode === 'dark';
+        
+        if (isDark) {
+          document.documentElement.classList.add('dark');
+          document.documentElement.style.backgroundColor = '#141218';
+        } else {
+          document.documentElement.style.backgroundColor = '#FEF7FF';
+        }
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <div id="root"></div>

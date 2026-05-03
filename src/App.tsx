@@ -11,28 +11,38 @@ import { ReaderHero } from './components/ReaderHero';
 import { ReadingSessionModal } from './components/ReadingSessionModal';
 import { StatsDashboard } from './components/StatsDashboard';
 import { Plus, BookOpen, ArrowUpDown, Settings, Bookmark, Library, BookCheck, Search, X, BarChart2 } from 'lucide-react';
+import { LanguageContext, getTranslation } from './lib/i18n';
 
 type AppTab = BookStatus | 'SHELF' | 'STATS';
 
-const TABS: { id: AppTab; label: string; icon: React.ElementType }[] = [
-  { id: 'SHELF', label: 'Półka', icon: Library },
-  { id: 'TO_READ', label: 'Będę czytać', icon: Bookmark },
-  { id: 'READING', label: 'Czytam', icon: BookOpen },
-  { id: 'READ', label: 'Przeczytane', icon: BookCheck },
-  { id: 'STATS', label: 'Statystyki', icon: BarChart2 },
+const TABS: { id: AppTab; labelKey: string; icon: React.ElementType }[] = [
+  { id: 'SHELF', labelKey: 'tabShelf', icon: Library },
+  { id: 'TO_READ', labelKey: 'tabToRead', icon: Bookmark },
+  { id: 'READING', labelKey: 'tabReading', icon: BookOpen },
+  { id: 'READ', labelKey: 'tabRead', icon: BookCheck },
+  { id: 'STATS', labelKey: 'tabStats', icon: BarChart2 },
 ];
 
 type SortOption = 'date' | 'title' | 'author' | 'rating';
 
 export default function App() {
-  const [books, setBooks] = useState<Book[]>([]);
+  const [books, setBooks] = useState<Book[]>(() => {
+    const saved = localStorage.getItem('biblioteka_books');
+    if (saved) {
+      try {
+        return JSON.parse(saved);
+      } catch (e) {
+        console.error('Failed to parse books from local storage', e);
+      }
+    }
+    return [];
+  });
   const [searchQuery, setSearchQuery] = useState('');
   const [activeTab, setActiveTab] = useState<AppTab>('SHELF');
   const [sortBy, setSortBy] = useState<SortOption>('date');
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [editingBook, setEditingBook] = useState<Book | undefined>(undefined);
   const [viewingBook, setViewingBook] = useState<Book | undefined>(undefined);
-  const [isLoading, setIsLoading] = useState(true);
 
   // Session state
   const [isSessionModalOpen, setIsSessionModalOpen] = useState(false);
@@ -41,51 +51,21 @@ export default function App() {
   const [settings, setSettings] = useState<UserSettings>(() => {
     const saved = localStorage.getItem('biblioteka_settings');
     // For backwards compatibility, handle old values
-    let parsedSettings = saved ? JSON.parse(saved) : { themeMode: 'system', colorTheme: '#10b981' };
-    if (!parsedSettings.colorTheme.startsWith('#')) {
+    let parsedSettings = saved ? JSON.parse(saved) : { themeMode: 'system', colorTheme: '#10b981', language: 'en' as const };
+    if (!parsedSettings.colorTheme || !parsedSettings.colorTheme.startsWith('#')) {
       parsedSettings.colorTheme = '#10b981';
+    }
+    if (!parsedSettings.language) {
+      parsedSettings.language = 'en';
     }
     return parsedSettings;
   });
 
-  useEffect(() => {
-    import('@capacitor/app').then(({ App: CapacitorApp }) => {
-      const listener = CapacitorApp.addListener('appUrlOpen', data => {
-        if (data.url.includes('biblioteka://action/start')) {
-          setActiveTab('SHELF');
-          setTimeout(() => {
-            window.dispatchEvent(new CustomEvent('widget-action', { detail: 'start' }));
-          }, 100);
-        } else if (data.url.includes('biblioteka://action/stop')) {
-          setActiveTab('SHELF');
-          setTimeout(() => {
-            window.dispatchEvent(new CustomEvent('widget-action', { detail: 'stop' }));
-          }, 100);
-        }
-      });
-      return () => {
-        listener.then(l => l.remove());
-      };
-    }).catch(e => console.log('Capacitor App not found', e));
-  }, []);
+
 
   useEffect(() => {
-    const saved = localStorage.getItem('biblioteka_books');
-    if (saved) {
-      try {
-        setBooks(JSON.parse(saved));
-      } catch (e) {
-        console.error('Failed to parse books from local storage', e);
-      }
-    }
-    setIsLoading(false);
-  }, []);
-
-  useEffect(() => {
-    if (!isLoading) {
-      localStorage.setItem('biblioteka_books', JSON.stringify(books));
-    }
-  }, [books, isLoading]);
+    localStorage.setItem('biblioteka_books', JSON.stringify(books));
+  }, [books]);
 
   useEffect(() => {
     localStorage.setItem('biblioteka_settings', JSON.stringify(settings));
@@ -230,7 +210,10 @@ export default function App() {
       }
     });
 
+  const t = (key: string) => getTranslation(settings.language, key);
+
   return (
+    <LanguageContext.Provider value={settings.language}>
     <div className="min-h-screen w-full overflow-x-hidden bg-background text-on-background font-sans selection:bg-primary-container selection:text-on-primary-container transition-colors duration-300">
       
       {/* App Bar */}
@@ -239,7 +222,7 @@ export default function App() {
           <div className="bg-primary-container p-2 rounded-2xl">
             <BookOpen className="w-6 h-6 text-on-primary-container" />
           </div>
-          Biblioteka
+          {t('library')}
         </h1>
         <button 
           onClick={() => setIsSettingsOpen(true)}
@@ -255,7 +238,7 @@ export default function App() {
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-on-surface-variant pointer-events-none" />
           <input
             type="text"
-            placeholder="Szukaj książki..."
+            placeholder={t('searchPlaceholder')}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full bg-surface-variant border border-outline-variant text-on-surface placeholder:text-on-surface-variant pl-12 pr-12 py-3 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all shadow-sm"
@@ -293,10 +276,10 @@ export default function App() {
                   onChange={(e) => setSortBy(e.target.value as SortOption)}
                   className="bg-transparent border-none focus:outline-none cursor-pointer text-on-surface font-medium font-sans w-full max-w-[150px] appearance-none"
                 >
-                  <option value="date">Data dodania</option>
-                  <option value="title">Tytuł (A-Z)</option>
-                  <option value="author">Autor (A-Z)</option>
-                  {activeTab === 'READ' && <option value="rating">Ocena (Malejąco)</option>}
+                  <option value="date">{t('sortByDate')}</option>
+                  <option value="title">{t('sortByTitle')} (A-Z)</option>
+                  <option value="author">{t('sortByAuthor')} (A-Z)</option>
+                  {activeTab === 'READ' && <option value="rating">{t('sortByRating')} (Desc)</option>}
                 </select>
               </div>
             </div>
@@ -310,9 +293,9 @@ export default function App() {
                  <div className="w-24 h-24 bg-surface-variant rounded-[2rem] flex items-center justify-center mb-6">
                     <BookOpen className="w-8 h-8 text-on-surface-variant" />
                  </div>
-                 <h2 className="text-lg font-medium text-on-surface mb-2">Brak książek</h2>
+                 <h2 className="text-lg font-medium text-on-surface mb-2">{t('emptyShelfTitle')}</h2>
                  <p className="text-on-surface-variant max-w-xs">
-                   Kliknij przycisk poniżej, aby dodać swoją pierwszą książkę na tę listę.
+                   {t('emptyShelfDesc')}
                  </p>
               </motion.div>
             ) : (
@@ -400,7 +383,7 @@ export default function App() {
                   }}
                   className={`text-xs ${isActive ? 'text-on-surface' : 'text-on-surface-variant'}`}
                 >
-                  {tab.label}
+                  {t(tab.labelKey)}
                 </motion.span>
               </button>
             );
@@ -453,5 +436,6 @@ export default function App() {
       </AnimatePresence>
 
     </div>
+    </LanguageContext.Provider>
   );
 }

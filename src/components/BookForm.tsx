@@ -1,8 +1,8 @@
 import React, { useState, useRef } from 'react';
 import { Book, BookStatus } from '../types';
-import { X, Save, Trash2, Star, Camera, Search, Image as ImageIcon, Upload } from 'lucide-react';
-import { ScannerModal } from './ScannerModal';
+import { X, Save, Trash2, Star, Image as ImageIcon, Upload } from 'lucide-react';
 import { motion } from 'motion/react';
+import { useTranslation } from '../lib/i18n';
 
 interface BookFormProps {
   book?: Book;
@@ -12,109 +12,15 @@ interface BookFormProps {
 }
 
 export function BookForm({ book, onSave, onDelete, onClose }: BookFormProps) {
+  const { t } = useTranslation();
   const [title, setTitle] = useState(book?.title || '');
   const [author, setAuthor] = useState(book?.author || '');
   const [status, setStatus] = useState<BookStatus>(book?.status || 'TO_READ');
   const [rating, setRating] = useState<number>(book?.rating || 0);
   const [notes, setNotes] = useState(book?.notes || '');
-  const [isbn, setIsbn] = useState(book?.isbn || '');
   const [coverImage, setCoverImage] = useState(book?.coverImage || '');
-  const [isScannerOpen, setIsScannerOpen] = useState(false);
-  const [isLoadingInfo, setIsLoadingInfo] = useState(false);
   
   const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const fetchBookInfo = async (isbnToSearch: string) => {
-    if (!isbnToSearch) return;
-    setIsLoadingInfo(true);
-    try {
-      let found = false;
-      let coverFound = false;
-
-      // 1. Google Books API
-      try {
-        const res = await fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbnToSearch}`);
-        if (res.ok) {
-          const data = await res.json();
-          if (data.items && data.items.length > 0) {
-            found = true;
-            const bookData = data.items[0].volumeInfo;
-            if (bookData.title) setTitle(bookData.title);
-            if (bookData.authors?.length > 0) setAuthor(bookData.authors.join(', '));
-            
-            if (bookData.imageLinks?.thumbnail) {
-              setCoverImage(bookData.imageLinks.thumbnail.replace('http:', 'https:'));
-              coverFound = true;
-            }
-          }
-        }
-      } catch (e) {
-        console.warn("Google Books API fail", e);
-      }
-      
-      // 2. Biblioteka Narodowa API (Polish books)
-      if (!found) {
-        try {
-          const bnRes = await fetch(`https://data.bn.org.pl/api/bibs.json?isbn=${isbnToSearch}`);
-          if (bnRes.ok) {
-            const bnData = await bnRes.json();
-            if (bnData.bibs && bnData.bibs.length > 0) {
-              found = true;
-              const bib = bnData.bibs[0];
-              if (bib.title) setTitle(bib.title);
-              if (bib.author) {
-                const cleanAuthor = bib.author.replace(/\(.*?\)/g, '').replace(/\.$/, '').trim().split(',').reverse().join(' ').trim();
-                setAuthor(cleanAuthor || bib.author);
-              }
-            }
-          }
-        } catch (e) {
-          console.warn("BN API fail", e);
-        }
-      }
-
-      // 3. Open Library API
-      if (!found || !coverFound) {
-        try {
-          const olRes = await fetch(`https://openlibrary.org/api/books?bibkeys=ISBN:${isbnToSearch}&format=json&jscmd=data`);
-          if (olRes.ok) {
-            const olData = await olRes.json();
-            const bookKey = `ISBN:${isbnToSearch}`;
-            if (olData[bookKey]) {
-              const bookData = olData[bookKey];
-              if (!found) {
-                found = true;
-                if (bookData.title) setTitle(bookData.title);
-                if (bookData.authors?.length > 0) setAuthor(bookData.authors.map((a: any) => a.name).join(', '));
-              }
-              if (!coverFound && bookData.cover?.large) {
-                setCoverImage(bookData.cover.large);
-                coverFound = true;
-              }
-            }
-          }
-        } catch (e) {
-          console.warn("Open Library fail", e);
-        }
-      }
-      
-      if (!found) {
-        alert("Nie znaleziono książki o podanym numerze ISBN. Możesz wpisać dane ręcznie lub zrobić zdjęcie samodzielnie.");
-      } else if (!coverFound) {
-        alert("Pobrano dane książki, ale nie znaleziono okładki. Dodaj ją ręcznie, zrób zdjęcie książki.");
-      }
-    } catch (err) {
-      alert("Błąd podczas pobierania danych o książce.");
-    } finally {
-      setIsLoadingInfo(false);
-    }
-  };
-
-  const handleScan = (scannedIsbn: string) => {
-    setIsbn(scannedIsbn);
-    setIsScannerOpen(false);
-    fetchBookInfo(scannedIsbn);
-  };
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -137,7 +43,7 @@ export function BookForm({ book, onSave, onDelete, onClose }: BookFormProps) {
       status,
       rating: status === 'READ' ? rating : undefined,
       notes: notes.trim(),
-      isbn: isbn.trim(),
+      isbn: book?.isbn || '',
       coverImage
     });
   };
@@ -158,7 +64,7 @@ export function BookForm({ book, onSave, onDelete, onClose }: BookFormProps) {
       >
         <div className="flex items-center justify-between p-4 border-b border-outline-variant bg-surface">
           <h2 className="text-xl font-medium text-on-surface">
-            {book ? 'Edytuj książkę' : 'Nowa książka'}
+            {book ? t('editBook') : t('addBook')}
           </h2>
           <button 
             onClick={onClose}
@@ -170,46 +76,13 @@ export function BookForm({ book, onSave, onDelete, onClose }: BookFormProps) {
 
         <div className="overflow-y-auto p-4 bg-surface">
           <form id="book-form" onSubmit={handleSubmit} className="flex flex-col gap-6">
-            
-            {/* ISBN and Scanning */}
-            <div className="flex flex-col gap-2">
-              <label className="text-sm font-medium text-on-surface ml-1">ISBN (Skanowania ułatwia dodanie)</label>
-              <div className="flex gap-2">
-                <input 
-                  type="text" 
-                  value={isbn}
-                  onChange={(e) => setIsbn(e.target.value)}
-                  placeholder="ISBN"
-                  className="w-full bg-surface-variant border border-outline-variant rounded-2xl px-4 py-3 text-on-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-                />
-                <button
-                  type="button"
-                  onClick={() => fetchBookInfo(isbn)}
-                  disabled={!isbn || isLoadingInfo}
-                  className="p-3 bg-secondary-container text-on-secondary-container rounded-2xl hover:opacity-80 transition-opacity disabled:opacity-50"
-                  title="Pobierz dane na podstawie ISBN"
-                >
-                  <Search className="w-5 h-5" />
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setIsScannerOpen(true)}
-                  className="p-3 bg-primary-container text-on-primary-container rounded-2xl hover:opacity-80 transition-opacity whitespace-nowrap flex items-center justify-center"
-                  title="Skanuj kod aparatem"
-                >
-                  <Camera className="w-5 h-5" />
-                </button>
-              </div>
-              {isLoadingInfo && <span className="text-xs text-on-surface-variant ml-1 animate-pulse">Pobieranie danych...</span>}
-            </div>
 
             {/* Cover Image Upload */}
             <div className="flex flex-col gap-2">
-              <label className="text-sm font-medium text-on-surface ml-1">Okładka / Zakładka</label>
+              <label className="text-sm font-medium text-on-surface ml-1">{t('coverOrBookmark')}</label>
               <input 
                 type="file" 
                 accept="image/*" 
-                capture="environment"
                 ref={fileInputRef}
                 className="hidden"
                 onChange={handleFileUpload}
@@ -231,7 +104,7 @@ export function BookForm({ book, onSave, onDelete, onClose }: BookFormProps) {
                     className="py-2 px-4 bg-surface-variant hover:bg-surface-container-high rounded-xl text-sm font-medium transition-colors flex items-center justify-center gap-2 border border-outline-variant"
                   >
                     <Upload className="w-4 h-4" />
-                    Wgraj lub zrób zdjęcie
+                    {t('selectFromGallery')}
                   </button>
                   {coverImage && (
                     <button
@@ -239,7 +112,7 @@ export function BookForm({ book, onSave, onDelete, onClose }: BookFormProps) {
                       onClick={() => setCoverImage('')}
                       className="py-2 px-4 text-error text-sm font-medium hover:bg-error-container/20 rounded-xl transition-colors"
                     >
-                      Usuń zdjęcie
+                      {t('removeCover')}
                     </button>
                   )}
                 </div>
@@ -247,44 +120,44 @@ export function BookForm({ book, onSave, onDelete, onClose }: BookFormProps) {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="text-sm font-medium text-on-surface ml-1">Tytuł</label>
+              <label className="text-sm font-medium text-on-surface ml-1">{t('title')}</label>
               <input 
                 type="text" 
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                placeholder="Np. Władca Pierścieni"
+                placeholder={t('titlePlaceholder')}
                 className="w-full bg-surface-variant border border-outline-variant rounded-2xl px-4 py-3 text-on-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
                 required
               />
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="text-sm font-medium text-on-surface ml-1">Autor</label>
+              <label className="text-sm font-medium text-on-surface ml-1">{t('author')}</label>
               <input 
                 type="text" 
                 value={author}
                 onChange={(e) => setAuthor(e.target.value)}
-                placeholder="Np. J.R.R. Tolkien"
+                placeholder={t('authorPlaceholder')}
                 className="w-full bg-surface-variant border border-outline-variant rounded-2xl px-4 py-3 text-on-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
                 required
               />
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="text-sm font-medium text-on-surface ml-1">Status</label>
+              <label className="text-sm font-medium text-on-surface ml-1">{t('status')}</label>
               <div className="flex flex-col gap-2 bg-surface-variant p-2 rounded-2xl border border-outline-variant">
                 <StatusOption 
-                  label="Będę czytać" 
+                  label={t('statusToRead')} 
                   selected={status === 'TO_READ'} 
                   onClick={() => setStatus('TO_READ')} 
                 />
                 <StatusOption 
-                  label="Czytam" 
+                  label={t('statusReading')} 
                   selected={status === 'READING'} 
                   onClick={() => setStatus('READING')} 
                 />
                 <StatusOption 
-                  label="Przeczytane" 
+                  label={t('statusRead')} 
                   selected={status === 'READ'} 
                   onClick={() => setStatus('READ')} 
                 />
@@ -293,7 +166,7 @@ export function BookForm({ book, onSave, onDelete, onClose }: BookFormProps) {
 
             {status === 'READ' && (
               <div className="flex flex-col gap-2">
-                <label className="text-sm font-medium text-on-surface ml-1">Ocena</label>
+                <label className="text-sm font-medium text-on-surface ml-1">{t('rating')}</label>
                 <div className="flex items-center gap-2 bg-surface-variant p-3 rounded-2xl border border-outline-variant justify-center">
                   {[1, 2, 3, 4, 5].map((star) => (
                     <button
@@ -312,11 +185,11 @@ export function BookForm({ book, onSave, onDelete, onClose }: BookFormProps) {
             )}
 
             <div className="flex flex-col gap-2">
-              <label className="text-sm font-medium text-on-surface ml-1">Notatki (opcjonalnie)</label>
+              <label className="text-sm font-medium text-on-surface ml-1">{t('notes')}</label>
               <textarea 
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
-                placeholder="Twoje przemyślenia..."
+                placeholder={t('notesPlaceholder')}
                 rows={4}
                 className="w-full bg-surface-variant border border-outline-variant rounded-2xl px-4 py-3 text-on-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none"
               />
@@ -341,17 +214,11 @@ export function BookForm({ book, onSave, onDelete, onClose }: BookFormProps) {
              className="flex-1 py-3 px-6 bg-primary text-on-primary rounded-2xl md:rounded-full font-medium hover:bg-opacity-90 flex items-center justify-center gap-2 transition-colors border border-transparent"
            >
              <Save className="w-5 h-5" />
-             Zapisz
+             {t('save')}
            </button>
         </div>
       </motion.div>
       
-      {isScannerOpen && (
-        <ScannerModal 
-          onScan={handleScan} 
-          onClose={() => setIsScannerOpen(false)} 
-        />
-      )}
     </motion.div>
   );
 }

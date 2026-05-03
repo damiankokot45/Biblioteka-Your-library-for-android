@@ -3,12 +3,15 @@ import { Book } from '../types';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend } from 'recharts';
 import { BookOpen, CheckCircle2, TrendingUp, Star } from 'lucide-react';
 import { motion } from 'motion/react';
+import { useTranslation } from '../lib/i18n';
 
 interface StatsDashboardProps {
   books: Book[];
 }
 
 export function StatsDashboard({ books }: StatsDashboardProps) {
+  const { t, lang } = useTranslation();
+  
   const stats = useMemo(() => {
     const totalBooks = books.length;
     const readBooks = books.filter(b => b.status === 'READ');
@@ -20,9 +23,9 @@ export function StatsDashboard({ books }: StatsDashboardProps) {
 
     // Books by status for PieChart
     const statusData = [
-      { name: 'Będę czytać', value: books.filter(b => b.status === 'TO_READ').length, color: 'var(--md-sys-color-primary)' }, // Primary based
-      { name: 'Czytam', value: readingBooks.length, color: 'var(--md-sys-color-tertiary)' }, // Tertiary based
-      { name: 'Przeczytane', value: readBooks.length, color: 'var(--md-sys-color-secondary)' }, // Secondary based
+      { name: t('statusToRead'), value: books.filter(b => b.status === 'TO_READ').length, color: 'var(--md-sys-color-primary)' }, // Primary based
+      { name: t('statusReading'), value: readingBooks.length, color: 'var(--md-sys-color-tertiary)' }, // Tertiary based
+      { name: t('statusRead'), value: readBooks.length, color: 'var(--md-sys-color-secondary)' }, // Secondary based
     ].filter(d => d.value > 0);
 
     // Books added/read by month (last 6 months)
@@ -30,7 +33,7 @@ export function StatsDashboard({ books }: StatsDashboardProps) {
       const d = new Date();
       d.setMonth(d.getMonth() - (5 - i));
       return {
-        month: d.toLocaleString('pl-PL', { month: 'short' }),
+        month: d.toLocaleString(lang, { month: 'short' }),
         year: d.getFullYear(),
         monthNum: d.getMonth(),
       };
@@ -44,8 +47,8 @@ export function StatsDashboard({ books }: StatsDashboardProps) {
 
       return {
         name: m.month,
-        'Dodane': booksInMonth.length,
-        'Przeczytane': booksInMonth.filter(b => b.status === 'READ').length,
+        [t('added')]: booksInMonth.length,
+        [t('tabRead')]: booksInMonth.filter(b => b.status === 'READ').length,
       };
     });
 
@@ -56,9 +59,9 @@ export function StatsDashboard({ books }: StatsDashboardProps) {
     return (
       <div className="flex flex-col items-center justify-center py-20 text-center px-4">
         <TrendingUp className="w-16 h-16 text-on-surface-variant/50 mb-4" />
-        <h2 className="text-xl font-medium text-on-surface mb-2">Brak danych</h2>
+        <h2 className="text-xl font-medium text-on-surface mb-2">{t('emptyStatsTitle')}</h2>
         <p className="text-on-surface-variant max-w-sm">
-          Dodaj książki, aby zobaczyć statystyki swojej biblioteki.
+          {t('emptyStatsDesc')}
         </p>
       </div>
     );
@@ -70,31 +73,31 @@ export function StatsDashboard({ books }: StatsDashboardProps) {
       animate={{ opacity: 1, y: 0 }}
       className="flex flex-col gap-6"
     >
-      <h2 className="text-2xl font-bold text-on-surface mb-2">Statystyki czytelnictwa</h2>
+      <h2 className="text-2xl font-bold text-on-surface mb-2">{t('statsTitle')}</h2>
       
       {/* Summary Cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div className="bg-primary-container text-on-primary-container p-4 rounded-3xl flex flex-col items-center justify-center text-center shadow-sm">
           <BookOpen className="w-6 h-6 mb-2 opacity-80" />
           <span className="text-3xl font-bold">{stats.totalBooks}</span>
-          <span className="text-sm font-medium opacity-90 mt-1">Wszystkie książki</span>
+          <span className="text-sm font-medium opacity-90 mt-1">{t('totalBooks')}</span>
         </div>
         <div className="bg-secondary-container text-on-secondary-container p-4 rounded-3xl flex flex-col items-center justify-center text-center shadow-sm">
           <CheckCircle2 className="w-6 h-6 mb-2 opacity-80" />
           <span className="text-3xl font-bold">{stats.readCount}</span>
-          <span className="text-sm font-medium opacity-90 mt-1">Przeczytane</span>
+          <span className="text-sm font-medium opacity-90 mt-1">{t('booksRead')}</span>
         </div>
         <div className="bg-tertiary-container text-on-tertiary-container p-4 rounded-3xl flex flex-col items-center justify-center text-center shadow-sm">
           <TrendingUp className="w-6 h-6 mb-2 opacity-80" />
           <span className="text-3xl font-bold">
-            {stats.monthlyData[stats.monthlyData.length - 1]?.Przeczytane || 0}
+            {stats.monthlyData[stats.monthlyData.length - 1]?.[t('tabRead')] || 0}
           </span>
-          <span className="text-sm font-medium opacity-90 mt-1">W tym miesiącu</span>
+          <span className="text-sm font-medium opacity-90 mt-1">{t('inThisMonth')}</span>
         </div>
         <div className="bg-surface-variant text-on-surface border border-outline-variant p-4 rounded-3xl flex flex-col items-center justify-center text-center shadow-sm">
           <Star className="w-6 h-6 mb-2 text-primary opacity-80" />
           <span className="text-3xl font-bold">{stats.avgRating === 'NaN' ? '-' : stats.avgRating}</span>
-          <span className="text-sm font-medium text-on-surface-variant mt-1">Średnia ocena</span>
+          <span className="text-sm font-medium text-on-surface-variant mt-1">{t('averageRating')}</span>
         </div>
       </div>
 
@@ -102,7 +105,7 @@ export function StatsDashboard({ books }: StatsDashboardProps) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
         {/* Bar Chart */}
         <div className="bg-surface border border-outline-variant rounded-3xl p-6 shadow-sm">
-          <h3 className="text-lg font-medium text-on-surface mb-6">Aktywność w ostatnich miesiącach</h3>
+          <h3 className="text-lg font-medium text-on-surface mb-6">{t('activityMonths')}</h3>
           <div className="h-64 w-full">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={stats.monthlyData} margin={{ top: 0, right: 0, left: -20, bottom: 0 }}>
@@ -126,8 +129,8 @@ export function StatsDashboard({ books }: StatsDashboardProps) {
                   itemStyle={{ color: 'var(--md-sys-color-on-surface)' }}
                 />
                 <Legend iconType="circle" wrapperStyle={{ fontSize: '12px', paddingTop: '10px' }} />
-                <Bar dataKey="Dodane" fill="var(--md-sys-color-secondary-container)" stroke="var(--md-sys-color-secondary)" strokeWidth={1} radius={[4, 4, 0, 0]} />
-                <Bar dataKey="Przeczytane" fill="var(--md-sys-color-primary)" radius={[4, 4, 0, 0]} />
+                <Bar dataKey={t('added')} fill="var(--md-sys-color-secondary-container)" stroke="var(--md-sys-color-secondary)" strokeWidth={1} radius={[4, 4, 0, 0]} />
+                <Bar dataKey={t('tabRead')} fill="var(--md-sys-color-primary)" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -135,7 +138,7 @@ export function StatsDashboard({ books }: StatsDashboardProps) {
 
         {/* Pie Chart */}
         <div className="bg-surface border border-outline-variant rounded-3xl p-6 shadow-sm">
-          <h3 className="text-lg font-medium text-on-surface mb-6">Rozkład statusów</h3>
+          <h3 className="text-lg font-medium text-on-surface mb-6">{t('statusDistribution')}</h3>
           <div className="h-64 w-full">
              <ResponsiveContainer width="100%" height="100%">
               <PieChart>
