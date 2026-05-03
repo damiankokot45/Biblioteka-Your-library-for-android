@@ -33,7 +33,7 @@ export function BookCard({ book, onClick }: BookCardProps) {
       
       {/* Footer info: Rating or Notes or Session indicator */}
       <div className="flex items-center gap-2 mt-2 transition-colors relative z-10 flex-wrap">
-        {book.status === 'READ' && book.rating && (
+        {book.status === 'READ' && typeof book.rating === 'number' && book.rating > 0 && (
           <div className="flex items-center gap-1 text-xs font-medium text-on-secondary-container bg-secondary-container px-2 py-1 rounded-full">
             <Star className="w-3 h-3 fill-current" />
             {book.rating}/5

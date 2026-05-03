@@ -1,0 +1,49 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+
+    <!-- Light beam -->
+    <path
+        android:fillColor="#33FFF59D"
+        android:pathData="M 145 50 L 200 170 L 60 170 Z" />
+
+    <!-- Lamp base -->
+    <path
+        android:fillColor="#806554"
+        android:pathData="M 125 165 C 125 160, 155 160, 155 165 L 155 170 L 125 170 Z" />
+    
+    <!-- Lamp stick -->
+    <path
+        android:fillColor="#96857C"
+        android:pathData="M 137 45 L 143 45 L 143 165 L 137 165 Z" />
+
+    <!-- Lamp head -->
+    <path
+        android:fillColor="#806554"
+        android:pathData="M 120 45 C 120 30, 160 30, 160 45 L 160 55 L 120 55 Z" />
+
+    <!-- Chair legs -->
+    <path
+        android:fillColor="#736159"
+        android:pathData="M 50 155 L 56 155 L 56 180 L 50 180 Z" />
+    <path
+        android:fillColor="#736159"
+        android:pathData="M 94 155 L 100 155 L 100 180 L 94 180 Z" />
+
+    <!-- Chair backrest -->
+    <path
+        android:fillColor="#E3BDB0"
+        android:strokeColor="#52443D"
+        android:strokeWidth="6"
+        android:pathData="M 35 130  L 35 70  C 35 45, 115 45, 115 70  L 115 130 Z" />
+
+    <!-- Chair seat -->
+    <path
+        android:fillColor="#E3BDB0"
+        android:strokeColor="#52443D"
+        android:strokeWidth="6"
+        android:pathData="M 10 160  C -5 160, -5 130, 10 130  L 140 130  C 155 130, 155 160, 140 160 Z" />
+
+</vector>

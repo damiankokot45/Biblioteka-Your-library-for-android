@@ -2,29 +2,60 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:gravity="center"
     android:background="@drawable/widget_bg"
-    android:padding="8dp">
+    android:padding="16dp">
 
-    <Button
-        android:id="@+id/btn_start_reading"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="wrap_content"
-        android:text="Start"
-        android:textColor="#FFFFFF"
-        android:backgroundTint="#d0a68d"
-        android:layout_marginEnd="4dp" />
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/illustration_reading"
+        android:layout_marginBottom="8dp" />
 
-    <Button
-        android:id="@+id/btn_stop_reading"
-        android:layout_width="0dp"
-        android:layout_weight="1"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Koniec"
-        android:textColor="#FFFFFF"
-        android:backgroundTint="#F43F5E"
-        android:layout_marginStart="4dp" />
+        android:text="Czas na lekturę?"
+        android:textColor="#FBF8F6"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="4dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zanurz się w opowieści..."
+        android:textColor="#D7C5BE"
+        android:textSize="14sp"
+        android:layout_marginBottom="16dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btn_start_reading"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:text="Zacznij czytać"
+            android:textColor="#5B4B49"
+            android:backgroundTint="#d0a68d"
+            android:textStyle="bold"
+            android:layout_marginEnd="8dp"/>
+
+        <Button
+            android:id="@+id/btn_stop_reading"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:text="Skończ czytać"
+            android:textColor="#5B4B49"
+            android:backgroundTint="#F43F5E"
+            android:textStyle="bold"
+            android:layout_marginStart="8dp"/>
+
+    </LinearLayout>
 
 </LinearLayout>
