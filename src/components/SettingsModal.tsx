@@ -36,16 +36,42 @@ export function SettingsModal({ settings, onChange, onClose, books, onImport }: 
   const isCustomColor = !COLOR_OPTIONS.find(c => c.value.toLowerCase() === settings.colorTheme.toLowerCase());
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const handleExport = () => {
+  const handleExport = async () => {
     const dataStr = JSON.stringify(books, null, 2);
-    const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
-    
     const exportFileDefaultName = `biblioteka_backup_${new Date().toISOString().split('T')[0]}.json`;
-    
+
+    try {
+      const { Share } = await import('@capacitor/share');
+      const { Filesystem, Directory, Encoding } = await import('@capacitor/filesystem');
+      
+      const result = await Filesystem.writeFile({
+        path: exportFileDefaultName,
+        data: dataStr,
+        directory: Directory.Cache,
+        encoding: Encoding.UTF8,
+      });
+      
+      await Share.share({
+        title: 'Eksport biblioteki',
+        text: 'Plik z kopią zapasową Twojej biblioteki.',
+        url: result.uri,
+        dialogTitle: 'Zapisz lub udostępnij kopię',
+      });
+      return;
+    } catch (err) {
+      console.warn("Capacitor share/filesystem failed, falling back to web", err);
+    }
+
+    // Web fallback
+    const blob = new Blob([dataStr], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
     const linkElement = document.createElement('a');
-    linkElement.setAttribute('href', dataUri);
-    linkElement.setAttribute('download', exportFileDefaultName);
+    linkElement.href = url;
+    linkElement.download = exportFileDefaultName;
+    document.body.appendChild(linkElement);
     linkElement.click();
+    document.body.removeChild(linkElement);
+    URL.revokeObjectURL(url);
   };
 
   const handleImport = (event: React.ChangeEvent<HTMLInputElement>) => {

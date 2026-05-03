@@ -49,6 +49,27 @@ export default function App() {
   });
 
   useEffect(() => {
+    import('@capacitor/app').then(({ App: CapacitorApp }) => {
+      const listener = CapacitorApp.addListener('appUrlOpen', data => {
+        if (data.url.includes('biblioteka://action/start')) {
+          setActiveTab('SHELF');
+          setTimeout(() => {
+            window.dispatchEvent(new CustomEvent('widget-action', { detail: 'start' }));
+          }, 100);
+        } else if (data.url.includes('biblioteka://action/stop')) {
+          setActiveTab('SHELF');
+          setTimeout(() => {
+            window.dispatchEvent(new CustomEvent('widget-action', { detail: 'stop' }));
+          }, 100);
+        }
+      });
+      return () => {
+        listener.then(l => l.remove());
+      };
+    }).catch(e => console.log('Capacitor App not found', e));
+  }, []);
+
+  useEffect(() => {
     const saved = localStorage.getItem('biblioteka_books');
     if (saved) {
       try {

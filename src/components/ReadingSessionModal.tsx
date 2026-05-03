@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { motion } from 'motion/react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { Book } from '../types';
-import { X } from 'lucide-react';
+import { X, ChevronDown, Check } from 'lucide-react';
 
 interface ReadingSessionModalProps {
   books: Book[];
@@ -12,9 +12,23 @@ interface ReadingSessionModalProps {
 export function ReadingSessionModal({ books, onClose, onSave }: ReadingSessionModalProps) {
   const [selectedBookId, setSelectedBookId] = useState<string>('');
   const [pageNumber, setPageNumber] = useState<string>('');
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   
   // Ograniczamy listę do Będę czytać i Czytam
   const availableBooks = books.filter(b => b.status === 'TO_READ' || b.status === 'READING');
+
+  const selectedBook = availableBooks.find(b => b.id === selectedBookId);
+
+  useEffect(() => {
+    if (selectedBookId) {
+      const book = books.find(b => b.id === selectedBookId);
+      if (book && book.currentPage !== undefined) {
+        setPageNumber(book.currentPage.toString());
+      } else {
+        setPageNumber('');
+      }
+    }
+  }, [selectedBookId]); // Only reset pageNumber when the selected book changes
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -35,7 +49,7 @@ export function ReadingSessionModal({ books, onClose, onSave }: ReadingSessionMo
         animate={{ y: 0 }}
         exit={{ y: "100%" }}
         transition={{ type: "spring", bounce: 0, duration: 0.4 }}
-        className="bg-surface w-full max-w-md rounded-t-3xl sm:rounded-3xl shadow-xl flex flex-col border border-outline-variant"
+        className="bg-surface w-full max-w-md rounded-t-3xl sm:rounded-3xl shadow-xl flex flex-col border border-outline-variant max-h-[90vh]"
       >
         <div className="flex items-center justify-between p-4 border-b border-outline-variant">
            <h2 className="text-xl font-medium text-on-surface">Zakończono czytanie</h2>
@@ -44,42 +58,93 @@ export function ReadingSessionModal({ books, onClose, onSave }: ReadingSessionMo
            </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="p-6 flex flex-col gap-6">
+        <form onSubmit={handleSubmit} className="p-6 flex flex-col gap-6 overflow-y-auto">
           {availableBooks.length === 0 ? (
             <p className="text-on-surface-variant">Nie masz jeszcze żadnych dodanych książek o statusie "Będę czytać" lub "Czytam". Najpierw dodaj książkę.</p>
           ) : (
             <>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 relative">
                 <label className="text-sm font-medium text-on-surface ml-1">Jaką książkę czytałeś?</label>
-                <select 
-                  value={selectedBookId}
-                  onChange={(e) => setSelectedBookId(e.target.value)}
-                  className="w-full bg-surface-variant border border-outline-variant text-on-surface px-4 py-3 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary"
-                  required
+                
+                {/* Custom Select */}
+                <div 
+                  className="relative"
+                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                 >
-                  <option value="" disabled>Wybierz książkę...</option>
-                  {availableBooks.map(b => (
-                    <option key={b.id} value={b.id}>{b.title} - {b.author}</option>
-                  ))}
-                </select>
+                  <div className="w-full bg-surface-variant border border-outline-variant text-on-surface px-4 py-3 rounded-2xl flex items-center justify-between cursor-pointer">
+                    <span className={selectedBook ? "text-on-surface line-clamp-1" : "text-on-surface-variant"}>
+                      {selectedBook ? `${selectedBook.title} - ${selectedBook.author}` : "Wybierz książkę..."}
+                    </span>
+                    <ChevronDown className={`w-5 h-5 text-on-surface-variant transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
+                  </div>
+
+                  <AnimatePresence>
+                    {isDropdownOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        className="absolute z-10 top-full mt-2 left-0 right-0 bg-surface border border-outline-variant rounded-2xl shadow-lg max-h-60 overflow-y-auto overflow-x-hidden p-2 flex flex-col gap-1"
+                      >
+                        {availableBooks.map(b => (
+                          <div
+                            key={b.id}
+                            onClick={() => {
+                              setSelectedBookId(b.id);
+                              setIsDropdownOpen(false);
+                            }}
+                            className={`flex items-center gap-3 p-3 rounded-xl cursor-pointer transition-colors ${
+                              selectedBookId === b.id ? 'bg-primary-container text-on-primary-container' : 'hover:bg-surface-variant text-on-surface'
+                            }`}
+                          >
+                            {b.coverImage ? (
+                              <img src={b.coverImage} alt="" className="w-8 h-12 object-cover rounded shadow-sm" />
+                            ) : (
+                              <div className="w-8 h-12 bg-surface-variant rounded flex shadow-sm shrink-0" />
+                            )}
+                            <div className="flex flex-col flex-1 min-w-0">
+                              <span className="font-medium text-sm truncate">{b.title}</span>
+                              <span className="text-xs opacity-80 truncate">{b.author}</span>
+                            </div>
+                            {selectedBookId === b.id && <Check className="w-5 h-5 mr-1" />}
+                          </div>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               </div>
 
               <div className="flex flex-col gap-2">
                 <label className="text-sm font-medium text-on-surface ml-1">Na której stronie skończyłeś?</label>
-                <input 
-                  type="number"
-                  value={pageNumber}
-                  onChange={(e) => setPageNumber(e.target.value)}
-                  className="w-full bg-surface-variant border border-outline-variant text-on-surface px-4 py-3 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary"
-                  required
-                  min="1"
-                  placeholder="np. 42"
-                />
+                <div className="flex flex-col gap-1">
+                  <input 
+                    type="number"
+                    value={pageNumber}
+                    onChange={(e) => setPageNumber(e.target.value)}
+                    className="w-full bg-surface-variant border border-outline-variant text-on-surface px-4 py-3 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary"
+                    required
+                    min="1"
+                    placeholder="np. 42"
+                  />
+                  <AnimatePresence>
+                    {selectedBook?.currentPage && (
+                      <motion.span 
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="text-xs text-on-surface-variant ml-2 mt-1"
+                      >
+                        Ostatnio zapisana strona: <strong className="text-primary">{selectedBook.currentPage}</strong>
+                      </motion.span>
+                    )}
+                  </AnimatePresence>
+                </div>
               </div>
             </>
           )}
 
-          <div className="pt-4 flex justify-end gap-3 border-t border-outline-variant">
+          <div className="pt-4 flex justify-end gap-3 border-t border-outline-variant mt-auto">
             <button
                type="button"
                onClick={onClose}

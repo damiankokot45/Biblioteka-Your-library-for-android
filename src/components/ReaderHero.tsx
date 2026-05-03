@@ -7,8 +7,29 @@ interface ReaderHeroProps {
 }
 
 export function ReaderHero({ onStopReading }: ReaderHeroProps) {
-  const [isReading, setIsReading] = useState(false);
-  const [seconds, setSeconds] = useState(0);
+  const [isReading, setIsReading] = useState(() => localStorage.getItem('biblioteka_isReading') === 'true');
+  const [seconds, setSeconds] = useState(() => {
+    const start = localStorage.getItem('biblioteka_readingStartTime');
+    if (start && localStorage.getItem('biblioteka_isReading') === 'true') {
+      const startMs = parseInt(start, 10);
+      if (!isNaN(startMs)) {
+         return Math.floor((Date.now() - startMs) / 1000);
+      }
+    }
+    return 0;
+  });
+
+  useEffect(() => {
+    if (isReading) {
+      if (!localStorage.getItem('biblioteka_readingStartTime')) {
+        localStorage.setItem('biblioteka_readingStartTime', Date.now().toString());
+      }
+      localStorage.setItem('biblioteka_isReading', 'true');
+    } else {
+      localStorage.removeItem('biblioteka_readingStartTime');
+      localStorage.setItem('biblioteka_isReading', 'false');
+    }
+  }, [isReading]);
 
   useEffect(() => {
     let interval: ReturnType<typeof setInterval>;
@@ -30,6 +51,26 @@ export function ReaderHero({ onStopReading }: ReaderHeroProps) {
     onStopReading({ durationInSeconds: seconds });
     setSeconds(0);
   };
+
+  useEffect(() => {
+    const handleWidget = (e: any) => {
+      if (e.detail === 'start') {
+        setIsReading(true);
+        if (localStorage.getItem('biblioteka_isReading') !== 'true') {
+           setSeconds(0);
+        }
+      } else if (e.detail === 'stop') {
+        if (localStorage.getItem('biblioteka_isReading') === 'true') {
+            handleStop();
+        } else {
+            // just open modal if not reading
+            onStopReading({ durationInSeconds: 0 });
+        }
+      }
+    };
+    window.addEventListener('widget-action', handleWidget);
+    return () => window.removeEventListener('widget-action', handleWidget);
+  }, [seconds, onStopReading]);
 
   const formatTime = (totalSeconds: number) => {
     const h = Math.floor(totalSeconds / 3600);

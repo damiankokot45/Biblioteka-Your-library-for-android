@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:background="@drawable/widget_bg"
+    android:padding="8dp">
+
+    <Button
+        android:id="@+id/btn_start_reading"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="Start"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#d0a68d"
+        android:layout_marginEnd="4dp" />
+
+    <Button
+        android:id="@+id/btn_stop_reading"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="Koniec"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#F43F5E"
+        android:layout_marginStart="4dp" />
+
+</LinearLayout>
