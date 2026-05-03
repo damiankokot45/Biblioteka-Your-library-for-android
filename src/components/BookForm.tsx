@@ -28,39 +28,73 @@ export function BookForm({ book, onSave, onDelete, onClose }: BookFormProps) {
     if (!isbnToSearch) return;
     setIsLoadingInfo(true);
     try {
-      // 1. Google Books API
-      const res = await fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbnToSearch}`);
-      const data = await res.json();
-      
       let found = false;
       let coverFound = false;
-      
-      if (data.items && data.items.length > 0) {
-        found = true;
-        const bookData = data.items[0].volumeInfo;
-        if (bookData.title) setTitle(bookData.title);
-        if (bookData.authors?.length > 0) setAuthor(bookData.authors.join(', '));
-        
-        if (bookData.imageLinks?.thumbnail) {
-          setCoverImage(bookData.imageLinks.thumbnail.replace('http:', 'https:'));
-          coverFound = true;
-        }
-      } else {
-        // 2. Jeśli Google Books nie znalazło, spróbuj Open Library
-        const olRes = await fetch(`https://openlibrary.org/api/books?bibkeys=ISBN:${isbnToSearch}&format=json&jscmd=data`);
-        const olData = await olRes.json();
-        const bookKey = `ISBN:${isbnToSearch}`;
-        
-        if (olData[bookKey]) {
-          found = true;
-          const bookData = olData[bookKey];
-          if (bookData.title) setTitle(bookData.title);
-          if (bookData.authors?.length > 0) setAuthor(bookData.authors.map((a: any) => a.name).join(', '));
-          
-          if (bookData.cover?.large) {
-            setCoverImage(bookData.cover.large);
-            coverFound = true;
+
+      // 1. Google Books API
+      try {
+        const res = await fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbnToSearch}`);
+        if (res.ok) {
+          const data = await res.json();
+          if (data.items && data.items.length > 0) {
+            found = true;
+            const bookData = data.items[0].volumeInfo;
+            if (bookData.title) setTitle(bookData.title);
+            if (bookData.authors?.length > 0) setAuthor(bookData.authors.join(', '));
+            
+            if (bookData.imageLinks?.thumbnail) {
+              setCoverImage(bookData.imageLinks.thumbnail.replace('http:', 'https:'));
+              coverFound = true;
+            }
           }
+        }
+      } catch (e) {
+        console.warn("Google Books API fail", e);
+      }
+      
+      // 2. Biblioteka Narodowa API (Polish books)
+      if (!found) {
+        try {
+          const bnRes = await fetch(`https://data.bn.org.pl/api/bibs.json?isbn=${isbnToSearch}`);
+          if (bnRes.ok) {
+            const bnData = await bnRes.json();
+            if (bnData.bibs && bnData.bibs.length > 0) {
+              found = true;
+              const bib = bnData.bibs[0];
+              if (bib.title) setTitle(bib.title);
+              if (bib.author) {
+                const cleanAuthor = bib.author.replace(/\(.*?\)/g, '').replace(/\.$/, '').trim().split(',').reverse().join(' ').trim();
+                setAuthor(cleanAuthor || bib.author);
+              }
+            }
+          }
+        } catch (e) {
+          console.warn("BN API fail", e);
+        }
+      }
+
+      // 3. Open Library API
+      if (!found || !coverFound) {
+        try {
+          const olRes = await fetch(`https://openlibrary.org/api/books?bibkeys=ISBN:${isbnToSearch}&format=json&jscmd=data`);
+          if (olRes.ok) {
+            const olData = await olRes.json();
+            const bookKey = `ISBN:${isbnToSearch}`;
+            if (olData[bookKey]) {
+              const bookData = olData[bookKey];
+              if (!found) {
+                found = true;
+                if (bookData.title) setTitle(bookData.title);
+                if (bookData.authors?.length > 0) setAuthor(bookData.authors.map((a: any) => a.name).join(', '));
+              }
+              if (!coverFound && bookData.cover?.large) {
+                setCoverImage(bookData.cover.large);
+                coverFound = true;
+              }
+            }
+          }
+        } catch (e) {
+          console.warn("Open Library fail", e);
         }
       }
       

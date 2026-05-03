@@ -255,7 +255,7 @@ export default function App() {
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-on-surface-variant pointer-events-none" />
           <input
             type="text"
-            placeholder="Szukaj po tytule, autorze lub ISBN..."
+            placeholder="Szukaj książki..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full bg-surface-variant border border-outline-variant text-on-surface placeholder:text-on-surface-variant pl-12 pr-12 py-3 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all shadow-sm"
@@ -318,7 +318,7 @@ export default function App() {
             ) : (
               <motion.div 
                 layout
-                className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
+                className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
               >
                 <AnimatePresence>
                   {filteredBooks.map(book => (
