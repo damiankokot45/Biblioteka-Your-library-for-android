@@ -1,0 +1,21 @@
+export type BookStatus = 'TO_READ' | 'READING' | 'READ';
+
+export interface Book {
+  id: string;
+  title: string;
+  author: string;
+  status: BookStatus;
+  rating?: number; // 1-5
+  notes?: string;
+  addedAt: number;
+  coverImage?: string; // URL or base64
+  isbn?: string;
+}
+
+export type AppThemeMode = 'light' | 'dark' | 'system';
+export type AppColorTheme = string; // Hex color string
+
+export interface UserSettings {
+  themeMode: AppThemeMode;
+  colorTheme: AppColorTheme;
+}
