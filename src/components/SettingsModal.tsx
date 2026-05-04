@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { X, Check, Download, Upload } from 'lucide-react';
+import { X, Check, Download, Upload, Github } from 'lucide-react';
 import { UserSettings, AppThemeMode, AppColorTheme, Book, Language } from '../types';
 import { motion } from 'motion/react';
 import { useTranslation } from '../lib/i18n';
@@ -132,117 +132,126 @@ export function SettingsModal({ settings, onChange, onClose, books, onImport }: 
           </button>
         </div>
 
-        <div className="p-6 flex flex-col gap-8 overflow-y-auto bg-surface">
+        <div className="p-4 flex flex-col overflow-y-auto bg-surface space-y-6">
           
-          <div className="flex flex-col gap-3">
-            <h3 className="text-sm font-medium text-on-surface-variant uppercase tracking-wider">{t('language')}</h3>
-            <div className="flex items-center gap-2 bg-surface-variant p-2 rounded-2xl border border-outline-variant">
-              <select
-                value={settings.language}
-                onChange={(e) => onChange({ ...settings, language: e.target.value as Language })}
-                className="w-full bg-surface border border-outline-variant text-on-surface p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all shadow-sm"
-              >
-                <option value="en">English (English)</option>
-                <option value="pl">Polski (Polish)</option>
-                <option value="fr">Français (French)</option>
-                <option value="de">Deutsch (German)</option>
-                <option value="es">Español (Spanish)</option>
-                <option value="hu">Magyar (Hungarian)</option>
-                <option value="ro">Română (Romanian)</option>
-                <option value="cs">Čeština (Czech)</option>
-              </select>
-            </div>
-          </div>
+          {/* Appearance Section */}
+          <div className="flex flex-col gap-4">
+            <h3 className="text-[0.9rem] text-primary font-medium tracking-wide">Appearance</h3>
+            
+            <div className="flex flex-col gap-4 px-2">
+              <div className="flex items-center justify-between">
+                <span className="text-on-surface">Theme</span>
+                <div className="flex bg-surface-variant/50 rounded-full p-1 border border-outline-variant/30">
+                  {THEME_OPTIONS.map(mod => (
+                    <button
+                      key={mod.value}
+                      onClick={() => onChange({ ...settings, themeMode: mod.value })}
+                      className={`py-1.5 px-4 text-sm rounded-full font-medium transition-all ${
+                        settings.themeMode === mod.value
+                          ? 'bg-surface text-on-surface shadow-sm border border-outline-variant/20'
+                          : 'text-on-surface-variant hover:text-on-surface'
+                      }`}
+                    >
+                      {mod.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
 
-          {/* Theme Mode */}
-          <div className="flex flex-col gap-3">
-            <h3 className="text-sm font-medium text-on-surface-variant uppercase tracking-wider">{t('theme')}</h3>
-            <div className="grid grid-cols-3 gap-2 bg-surface-variant p-2 rounded-2xl border border-outline-variant">
-              {THEME_OPTIONS.map(mod => (
-                <button
-                  key={mod.value}
-                  onClick={() => onChange({ ...settings, themeMode: mod.value })}
-                  className={`py-2 px-1 text-sm rounded-xl font-medium transition-colors border ${
-                    settings.themeMode === mod.value
-                      ? 'bg-[var(--md-sys-color-secondary-container)] text-[var(--md-sys-color-on-secondary-container)] shadow-sm border-[var(--md-sys-color-outline-variant)]'
-                      : 'text-[var(--md-sys-color-on-surface-variant)] hover:bg-[var(--md-sys-color-surface)] border-transparent'
-                  }`}
-                >
-                  {mod.label}
-                </button>
-              ))}
-            </div>
-          </div>
+              <div className="flex flex-col gap-2">
+                <span className="text-on-surface">Accent color</span>
+                <div className="flex items-center gap-3 flex-wrap">
+                  {COLOR_OPTIONS.map(col => (
+                    <button
+                      key={col.value}
+                      onClick={() => onChange({ ...settings, colorTheme: col.value })}
+                      className="w-8 h-8 rounded-full flex items-center justify-center transition-transform hover:scale-110 overflow-hidden"
+                      style={{ backgroundColor: col.value }}
+                      title={col.label}
+                    >
+                      {settings.colorTheme.toLowerCase() === col.value.toLowerCase() && (
+                        <Check className="w-5 h-5 text-white/90 drop-shadow-sm mix-blend-overlay" />
+                      )}
+                    </button>
+                  ))}
+                  
+                  <div className="relative w-8 h-8 rounded-full flex items-center justify-center transition-transform hover:scale-110 overflow-hidden" title={t('customColor')}>
+                    <input
+                      type="color"
+                      value={settings.colorTheme}
+                      onChange={(e) => onChange({ ...settings, colorTheme: e.target.value })}
+                      className="absolute inset-[-10px] w-20 h-20 cursor-pointer p-0 border-0 opacity-0"
+                    />
+                    <div 
+                      className="w-full h-full pointer-events-none rounded-full border border-dashed flex items-center justify-center"
+                      style={{ backgroundColor: isCustomColor ? settings.colorTheme : 'transparent', borderColor: 'var(--md-sys-color-outline)' }}
+                    >
+                       {isCustomColor ? (
+                         <Check className="w-5 h-5 text-white/90 drop-shadow-sm mix-blend-overlay" />
+                       ) : (
+                         <span className="text-xl font-medium" style={{ color: 'var(--md-sys-color-on-surface-variant)' }}>+</span>
+                       )}
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-          {/* Color Theme */}
-          <div className="flex flex-col gap-3">
-            <h3 className="text-sm font-medium text-on-surface-variant uppercase tracking-wider">{t('primaryColorTitle')}</h3>
-            <div className="flex items-center justify-center gap-4 bg-surface-variant p-4 rounded-2xl border border-outline-variant flex-wrap">
-              {COLOR_OPTIONS.map(col => (
-                <button
-                  key={col.value}
-                  onClick={() => onChange({ ...settings, colorTheme: col.value })}
-                  className="relative w-12 h-12 rounded-full flex items-center justify-center transition-transform hover:scale-110 focus:outline-none focus:ring-4 ring-offset-2 dark:ring-offset-stone-900 overflow-hidden"
-                  style={{ backgroundColor: col.value, borderColor: 'var(--md-sys-color-outline-variant)' }}
-                  title={col.label}
-                >
-                  {settings.colorTheme.toLowerCase() === col.value.toLowerCase() && (
-                    <Check className="w-6 h-6 text-white drop-shadow-md mix-blend-difference" />
-                  )}
-                </button>
-              ))}
-              
-              <div className="relative w-12 h-12 rounded-full flex items-center justify-center transition-transform hover:scale-110 focus-within:ring-4 ring-offset-2 dark:ring-offset-stone-900 overflow-hidden" title={t('customColor')}>
-                <input
-                  type="color"
-                  value={settings.colorTheme}
-                  onChange={(e) => onChange({ ...settings, colorTheme: e.target.value })}
-                  className="absolute inset-[-10px] w-20 h-20 cursor-pointer p-0 border-0 opacity-0"
-                />
-                <div 
-                  className="w-full h-full pointer-events-none rounded-full border-2 border-dashed flex items-center justify-center"
-                  style={{ backgroundColor: isCustomColor ? settings.colorTheme : 'transparent', borderColor: 'var(--md-sys-color-outline)' }}
-                >
-                   {isCustomColor ? (
-                     <Check className="w-6 h-6 text-white drop-shadow-md mix-blend-difference" />
-                   ) : (
-                     <span className="text-xl font-medium" style={{ color: 'var(--md-sys-color-on-surface-variant)' }}>+</span>
-                   )}
+              <div className="flex items-center justify-between py-2 cursor-pointer group">
+                <span className="text-on-surface">Language</span>
+                <div className="flex items-center gap-2 text-on-surface-variant group-hover:text-on-surface transition-colors">
+                  <select
+                    value={settings.language}
+                    onChange={(e) => onChange({ ...settings, language: e.target.value as Language })}
+                    className="bg-transparent text-sm focus:outline-none cursor-pointer text-right appearance-none font-medium pr-1"
+                  >
+                    <option value="en">English</option>
+                    <option value="pl">Polski</option>
+                    <option value="fr">Français</option>
+                    <option value="de">Deutsch</option>
+                    <option value="es">Español</option>
+                    <option value="hu">Magyar</option>
+                    <option value="ro">Română</option>
+                    <option value="cs">Čeština</option>
+                  </select>
                 </div>
               </div>
             </div>
-            <p className="text-xs text-on-surface-variant">
-              {t('primaryColorDesc')}
-            </p>
           </div>
-
+          <div className="h-px bg-outline-variant/30 w-full" />
+          
           {/* Data Backup */}
-          <div className="flex flex-col gap-3">
-            <h3 className="text-sm font-medium text-on-surface-variant uppercase tracking-wider">{t('dataBackupTitle')}</h3>
-            <div className="flex flex-col gap-3 bg-surface-variant p-4 rounded-2xl border border-outline-variant">
+          <div className="flex flex-col gap-4">
+            <h3 className="text-[0.9rem] text-primary font-medium tracking-wide">Data & backup</h3>
+            
+            <div className="flex flex-col px-2 gap-4">
               <button
                 onClick={handleExport}
-                className="flex items-center gap-3 w-full p-3 bg-surface border border-outline-variant text-on-surface rounded-xl hover:bg-surface-container transition-colors shadow-sm"
+                className="flex items-center justify-between text-on-surface hover:text-on-surface-variant transition-colors group"
               >
-                <div className="p-2 bg-primary-container text-on-primary-container rounded-lg">
-                  <Download className="w-5 h-5" />
-                </div>
-                <div className="flex flex-col items-start leading-tight">
-                  <span className="font-medium">{t('exportData')}</span>
-                </div>
+                <span>Export data</span>
+                <span className="text-sm font-mono">&gt;</span>
               </button>
 
               <button
                 onClick={() => fileInputRef.current?.click()}
-                className="flex items-center gap-3 w-full p-3 bg-surface border border-outline-variant text-on-surface rounded-xl hover:bg-surface-container transition-colors shadow-sm"
+                className="flex items-center justify-between text-on-surface hover:text-on-surface-variant transition-colors group"
               >
-                <div className="p-2 bg-secondary-container text-on-secondary-container rounded-lg">
-                  <Upload className="w-5 h-5" />
-                </div>
-                <div className="flex flex-col items-start leading-tight">
-                  <span className="font-medium">{t('importData')}</span>
-                </div>
+                <span>Import data</span>
+                <span className="text-sm font-mono">&gt;</span>
               </button>
+              
+              <button
+                onClick={() => {
+                  if(window.confirm(t('confirmClearData'))) {
+                    localStorage.removeItem('biblioteka_books');
+                    window.location.reload();
+                  }
+                }}
+                className="flex items-center justify-between text-error hover:text-error/80 transition-colors mt-2"
+              >
+                <span>{t('clearData')}</span>
+              </button>
+
               <input 
                 type="file" 
                 ref={fileInputRef} 
@@ -251,9 +260,34 @@ export function SettingsModal({ settings, onChange, onClose, books, onImport }: 
                 className="hidden" 
               />
             </div>
-            <p className="text-xs text-on-surface-variant">
-              {t('dataBackupDesc')}
-            </p>
+          </div>
+
+          <div className="h-px bg-outline-variant/30 w-full" />
+
+          {/* About */}
+          <div className="flex flex-col gap-4 pb-10">
+            <h3 className="text-[0.9rem] text-primary font-medium tracking-wide">About the app</h3>
+            
+            <div className="flex flex-col px-2 gap-4 text-sm text-on-surface-variant">
+              <div className="flex items-center justify-between">
+                <span>Version</span>
+                <span className="font-mono">1.0.0</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span>Author</span>
+                <span>Damian Kokot</span>
+              </div>
+              <div className="flex items-center justify-center pt-2">
+                <a 
+                  href="https://github.com/damiankokot/biblioteka" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="p-2 bg-surface-variant/50 hover:bg-surface-variant rounded-full transition-colors text-on-surface"
+                >
+                  <Github className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
           </div>
 
         </div>

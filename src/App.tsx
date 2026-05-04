@@ -8,6 +8,7 @@ import { BookQuickView } from './components/BookQuickView';
 import { SettingsModal } from './components/SettingsModal';
 import { BookShelf } from './components/BookShelf';
 import { ReaderHero } from './components/ReaderHero';
+
 import { ReadingSessionModal } from './components/ReadingSessionModal';
 import { StatsDashboard } from './components/StatsDashboard';
 import { Plus, BookOpen, ArrowUpDown, Settings, Bookmark, Library, BookCheck, Search, X, BarChart2 } from 'lucide-react';
@@ -50,14 +51,23 @@ export default function App() {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [settings, setSettings] = useState<UserSettings>(() => {
     const saved = localStorage.getItem('biblioteka_settings');
+    
+    let defaultSettings: UserSettings = {
+      themeMode: 'dark', 
+      colorTheme: '#e09b69', 
+      language: 'en'
+    };
+    
     // For backwards compatibility, handle old values
-    let parsedSettings = saved ? JSON.parse(saved) : { themeMode: 'system', colorTheme: '#10b981', language: 'en' as const };
+    let parsedSettings = saved ? { ...defaultSettings, ...JSON.parse(saved) } : defaultSettings;
+    
     if (!parsedSettings.colorTheme || !parsedSettings.colorTheme.startsWith('#')) {
-      parsedSettings.colorTheme = '#10b981';
+      parsedSettings.colorTheme = '#e09b69';
     }
     if (!parsedSettings.language) {
       parsedSettings.language = 'en';
     }
+    
     return parsedSettings;
   });
 
@@ -216,52 +226,50 @@ export default function App() {
     <LanguageContext.Provider value={settings.language}>
     <div className="min-h-screen w-full overflow-x-hidden bg-background text-on-background font-sans selection:bg-primary-container selection:text-on-primary-container transition-colors duration-300">
       
-      {/* App Bar */}
-      <header className="bg-surface/90 backdrop-blur-md pt-12 pb-4 px-6 sticky top-0 z-50 flex items-center justify-between transition-colors duration-300 border-b border-outline-variant/30">
-        <h1 className="text-3xl font-normal tracking-tight text-on-surface flex items-center gap-3">
-          <div className="bg-primary-container p-2 rounded-2xl">
-            <BookOpen className="w-6 h-6 text-on-primary-container" />
+      <header className="pt-12 pb-2 px-6 sticky top-0 z-50 flex items-center justify-between transition-colors duration-300">
+        <h1 className="text-3xl font-medium tracking-tight text-on-surface flex items-center gap-3">
+          <div className="bg-primary/20 p-2.5 rounded-2xl">
+            <BookOpen className="w-6 h-6 text-primary" />
           </div>
           {t('library')}
         </h1>
         <button 
           onClick={() => setIsSettingsOpen(true)}
-          className="p-3 bg-surface-variant border border-outline-variant rounded-full hover:opacity-80 transition-colors shadow-sm"
+          className="p-3 bg-surface-variant/40 rounded-full hover:bg-surface-variant transition-colors"
         >
-          <Settings className="w-6 h-6 text-on-surface-variant" />
+          <Settings className="w-5 h-5 text-on-surface" />
         </button>
       </header>
 
-      {/* Search Bar */}
-      <div className="px-4 mt-6 max-w-4xl mx-auto">
-        <div className="relative">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-on-surface-variant pointer-events-none" />
-          <input
-            type="text"
-            placeholder={t('searchPlaceholder')}
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-surface-variant border border-outline-variant text-on-surface placeholder:text-on-surface-variant pl-12 pr-12 py-3 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all shadow-sm"
-          />
-          {searchQuery && (
-            <button
-              onClick={() => setSearchQuery('')}
-              className="absolute right-4 top-1/2 -translate-y-1/2 p-1 hover:bg-surface-container rounded-full text-on-surface-variant transition-colors"
-            >
-              <X className="w-5 h-5" />
-            </button>
-          )}
-        </div>
-      </div>
-
-      {/* Tabs removed, will be added at bottom */}
-
       {/* Main Content */}
-      <main className="px-4 pt-6 pb-36 w-full max-w-4xl mx-auto">
+      <main className="px-4 pt-4 pb-36 w-full max-w-4xl mx-auto">
         {activeTab === 'SHELF' ? (
           <div className="flex flex-col gap-6">
-            <BookShelf books={searchedBooks} onBookClick={openBookView} onMoveBook={handleMoveBook} />
             <ReaderHero onStopReading={handleStopReading} />
+            
+            {/* Search Bar */}
+            <div className="px-2 mt-2 max-w-4xl mx-auto w-full">
+              <div className="relative">
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-on-surface-variant pointer-events-none" />
+                <input
+                  type="text"
+                  placeholder={t('searchPlaceholder')}
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full bg-surface-variant/50 text-on-surface placeholder:text-on-surface-variant pl-12 pr-12 py-3.5 rounded-3xl focus:outline-none focus:ring-2 focus:ring-primary focus:bg-surface-variant transition-all shadow-sm"
+                />
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery('')}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 p-1 hover:bg-surface-container rounded-full text-on-surface-variant transition-colors"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                )}
+              </div>
+            </div>
+
+            <BookShelf books={searchedBooks} onBookClick={openBookView} onMoveBook={handleMoveBook} />
           </div>
         ) : activeTab === 'STATS' ? (
           <StatsDashboard books={books} />
