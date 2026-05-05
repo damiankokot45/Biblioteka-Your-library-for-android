@@ -215,6 +215,16 @@ export function SettingsModal({ settings, onChange, onClose, books, onImport }: 
                   </select>
                 </div>
               </div>
+
+              <div className="flex items-center justify-between py-2">
+                <span className="text-on-surface hover:opacity-80 cursor-pointer" onClick={() => onChange({ ...settings, enableGenres: !settings.enableGenres })}>Enable genres</span>
+                <div 
+                  className={`w-12 h-6 rounded-full p-1 flex items-center cursor-pointer transition-colors ${settings.enableGenres ? 'bg-primary justify-end' : 'bg-surface-variant border border-outline-variant/30 justify-start'}`}
+                  onClick={() => onChange({ ...settings, enableGenres: !settings.enableGenres })}
+                >
+                  <div className={`w-4 h-4 rounded-full ${settings.enableGenres ? 'bg-on-primary' : 'bg-on-surface-variant opacity-50'}`}></div>
+                </div>
+              </div>
             </div>
           </div>
           <div className="h-px bg-outline-variant/30 w-full" />

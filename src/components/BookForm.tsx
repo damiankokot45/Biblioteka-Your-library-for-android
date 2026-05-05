@@ -9,12 +9,14 @@ interface BookFormProps {
   onSave: (book: Omit<Book, 'id' | 'addedAt'>) => void;
   onDelete?: (id: string) => void;
   onClose: () => void;
+  enableGenres?: boolean;
 }
 
-export function BookForm({ book, onSave, onDelete, onClose }: BookFormProps) {
+export function BookForm({ book, onSave, onDelete, onClose, enableGenres }: BookFormProps) {
   const { t } = useTranslation();
   const [title, setTitle] = useState(book?.title || '');
   const [author, setAuthor] = useState(book?.author || '');
+  const [genre, setGenre] = useState(book?.genre || '');
   const [status, setStatus] = useState<BookStatus>(book?.status || 'TO_READ');
   const [rating, setRating] = useState<number>(book?.rating || 0);
   const [notes, setNotes] = useState(book?.notes || '');
@@ -44,7 +46,8 @@ export function BookForm({ book, onSave, onDelete, onClose }: BookFormProps) {
       rating: status === 'READ' ? rating : undefined,
       notes: notes.trim(),
       isbn: book?.isbn || '',
-      coverImage
+      coverImage,
+      ...(enableGenres && { genre }) // only include genre if it's enabled
     });
   };
 
@@ -142,6 +145,35 @@ export function BookForm({ book, onSave, onDelete, onClose }: BookFormProps) {
                 required
               />
             </div>
+
+            {enableGenres && (
+              <div className="flex flex-col gap-2">
+                <label className="text-sm font-medium text-on-surface ml-1">Genre</label>
+                <div className="relative">
+                  <select
+                    value={genre}
+                    onChange={(e) => setGenre(e.target.value)}
+                    className="w-full bg-surface-variant border border-outline-variant rounded-2xl px-4 py-3 text-on-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all appearance-none"
+                  >
+                    <option value="">Select genre</option>
+                    <option value="Fiction">Fiction</option>
+                    <option value="Non-Fiction">Non-Fiction</option>
+                    <option value="Science">Science</option>
+                    <option value="Fantasy">Fantasy</option>
+                    <option value="Mystery">Mystery</option>
+                    <option value="Romance">Romance</option>
+                    <option value="Thriller">Thriller</option>
+                    <option value="Biography">Biography</option>
+                    <option value="History">History</option>
+                    <option value="Poetry">Poetry</option>
+                    <option value="Other">Other</option>
+                  </select>
+                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-on-surface-variant">
+                    <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                  </div>
+                </div>
+              </div>
+            )}
 
             <div className="flex flex-col gap-2">
               <label className="text-sm font-medium text-on-surface ml-1">{t('status')}</label>

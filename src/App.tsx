@@ -55,7 +55,8 @@ export default function App() {
     let defaultSettings: UserSettings = {
       themeMode: 'dark', 
       colorTheme: '#e09b69', 
-      language: 'en'
+      language: 'en',
+      enableGenres: false
     };
     
     // For backwards compatibility, handle old values
@@ -272,7 +273,7 @@ export default function App() {
             <BookShelf books={searchedBooks} onBookClick={openBookView} onMoveBook={handleMoveBook} />
           </div>
         ) : activeTab === 'STATS' ? (
-          <StatsDashboard books={books} />
+          <StatsDashboard books={books} enableGenres={settings.enableGenres} />
         ) : (
           <>
             {/* Sorting Control */}
@@ -426,7 +427,8 @@ export default function App() {
             book={editingBook} 
             onSave={handleSaveBook} 
             onDelete={editingBook ? handleDeleteBook : undefined}
-            onClose={closeForm} 
+            onClose={closeForm}
+            enableGenres={settings.enableGenres}
           />
         )}
       </AnimatePresence>
