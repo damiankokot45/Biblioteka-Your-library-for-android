@@ -11,7 +11,6 @@ export interface Book {
   coverImage?: string; // URL or base64
   isbn?: string;
   currentPage?: number;
-  genre?: string;
 }
 
 export type AppThemeMode = 'light' | 'dark' | 'system';
@@ -22,5 +21,4 @@ export interface UserSettings {
   themeMode: AppThemeMode;
   colorTheme: AppColorTheme;
   language: Language;
-  enableGenres?: boolean;
 }
