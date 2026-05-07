@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Play, Square, Clock } from 'lucide-react';
 import { useTranslation } from '../lib/i18n';
+import { Book } from '../types';
 
 interface ReaderHeroProps {
   onStopReading: (durationDetails: { durationInSeconds: number }) => void;
+  books?: Book[];
 }
 
-export function ReaderHero({ onStopReading }: ReaderHeroProps) {
+export function ReaderHero({ onStopReading, books = [] }: ReaderHeroProps) {
   const { t } = useTranslation();
   const [isReading, setIsReading] = useState(() => localStorage.getItem('biblioteka_isReading') === 'true');
   const [seconds, setSeconds] = useState(() => {
@@ -65,7 +67,7 @@ export function ReaderHero({ onStopReading }: ReaderHeroProps) {
   };
 
   return (
-    <div className="bg-surface-variant/30 rounded-[2rem] p-8 flex flex-col items-center justify-center gap-6 border border-outline-variant/30 shadow-sm relative overflow-hidden">
+    <div className="bg-surface-variant/30 rounded-[2rem] p-8 flex flex-col items-center justify-center gap-6 border border-outline-variant/30 shadow-sm relative overflow-hidden mt-6">
       {/* Background ambient light if reading */}
       <motion.div 
         animate={{ opacity: isReading ? 1 : 0 }}
@@ -73,48 +75,94 @@ export function ReaderHero({ onStopReading }: ReaderHeroProps) {
       />
 
       {/* Graphical element: Empty Armchair and Lamp */}
-      <div className="w-48 h-48 relative shrink-0 z-10 flex items-center justify-center mt-4">
-        {/* Lamp */}
-        <div className="absolute right-0 top-0 flex flex-col items-center h-full">
-          {/* Lamp stick */}
-          <div className="w-1.5 h-full bg-outline-variant relative z-10 rounded-full -rotate-12 translate-x-3">
-             {/* Lamp head */}
-            <motion.div 
-              initial={false}
-              animate={{ 
-                rotate: isReading ? 15 : 0,
-                y: isReading ? -2 : 0
-              }}
-              transition={{ type: "spring", stiffness: 300, damping: 15 }}
-              className="w-16 h-10 bg-primary/90 rounded-t-full absolute -top-4 -left-7 z-20 origin-bottom transform translate-y-1 rotate-[45deg]"
-            >
-              {/* The Light Component - visible when reading */}
-              <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ 
-                  opacity: isReading ? [0, 0.8, 0.3, 0.9, 0.5, 0.7] : 0,
-                }}
-                transition={{ 
-                  duration: 0.5,
-                  times: [0, 0.1, 0.2, 0.3, 0.4, 0.5]
-                }}
-                style={{ clipPath: 'polygon(45% 0, 55% 0, 100% 100%, 0 100%)' }}
-                className="absolute top-8 left-1/2 -translate-x-1/2 w-[240px] h-[300px] bg-gradient-to-b from-yellow-300/40 to-transparent -z-10 origin-top pointer-events-none -rotate-12"
-              />
-            </motion.div>
-          </div>
+      <div className="w-full flex items-end justify-center mt-4 relative h-56">
+        
+        {/* Floor line */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[90%] max-w-sm h-px bg-outline-variant/30 rounded-full z-0"></div>
+
+        {/* Bookshelf Visualization Component */}
+        <div className="absolute left-1/2 -translate-x-[140px] bottom-0 w-36 h-48 z-0 flex flex-col justify-end opacity-90 transition-all duration-500 rounded-sm overflow-hidden border-x-[6px] border-t-[6px] border-[#2d1b11] bg-[#3a271d]/50 shadow-[inset_0_4px_15px_rgba(0,0,0,0.6)]">
+          {[0, 1, 2].map(shelfIdx => {
+             const shelfBooks = books.slice(shelfIdx * 10, (shelfIdx + 1) * 10);
+             return (
+               <div key={shelfIdx} className="relative flex-1 flex flex-row items-end px-1 border-b-[6px] border-[#25150c] shadow-[0_2px_4px_rgba(0,0,0,0.4)] overflow-hidden">
+                 {shelfBooks.map((book, idx) => {
+                   const colors = ['#8c3c3c', '#3c5a8c', '#3c8c5a', '#c29232', '#724694', '#467294', '#944672', '#b34d4d', '#4d7eb3', '#56b377'];
+                   const idNum = book.id.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+                   const bgColor = colors[idNum % colors.length];
+                   const height = 22 + (idNum % 16); // 22-38px
+                   const width = 6 + (idNum % 4); // 6-9px
+                   
+                   return (
+                     <motion.div 
+                       key={book.id}
+                       initial={{ opacity: 0, y: 10 }}
+                       animate={{ opacity: 1, y: 0 }}
+                       transition={{ delay: (shelfIdx * 10 + idx) * 0.02 }}
+                       className="rounded-t-[2px] shadow-sm transform-gpu opacity-90 mx-[0.5px]"
+                       style={{ 
+                         backgroundColor: bgColor, 
+                         height: `${height}px`, 
+                         width: `${width}px`,
+                         borderLeft: '1px solid rgba(255,255,255,0.1)',
+                         borderRight: '1px solid rgba(0,0,0,0.3)',
+                         borderTop: '1px solid rgba(255,255,255,0.2)'
+                       }}
+                       title={book.title}
+                     />
+                   )
+                 })}
+               </div>
+             )
+          })}
         </div>
 
-        {/* Chair */}
-        <div className="absolute left-6 bottom-4 w-32 h-28 flex flex-col items-center justify-end">
-          <div className="w-20 h-20 bg-[#c08670] rounded-t-[2.5rem] flex items-end justify-center z-0 relative shadow-inner">
-            <div className="w-16 h-16 bg-[#a87460] rounded-t-[2rem] opacity-30"></div>
+        {/* Armchair Area */}
+        <div className="w-48 h-48 relative shrink-0 z-10 flex items-center justify-center -ml-4">
+          {/* Lamp */}
+          <div className="absolute right-0 bottom-0 flex flex-col items-center h-full justify-end">
+            {/* Lamp stick */}
+            <div className="w-1.5 h-[90%] bg-outline-variant relative z-10 rounded-full origin-bottom -rotate-[10deg] translate-x-2">
+               {/* Lamp head */}
+              <motion.div 
+                initial={false}
+                animate={{ 
+                  rotate: isReading ? 15 : 0,
+                  y: isReading ? -2 : 0
+                }}
+                transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                className="w-16 h-10 bg-primary/90 rounded-t-full absolute -top-4 -left-7 z-20 origin-bottom transform translate-y-1 rotate-[45deg]"
+              >
+                {/* The Light Component - visible when reading */}
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  animate={{ 
+                    opacity: isReading ? [0, 0.8, 0.3, 0.9, 0.5, 0.7] : 0,
+                  }}
+                  transition={{ 
+                    duration: 0.5,
+                    times: [0, 0.1, 0.2, 0.3, 0.4, 0.5]
+                  }}
+                  style={{ clipPath: 'polygon(45% 0, 55% 0, 100% 100%, 0 100%)' }}
+                  className="absolute top-8 left-1/2 -translate-x-1/2 w-[240px] h-[300px] bg-gradient-to-b from-yellow-300/40 to-transparent -z-10 origin-top pointer-events-none -rotate-12"
+                />
+              </motion.div>
+            </div>
+            {/* Lamp base */}
+            <div className="w-12 h-2 bg-outline-variant rounded-t-[4px] z-0"></div>
           </div>
-          <div className="w-32 h-10 bg-[#e09e86] rounded-[1.5rem] -mt-2 z-10 relative shadow-[0_4px_10px_rgba(0,0,0,0.2)]"></div>
-          {/* Chair Legs */}
-          <div className="flex justify-between w-24 -mt-1 z-0">
-            <div className="w-3 h-6 bg-[#6e5850] rounded-b-sm"></div>
-            <div className="w-3 h-6 bg-[#6e5850] rounded-b-sm"></div>
+
+          {/* Chair */}
+          <div className="absolute left-4 bottom-0 w-32 flex flex-col items-center justify-end">
+            <div className="w-20 h-20 bg-[#c08670] rounded-t-[2.5rem] flex items-end justify-center z-0 relative shadow-inner">
+              <div className="w-16 h-16 bg-[#a87460] rounded-t-[2rem] opacity-30"></div>
+            </div>
+            <div className="w-32 h-10 bg-[#e09e86] rounded-[1.5rem] -mt-2 z-10 relative shadow-[0_4px_10px_rgba(0,0,0,0.2)]"></div>
+            {/* Chair Legs */}
+            <div className="flex justify-between w-24 -mt-1 z-0">
+              <div className="w-3 h-6 bg-[#6e5850] rounded-b-sm border-b-[2px] border-black/20 shadow-sm"></div>
+              <div className="w-3 h-6 bg-[#6e5850] rounded-b-sm border-b-[2px] border-black/20 shadow-sm"></div>
+            </div>
           </div>
         </div>
       </div>

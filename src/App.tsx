@@ -246,8 +246,6 @@ export default function App() {
       <main className="px-4 pt-4 pb-36 w-full max-w-4xl mx-auto">
         {activeTab === 'SHELF' ? (
           <div className="flex flex-col gap-6">
-            <ReaderHero onStopReading={handleStopReading} />
-            
             {/* Search Bar */}
             <div className="px-2 mt-2 max-w-4xl mx-auto w-full">
               <div className="relative">
@@ -271,6 +269,8 @@ export default function App() {
             </div>
 
             <BookShelf books={searchedBooks} onBookClick={openBookView} onMoveBook={handleMoveBook} />
+
+            <ReaderHero onStopReading={handleStopReading} books={books} />
           </div>
         ) : activeTab === 'STATS' ? (
           <StatsDashboard books={books} enableGenres={settings.enableGenres} />
