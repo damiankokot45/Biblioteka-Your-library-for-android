@@ -16,10 +16,27 @@ android {
             ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
         }
     }
+    signingConfigs {
+        release {
+            // Store credentials in ~/.gradle/gradle.properties:
+            //   BIBLIOTEKA_STORE_FILE=/path/to/keystore.jks
+            //   BIBLIOTEKA_STORE_PASSWORD=...
+            //   BIBLIOTEKA_KEY_ALIAS=...
+            //   BIBLIOTEKA_KEY_PASSWORD=...
+            if (project.hasProperty('BIBLIOTEKA_STORE_FILE')) {
+                storeFile file(BIBLIOTEKA_STORE_FILE)
+                storePassword BIBLIOTEKA_STORE_PASSWORD
+                keyAlias BIBLIOTEKA_KEY_ALIAS
+                keyPassword BIBLIOTEKA_KEY_PASSWORD
+            }
+        }
+    }
     buildTypes {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
 }
