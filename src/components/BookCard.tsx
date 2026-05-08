@@ -3,18 +3,25 @@ import { Book } from '../types';
 import { Star, BookOpen } from 'lucide-react';
 import { useTranslation } from '../lib/i18n';
 
+import { motion } from 'motion/react';
+
 interface BookCardProps {
   book: Book;
   onClick: (book: Book) => void;
-  key?: string | number;
+  index?: number;
 }
 
-export function BookCard({ book, onClick }: BookCardProps) {
+export const BookCard = React.memo(({ book, onClick, index = 0 }: BookCardProps) => {
   const { t } = useTranslation();
   return (
-    <div 
+    <motion.div 
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.05, duration: 0.3 }}
+      whileHover={{ y: -4, transition: { duration: 0.2 } }}
+      whileTap={{ scale: 0.98 }}
       onClick={() => onClick(book)}
-      className="bg-surface p-4 rounded-3xl shadow-sm border border-outline-variant flex flex-col gap-2 cursor-pointer active:scale-95 transition-all hover:shadow-md hover:bg-surface-variant overflow-hidden relative group"
+      className="bg-surface p-4 rounded-3xl shadow-sm border border-outline-variant flex flex-col gap-2 cursor-pointer transition-shadow hover:shadow-md hover:bg-surface-variant overflow-hidden relative group"
     >
       {book.coverImage && (
         <div className="absolute inset-0 z-0 opacity-10 group-hover:opacity-20 transition-opacity">
@@ -52,6 +59,6 @@ export function BookCard({ book, onClick }: BookCardProps) {
           </div>
         )}
       </div>
-    </div>
+    </motion.div>
   );
-}
+});

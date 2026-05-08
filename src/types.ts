@@ -8,6 +8,7 @@ export interface Book {
   rating?: number; // 1-5
   notes?: string;
   addedAt: number;
+  finishedAt?: number;
   coverImage?: string; // URL or base64
   isbn?: string;
   currentPage?: number;

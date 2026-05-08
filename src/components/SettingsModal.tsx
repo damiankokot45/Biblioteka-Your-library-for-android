@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { X, Check, Download, Upload, Github, Palette, Globe, Trash2, Info, User, Code, Disc, ArrowLeft, Mail, Bug, AppWindow, FileText, ChevronRight } from 'lucide-react';
+import { X, Check, Download, Upload, Github, Palette, Globe, Trash2, Info, User, Code, Disc, ArrowLeft, Mail, Bug, AppWindow, FileText, ChevronRight, Monitor, Sun, Moon } from 'lucide-react';
 import { UserSettings, AppThemeMode, AppColorTheme, Book, Language } from '../types';
 import { motion, AnimatePresence } from 'motion/react';
 import { useTranslation } from '../lib/i18n';
@@ -10,6 +10,7 @@ interface SettingsModalProps {
   onClose: () => void;
   books: Book[];
   onImport: (books: Book[]) => void;
+  onClearAllData: () => void;
 }
 
 const COLOR_OPTIONS: { value: AppColorTheme, label: string }[] = [
@@ -58,16 +59,16 @@ function SettingItem({ icon: Icon, title, subtitle, onClick, rightElement, class
 
 type SettingsScreen = 'MAIN' | 'APPEARANCE' | 'LANGUAGE' | 'BACKUP' | 'ABOUT';
 
-export function SettingsModal({ settings, onChange, onClose, books, onImport }: SettingsModalProps) {
+export function SettingsModal({ settings, onChange, onClose, books, onImport, onClearAllData }: SettingsModalProps) {
   const { t } = useTranslation();
   const [activeScreen, setActiveScreen] = useState<SettingsScreen>('MAIN');
   const isCustomColor = !COLOR_OPTIONS.find(c => c.value.toLowerCase() === settings.colorTheme.toLowerCase());
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const THEME_OPTIONS: { value: AppThemeMode, label: string }[] = [
-    { value: 'system', label: t('themeSystem') },
-    { value: 'light', label: t('themeLight') },
-    { value: 'dark', label: t('themeDark') },
+  const THEME_OPTIONS: { value: AppThemeMode, label: string, icon: any }[] = [
+    { value: 'system', label: t('themeSystem'), icon: Monitor },
+    { value: 'light', label: t('themeLight'), icon: Sun },
+    { value: 'dark', label: t('themeDark'), icon: Moon },
   ];
 
   const handleExport = async () => {
@@ -161,10 +162,10 @@ export function SettingsModal({ settings, onChange, onClose, books, onImport }: 
             )}
             <h2 className="text-xl font-medium text-on-surface">
               {activeScreen === 'MAIN' ? t('settings') : 
-               activeScreen === 'APPEARANCE' ? 'Appearance' :
-               activeScreen === 'LANGUAGE' ? 'Language' :
-               activeScreen === 'BACKUP' ? 'Data & Backup' :
-               'About the app'}
+               activeScreen === 'APPEARANCE' ? t('appearance') :
+               activeScreen === 'LANGUAGE' ? t('language') :
+               activeScreen === 'BACKUP' ? t('backup') :
+               t('aboutApp')}
             </h2>
           </div>
           <button 
@@ -188,15 +189,15 @@ export function SettingsModal({ settings, onChange, onClose, books, onImport }: 
                 <div className="flex flex-col">
                   <SettingItem 
                     icon={Palette} 
-                    title="Appearance" 
-                    subtitle="Theme, Accent color" 
+                    title={t('appearance')} 
+                    subtitle={`${t('theme')}, ${t('accentColor')}`} 
                     onClick={() => setActiveScreen('APPEARANCE')}
                     iconBg="bg-[#e09b69]/20"
                     iconColor="text-[#e09b69]"
                   />
                   <SettingItem 
                     icon={Globe} 
-                    title="Language" 
+                    title={t('language')} 
                     subtitle={LANGUAGES.find(l => l.value === settings.language)?.label || 'English'} 
                     onClick={() => setActiveScreen('LANGUAGE')}
                     iconBg="bg-[#6b8c96]/20"
@@ -204,8 +205,8 @@ export function SettingsModal({ settings, onChange, onClose, books, onImport }: 
                   />
                   <SettingItem 
                     icon={Disc} 
-                    title="Data & backup" 
-                    subtitle="Export, Import, Clear data" 
+                    title={t('backup')} 
+                    subtitle={`${t('exportData')}, ${t('importData')}`} 
                     onClick={() => setActiveScreen('BACKUP')}
                     iconBg="bg-[#a37c82]/20"
                     iconColor="text-[#a37c82]"
@@ -217,8 +218,8 @@ export function SettingsModal({ settings, onChange, onClose, books, onImport }: 
                 <div className="flex flex-col">
                   <SettingItem 
                     icon={Info} 
-                    title="About the app" 
-                    subtitle="Version, Source code, Licenses" 
+                    title={t('aboutApp')} 
+                    subtitle={`${t('version')}, ${t('sourceCode')}, ${t('licenses')}`} 
                     onClick={() => setActiveScreen('ABOUT')}
                     iconBg="bg-[#7d8a6c]/20"
                     iconColor="text-[#7d8a6c]"
@@ -237,21 +238,21 @@ export function SettingsModal({ settings, onChange, onClose, books, onImport }: 
               >
                 <div className="flex flex-col gap-2">
                   <div className="px-2 pb-2">
-                    <span className="text-[0.85rem] font-semibold text-primary uppercase tracking-wider">Theme</span>
+                    <span className="text-[0.85rem] font-semibold text-primary uppercase tracking-wider">{t('theme')}</span>
                   </div>
                   {THEME_OPTIONS.map(mod => (
                     <SettingItem 
                       key={mod.value}
-                      icon={Palette} 
+                      icon={mod.icon} 
                       title={mod.label} 
                       onClick={() => onChange({ ...settings, themeMode: mod.value })}
                       hideArrow
-                      iconBg="bg-surface-variant"
-                      iconColor="text-on-surface-variant"
+                      iconBg={settings.themeMode === mod.value ? "bg-primary/20" : "bg-surface-variant"}
+                      iconColor={settings.themeMode === mod.value ? "text-primary" : "text-on-surface-variant"}
                       rightElement={
                         settings.themeMode === mod.value && (
-                          <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center">
-                            <Check className="w-4 h-4 text-primary" />
+                          <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center">
+                            <Check className="w-4 h-4 text-on-primary" />
                           </div>
                         )
                       }
@@ -263,7 +264,7 @@ export function SettingsModal({ settings, onChange, onClose, books, onImport }: 
 
                 <div className="flex flex-col gap-2">
                   <div className="px-2 pb-2">
-                    <span className="text-[0.85rem] font-semibold text-primary uppercase tracking-wider">Accent color</span>
+                    <span className="text-[0.85rem] font-semibold text-primary uppercase tracking-wider">{t('accentColor')}</span>
                   </div>
                   <div className="px-4 flex flex-wrap gap-4">
                     {COLOR_OPTIONS.map(col => (
@@ -333,8 +334,8 @@ export function SettingsModal({ settings, onChange, onClose, books, onImport }: 
               >
                 <SettingItem 
                   icon={Download} 
-                  title="Export data" 
-                  subtitle="Save a copy of your library" 
+                  title={t('exportData')} 
+                  subtitle={t('exportData')} 
                   onClick={handleExport}
                   hideArrow
                   iconBg="bg-[#6b8c96]/20"
@@ -343,8 +344,8 @@ export function SettingsModal({ settings, onChange, onClose, books, onImport }: 
                 
                 <SettingItem 
                   icon={Upload} 
-                  title="Import data" 
-                  subtitle="Restore from a JSON file" 
+                  title={t('importData')} 
+                  subtitle={t('importData')} 
                   onClick={() => fileInputRef.current?.click()}
                   hideArrow
                   iconBg="bg-[#a37c82]/20"
@@ -363,14 +364,9 @@ export function SettingsModal({ settings, onChange, onClose, books, onImport }: 
                 <SettingItem 
                   icon={Trash2} 
                   title={t('clearData')} 
-                  subtitle="Delete all books and reset" 
+                  subtitle={t('clearDataDesc')} 
                   textColor="text-error"
-                  onClick={() => {
-                    if(window.confirm(t('confirmClearData'))) {
-                      localStorage.removeItem('biblioteka_books');
-                      window.location.reload();
-                    }
-                  }}
+                  onClick={onClearAllData}
                   hideArrow
                   iconBg="bg-error/10"
                   iconColor="text-error"
@@ -390,21 +386,21 @@ export function SettingsModal({ settings, onChange, onClose, books, onImport }: 
                   <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mb-2">
                      <Info className="w-10 h-10 text-primary" />
                   </div>
-                  <h1 className="text-2xl font-bold text-on-surface">Biblioteka</h1>
+                  <h1 className="text-2xl font-bold text-on-surface">{t('library')}</h1>
                   <div className="flex gap-2 items-center">
                     <span className="bg-surface-variant/80 text-on-surface-variant border border-outline-variant px-3 py-1 rounded-full text-xs font-bold tracking-widest">
-                      v1.0.0
+                      {t('version')} 1.0.0
                     </span>
                     <button className="bg-surface-variant/80 text-on-surface-variant border border-outline-variant px-3 py-1 rounded-full text-xs font-bold tracking-widest hover:text-on-surface transition-colors">
-                      What's new
+                      {t('whatsNew')}
                     </button>
                   </div>
                 </div>
 
                 <SettingItem 
                   icon={Info} 
-                  title="Licenses" 
-                  subtitle="MIT License" 
+                  title={t('licenses')} 
+                  subtitle={t('mitLicense')} 
                   hideArrow
                   iconBg="bg-[#bda17e]/20"
                   iconColor="text-[#bda17e]"
@@ -412,7 +408,7 @@ export function SettingsModal({ settings, onChange, onClose, books, onImport }: 
                 
                 <SettingItem 
                   icon={Mail} 
-                  title="Email" 
+                  title={t('email')} 
                   subtitle="damian@example.com" 
                   onClick={() => window.location.href = "mailto:damian@example.com"}
                   hideArrow
@@ -422,8 +418,8 @@ export function SettingsModal({ settings, onChange, onClose, books, onImport }: 
 
                 <SettingItem 
                   icon={Code} 
-                  title="Source code" 
-                  subtitle="On Github" 
+                  title={t('sourceCode')} 
+                  subtitle={t('onGithub')} 
                   onClick={() => window.open("https://github.com/damiankokot/biblioteka", "_blank")}
                   hideArrow
                   iconBg="bg-[#996e51]/20"
@@ -432,36 +428,18 @@ export function SettingsModal({ settings, onChange, onClose, books, onImport }: 
 
                 <SettingItem 
                   icon={Bug} 
-                  title="Create an issue" 
-                  subtitle="On Github" 
+                  title={t('createIssue')} 
+                  subtitle={t('onGithub')} 
                   onClick={() => window.open("https://github.com/damiankokot/biblioteka/issues", "_blank")}
                   hideArrow
                   iconBg="bg-[#a68c67]/20"
                   iconColor="text-[#a68c67]"
                 />
 
-                <SettingItem 
-                  icon={AppWindow} 
-                  title="More apps" 
-                  subtitle="View" 
-                  hideArrow
-                  iconBg="bg-[#5c4a3d]/20"
-                  iconColor="text-[#5c4a3d]"
-                />
-
-                <SettingItem 
-                  icon={User} 
-                  title="Contributors" 
-                  subtitle="Translators" 
-                  hideArrow
-                  iconBg="bg-[#b3826d]/20"
-                  iconColor="text-[#b3826d]"
-                />
-
                 <div className="bg-surface-variant/50 rounded-2xl p-1 mt-6 border border-outline-variant/30 overflow-hidden flex flex-col">
                   <SettingItem 
                     icon={FileText} 
-                    title="Third party licenses" 
+                    title={t('thirdPartyLicenses')} 
                     hideArrow
                     iconBg="bg-transparent"
                     iconColor="text-on-surface-variant"
@@ -469,7 +447,7 @@ export function SettingsModal({ settings, onChange, onClose, books, onImport }: 
                   <div className="h-px bg-outline-variant/30 w-full" />
                   <SettingItem 
                     icon={FileText} 
-                    title="Terms & Conditions" 
+                    title={t('termsConditions')} 
                     hideArrow
                     iconBg="bg-transparent"
                     iconColor="text-on-surface-variant"
@@ -477,7 +455,7 @@ export function SettingsModal({ settings, onChange, onClose, books, onImport }: 
                   <div className="h-px bg-outline-variant/30 w-full" />
                   <SettingItem 
                     icon={FileText} 
-                    title="Privacy Policy" 
+                    title={t('privacyPolicy')} 
                     hideArrow
                     iconBg="bg-transparent"
                     iconColor="text-on-surface-variant"

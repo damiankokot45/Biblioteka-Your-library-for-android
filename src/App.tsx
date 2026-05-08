@@ -155,7 +155,16 @@ export default function App() {
       const bookIndex = prev.findIndex(b => b.id === bookId);
       if (bookIndex === -1) return prev;
       
-      const book = { ...prev[bookIndex], status: newStatus };
+      const oldStatus = prev[bookIndex].status;
+      let finishedAt = prev[bookIndex].finishedAt;
+      
+      if (newStatus === 'READ' && oldStatus !== 'READ') {
+        finishedAt = Date.now();
+      } else if (newStatus !== 'READ') {
+        finishedAt = undefined;
+      }
+
+      const book = { ...prev[bookIndex], status: newStatus, finishedAt };
       
       // Remove the book from previous array
       const newBooks = [...prev];
@@ -222,6 +231,19 @@ export default function App() {
 
   const t = (key: string) => getTranslation(settings.language, key);
 
+  const handleClearAllData = () => {
+    if (confirm(t('confirmClearData'))) {
+      localStorage.removeItem('biblioteka_books');
+      localStorage.removeItem('biblioteka_isReading');
+      localStorage.removeItem('biblioteka_readingStartTime');
+      // We keep settings (language/theme) for better UX unless they specifically want a factory reset
+      // but if we want to be thorough:
+      // localStorage.clear();
+      
+      window.location.reload();
+    }
+  };
+
   return (
     <LanguageContext.Provider value={settings.language}>
     <div className="min-h-screen w-full overflow-x-hidden bg-background text-on-background font-sans selection:bg-primary-container selection:text-on-primary-container transition-colors duration-300">
@@ -244,7 +266,14 @@ export default function App() {
       {/* Main Content */}
       <main className="px-4 pt-4 pb-36 w-full max-w-4xl mx-auto">
         {activeTab === 'SHELF' ? (
-          <div className="flex flex-col gap-6">
+          <motion.div 
+            key="SHELF"
+            initial={{ opacity: 0, x: 10 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -10 }}
+            transition={{ duration: 0.3 }}
+            className="flex flex-col gap-6"
+          >
             {/* Search Bar */}
             <div className="px-2 mt-2 max-w-4xl mx-auto w-full">
               <div className="relative">
@@ -270,9 +299,17 @@ export default function App() {
             <BookShelf books={searchedBooks} onBookClick={openBookView} onMoveBook={handleMoveBook} />
 
             <ReaderHero onStopReading={handleStopReading} books={books} />
-          </div>
+          </motion.div>
         ) : activeTab === 'STATS' ? (
-          <StatsDashboard books={books} />
+          <motion.div 
+            key="STATS"
+            initial={{ opacity: 0, x: 10 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -10 }}
+            transition={{ duration: 0.3 }}
+          >
+            <StatsDashboard books={books} />
+          </motion.div>
         ) : (
           <>
             {/* Sorting Control */}
@@ -308,24 +345,21 @@ export default function App() {
               </motion.div>
             ) : (
               <motion.div 
-                layout
+                key={activeTab}
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -10 }}
+                transition={{ duration: 0.3 }}
                 className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
               >
-                <AnimatePresence>
-                  {filteredBooks.map(book => (
-                    <motion.div
+                <AnimatePresence mode="popLayout">
+                  {filteredBooks.map((book, index) => (
+                    <BookCard 
                       key={book.id}
-                      layout
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.9 }}
-                      transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-                    >
-                      <BookCard 
-                        book={book} 
-                        onClick={() => openBookView(book)} 
-                      />
-                    </motion.div>
+                      book={book} 
+                      onClick={() => openBookView(book)} 
+                      index={index}
+                    />
                   ))}
                 </AnimatePresence>
               </motion.div>
@@ -438,6 +472,7 @@ export default function App() {
             onChange={setSettings}
             books={books}
             onImport={setBooks}
+            onClearAllData={handleClearAllData}
             onClose={() => setIsSettingsOpen(false)}
           />
         )}

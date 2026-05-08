@@ -13,26 +13,40 @@ export function StatsDashboard({ books }: StatsDashboardProps) {
   const { t, lang } = useTranslation();
   
   const stats = useMemo(() => {
-    const totalBooks = books.length;
-    const readBooks = books.filter(b => b.status === 'READ');
+    const now = new Date();
+    const currentYear = now.getFullYear();
+    const yearStart = new Date(currentYear, 0, 1).getTime();
+    const yearEnd = new Date(currentYear + 1, 0, 1).getTime();
+
+    const readThisYear = books.filter(b => b.finishedAt && b.finishedAt >= yearStart && b.finishedAt < yearEnd);
+    const addedThisYear = books.filter(b => b.addedAt >= yearStart && b.addedAt < yearEnd);
     
-    // Create some placeholder stats similar to mockup to make it look great
-    // using actual data where possible
-    const pagesRead = readBooks.reduce((sum, b) => sum + (b.rating ? b.rating * 100 : 350), 0) + 1240;
-    const timeSpentH = Math.floor(pagesRead / 25) + 14; 
-    const streak = Math.max(0, readBooks.length > 0 ? 12 : 0);
+    // Pages calculation (estimate if totalPages missing, or use currentPage)
+    // For now use a simple heuristic
+    const pagesFromReadBooks = readThisYear.length * 320; 
+    const pagesFromCurrent = books
+      .filter(b => b.status === 'READING')
+      .reduce((sum, b) => sum + (b.currentPage || 0), 0);
+    
+    const pagesRead = pagesFromReadBooks + pagesFromCurrent;
+    const timeSpentH = Math.round(pagesRead / 45); 
 
-    // Books read by month (last 6 months) for line chart
-    const monthlyData = [
-      { name: 'Jan', value: 5 },
-      { name: 'Feb', value: 8 },
-      { name: 'Mar', value: 6 },
-      { name: 'Apr', value: 12 },
-      { name: 'May', value: 10 },
-      { name: 'Jun', value: 18 },
-    ];
+    // Books read by month for current year
+    const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const monthlyData = monthNames.map((name, i) => {
+      const mStart = new Date(currentYear, i, 1).getTime();
+      const mEnd = new Date(currentYear, i + 1, 1).getTime();
+      const count = books.filter(b => b.finishedAt && b.finishedAt >= mStart && b.finishedAt < mEnd).length;
+      return { name, value: count };
+    });
 
-    return { totalBooks, readCount: readBooks.length, pagesRead, timeSpentH, streak, statusData, monthlyData };
+    return { 
+      readCount: readThisYear.length, 
+      addedCount: addedThisYear.length,
+      pagesRead, 
+      timeSpentH, 
+      monthlyData 
+    };
   }, [books]);
 
   if (books.length === 0) {
@@ -47,45 +61,55 @@ export function StatsDashboard({ books }: StatsDashboardProps) {
     );
   }
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 15 },
+    visible: { opacity: 1, y: 0 }
+  };
+
   return (
     <motion.div 
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
       className="flex flex-col gap-6"
     >
-      {/* Tab pills */}
-      <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none px-2 -mx-2">
-        <button className="bg-surface-variant text-on-surface px-5 py-1.5 rounded-full text-sm font-medium whitespace-nowrap border border-outline-variant/30">Overview</button>
-        <button className="text-on-surface-variant px-4 py-1.5 rounded-full text-sm font-medium whitespace-nowrap">Books</button>
-        <button className="text-on-surface-variant px-4 py-1.5 rounded-full text-sm font-medium whitespace-nowrap">Time</button>
-      </div>
-      
+
       {/* This Year Summary */}
-      <div className="bg-surface-variant/20 border border-outline-variant/30 rounded-3xl p-6">
-        <h3 className="text-[0.85rem] font-medium text-on-surface-variant mb-6">This Year</h3>
+      <motion.div variants={itemVariants} className="bg-surface-variant/20 border border-outline-variant/30 rounded-3xl p-6">
+        <h3 className="text-[0.85rem] font-medium text-on-surface-variant mb-6">{t('thisYear')}</h3>
         <div className="grid grid-cols-2 gap-y-6 gap-x-4">
-          <div>
+          <motion.div variants={itemVariants}>
             <span className="text-2xl font-medium block text-on-surface">{stats.readCount}</span>
-            <span className="text-[0.85rem] text-on-surface-variant mt-1 block">Books read</span>
-          </div>
-          <div>
+            <span className="text-[0.85rem] text-on-surface-variant mt-1 block">{t('booksRead')}</span>
+          </motion.div>
+          <motion.div variants={itemVariants}>
+            <span className="text-2xl font-medium block text-on-surface">{stats.addedCount}</span>
+            <span className="text-[0.85rem] text-on-surface-variant mt-1 block">{t('booksAdded')}</span>
+          </motion.div>
+          <motion.div variants={itemVariants}>
             <span className="text-2xl font-medium block text-on-surface">{stats.pagesRead.toLocaleString()}</span>
-            <span className="text-[0.85rem] text-on-surface-variant mt-1 block">Pages read</span>
-          </div>
-          <div>
+            <span className="text-[0.85rem] text-on-surface-variant mt-1 block">{t('pagesRead')}</span>
+          </motion.div>
+          <motion.div variants={itemVariants}>
             <span className="text-2xl font-medium block text-on-surface">{stats.timeSpentH}h</span>
-            <span className="text-[0.85rem] text-on-surface-variant mt-1 block">Time spent</span>
-          </div>
-          <div>
-            <span className="text-2xl font-medium block text-on-surface">{stats.streak}</span>
-            <span className="text-[0.85rem] text-on-surface-variant mt-1 block">Streak (days)</span>
-          </div>
+            <span className="text-[0.85rem] text-on-surface-variant mt-1 block">{t('timeSpent')}</span>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Reading Progress Line Chart */}
-      <div className="bg-surface-variant/20 border border-outline-variant/30 rounded-3xl p-6">
-        <h3 className="text-[0.9rem] font-medium text-on-surface mb-6">Reading Progress</h3>
+      <motion.div variants={itemVariants} className="bg-surface-variant/20 border border-outline-variant/30 rounded-3xl p-6">
+        <h3 className="text-[0.9rem] font-medium text-on-surface mb-6">{t('readingProgress')}</h3>
         <div className="h-40 w-full">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={stats.monthlyData} margin={{ top: 10, right: 10, left: 10, bottom: 0 }}>
@@ -112,7 +136,7 @@ export function StatsDashboard({ books }: StatsDashboardProps) {
             </LineChart>
           </ResponsiveContainer>
         </div>
-      </div>
+      </motion.div>
     </motion.div>
   );
 }

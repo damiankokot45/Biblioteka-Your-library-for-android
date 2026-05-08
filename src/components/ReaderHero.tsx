@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import { Play, Square, Clock } from 'lucide-react';
 import { useTranslation } from '../lib/i18n';
 import { Book } from '../types';
@@ -170,33 +170,52 @@ export function ReaderHero({ onStopReading, books = [] }: ReaderHeroProps) {
       <div className="flex flex-col items-center z-10 w-full text-center mt-2">
         <h2 className="text-[1.7rem] font-medium text-on-surface mb-1">{t('readingTimeTitle')}</h2>
         <p className="text-on-surface-variant mb-6 text-[0.95rem]">
-          Dive into the story...
+          {isReading ? t('readingTimeDescReading') : t('readingTimeDescIdle')}
         </p>
 
-        <div className="flex items-center justify-center gap-3 w-full">
-          {!isReading ? (
-            <button
-              onClick={handleStart}
-              className="bg-[#e09b69] text-[#2c1d11] px-8 py-3.5 rounded-full font-medium shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3"
-            >
-              <Play className="w-5 h-5 fill-current" />
-              {t('startReading')}
-            </button>
-          ) : (
-            <>
-              <button
-                onClick={handleStop}
-                className="bg-primary/20 text-primary px-6 py-3.5 rounded-full font-medium shadow-sm hover:bg-primary/30 active:scale-95 transition-all flex items-center justify-center gap-2"
+        <div className="flex items-center justify-center gap-3 w-full min-h-[56px]">
+          <AnimatePresence mode="wait">
+            {!isReading ? (
+              <motion.button
+                key="start-btn"
+                initial={{ opacity: 0, scale: 0.9, y: 10 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.9, y: -10 }}
+                onClick={handleStart}
+                className="bg-[#e09b69] text-[#2c1d11] px-8 py-3.5 rounded-full font-medium shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3"
               >
-                <Square className="w-5 h-5 fill-current" />
-                {t('stopReading')}
-              </button>
-              <div className="flex items-center gap-2 text-on-surface font-mono border border-outline-variant/50 bg-surface/50 px-4 py-3.5 rounded-full justify-center shadow-sm">
-                <Clock className="w-4 h-4 opacity-70" />
-                <span className="text-sm font-medium">{formatTime(seconds)}</span>
-              </div>
-            </>
-          )}
+                <Play className="w-5 h-5 fill-current" />
+                {t('startReading')}
+              </motion.button>
+            ) : (
+              <motion.div 
+                key="reading-controls"
+                initial={{ opacity: 0, scale: 0.9, y: 10 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.9, y: -10 }}
+                className="flex items-center justify-center gap-3 w-full flex-wrap"
+              >
+                <button
+                  onClick={handleStop}
+                  className="bg-primary/20 text-primary px-6 py-3.5 rounded-full font-medium shadow-sm hover:bg-primary/30 active:scale-95 transition-all flex items-center justify-center gap-2"
+                >
+                  <Square className="w-5 h-5 fill-current" />
+                  {t('stopReading')}
+                </button>
+                <motion.div 
+                  animate={{ 
+                    scale: [1, 1.02, 1],
+                    borderColor: ['rgba(var(--md-sys-color-outline-variant), 0.5)', 'rgba(var(--md-sys-color-primary), 0.5)', 'rgba(var(--md-sys-color-outline-variant), 0.5)']
+                  }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="flex items-center gap-2 text-on-surface font-mono border border-outline-variant/50 bg-surface/50 px-4 py-3.5 rounded-full justify-center shadow-sm"
+                >
+                  <Clock className="w-4 h-4 opacity-70" />
+                  <span className="text-sm font-medium">{formatTime(seconds)}</span>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </div>

@@ -37,6 +37,16 @@ export function BookForm({ book, onSave, onDelete, onClose }: BookFormProps) {
     e.preventDefault();
     if (!title.trim() || !author.trim()) return;
     
+    // Determine finishedAt
+    let finalFinishedAt = book?.finishedAt;
+    if (status === 'READ') {
+      if (book?.status !== 'READ') {
+        finalFinishedAt = Date.now();
+      }
+    } else {
+      finalFinishedAt = undefined;
+    }
+
     onSave({
       title: title.trim(),
       author: author.trim(),
@@ -44,7 +54,8 @@ export function BookForm({ book, onSave, onDelete, onClose }: BookFormProps) {
       rating: status === 'READ' ? rating : undefined,
       notes: notes.trim(),
       isbn: book?.isbn || '',
-      coverImage
+      coverImage,
+      finishedAt: finalFinishedAt
     });
   };
 
@@ -92,7 +103,7 @@ export function BookForm({ book, onSave, onDelete, onClose }: BookFormProps) {
                   className="w-24 h-32 bg-surface-variant border-2 border-dashed border-outline-variant rounded-xl flex items-center justify-center overflow-hidden shrink-0"
                 >
                   {coverImage ? (
-                    <img src={coverImage} alt="Okładka" className="w-full h-full object-cover" />
+                    <img src={coverImage} alt={t('coverOrBookmark')} className="w-full h-full object-cover" />
                   ) : (
                     <ImageIcon className="w-8 h-8 text-on-surface-variant opacity-50" />
                   )}
