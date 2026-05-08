@@ -16,7 +16,7 @@ export interface Book {
 
 export type AppThemeMode = 'light' | 'dark' | 'system';
 export type AppColorTheme = string; // Hex color string
-export type Language = 'en' | 'pl' | 'fr' | 'de' | 'es' | 'hu' | 'ro' | 'cs';
+export type Language = 'en' | 'pl' | 'fr' | 'de' | 'es' | 'hu' | 'ro' | 'cs' | 'fi' | 'sv' | 'no' | 'da' | 'nl' | 'lb' | 'pt' | 'it' | 'hr' | 'sk' | 'et' | 'lv' | 'lt' | 'bg' | 'tr' | 'ko' | 'ja' | 'is' | 'kl' | 'sl' | 'el';
 
 export interface UserSettings {
   themeMode: AppThemeMode;

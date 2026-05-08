@@ -253,7 +253,7 @@ export default function App() {
           <div className="bg-primary/20 p-2.5 rounded-2xl">
             <BookOpen className="w-6 h-6 text-primary" />
           </div>
-          {t('library')}
+          Biblioteka
         </h1>
         <button 
           onClick={() => setIsSettingsOpen(true)}
