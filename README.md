@@ -43,7 +43,7 @@ Biblioteka is engineered around a single principle: **your data is yours alone**
 - **No** account, **no** sign-up, **no** server.
 - **No** analytics SDK, **no** crash reporter, **no** advertising library, **no** third-party tracker.
 - The Android build does not request any runtime permission. Backups are written to the app's private cache and only leave the device when *you* explicitly invoke the system share sheet.
-- The app makes no network requests. The `INTERNET` declaration in `AndroidManifest.xml` is reserved for future optional features (e.g. ISBN cover lookup) and is currently unused; it can be removed entirely if a tighter policy is desired — see [`AUDIT.md`](AUDIT.md).
+- The app makes zero network requests. `AndroidManifest.xml` declares no `INTERNET` permission.
 - The full privacy policy and terms of use are available in-app under *Settings → About* and are translated into every supported language.
 
 If you are auditing the project, the relevant entry-points are `src/App.tsx`, `src/components/SettingsModal.tsx` (privacy & backup logic) and `vite.config.ts`.
@@ -86,9 +86,8 @@ If you are auditing the project, the relevant entry-points are `src/App.tsx`, `s
 │   └── app/src/main/
 │       ├── AndroidManifest.xml
 │       ├── java/com/biblioteka/app/
-│       │   ├── MainActivity.java
-│       │   └── ReadingWidget.java
-│       └── res/                   # icons, splash, widget, strings
+│       │   └── MainActivity.java
+│       └── res/                   # icons, splash, strings
 ├── public/                        # static assets shipped to dist/
 ├── capacitor.config.ts
 ├── vite.config.ts
@@ -106,15 +105,15 @@ If you are auditing the project, the relevant entry-points are `src/App.tsx`, `s
 ### 1. Install
 
 ```bash
-git clone https://github.com/<your-username>/biblioteka.git
-cd biblioteka
+git clone https://github.com/damiankokot/Biblioteka-Your-library-for-android.git
+cd Biblioteka-Your-library-for-android
 npm install
 ```
 
 ### 2. Run the web build
 
 ```bash
-npm run dev          # vite dev server on http://localhost:3000
+npm run dev          # vite dev server on http://localhost:5173
 npm run build        # production bundle in dist/
 npm run preview      # serve the production bundle locally
 npm run lint         # tsc --noEmit type-check
@@ -128,8 +127,28 @@ npx cap sync android                # copy web assets into the native project
 npx cap open android                # opens Android Studio
 ```
 
-In Android Studio choose *Build → Build Bundle / Generate Signed Bundle*.
-Before producing a release AAB make sure to enable code shrinking and supply a keystore — see [`AUDIT.md §1.4`](AUDIT.md) for the exact `build.gradle` snippet.
+In Android Studio choose **Build → Generate Signed Bundle / APK** and select *Android App Bundle*.
+
+#### Release signing
+
+Signing credentials are read from `~/.gradle/gradle.properties` — never commit a keystore or passwords to the repository:
+
+```properties
+# ~/.gradle/gradle.properties
+BIBLIOTEKA_STORE_FILE=/absolute/path/to/your.jks
+BIBLIOTEKA_STORE_PASSWORD=…
+BIBLIOTEKA_KEY_ALIAS=biblioteka
+BIBLIOTEKA_KEY_PASSWORD=…
+```
+
+Generate a keystore once with:
+
+```bash
+keytool -genkeypair -v \
+  -keystore ~/biblioteka-release.jks \
+  -keyalg RSA -keysize 2048 -validity 10000 \
+  -alias biblioteka
+```
 
 ## Data backup
 
@@ -141,7 +160,7 @@ Biblioteka persists everything to `localStorage` under the following keys:
 | `biblioteka_settings` | Theme mode, accent colour and language |
 | `biblioteka_isReading` / `biblioteka_readingStartTime` | Reading-session timer state |
 
-Use **Settings → Backup → Export library** to obtain a portable JSON file. The same screen offers an *Import* action; imported files are validated before being merged into the application state.
+Use **Settings → Backup → Export library** to obtain a portable JSON file. The same screen offers an *Import* action; imported files are validated against the `Book` schema before being merged.
 
 ## Internationalisation
 
@@ -156,7 +175,7 @@ Adding a new language is a matter of:
 ## Roadmap
 
 - [ ] Goodreads / Open Library ISBN lookup (opt-in, single request)
-- [ ] Home-screen widget (groundwork present in `ReadingWidget.java`, see [`AUDIT.md §1.1`](AUDIT.md))
+- [ ] Home-screen widget
 - [ ] iOS target via the same Capacitor configuration
 - [ ] WebDAV / Nextcloud sync (opt-in)
 - [ ] CSV import / Goodreads migration
@@ -171,8 +190,6 @@ Issues and pull requests are very welcome. Please:
 4. Add or update translations if you touch user-facing strings.
 5. Submit a PR referencing the issue.
 
-When in doubt about scope, take a look at [`AUDIT.md`](AUDIT.md) — it lists the items that are explicitly being worked towards a 1.0 release.
-
 ## Security
 
 If you find a vulnerability, please **do not** open a public issue. Email the maintainer at `biblioteka@damiankokot.eu` with a clear description and, if possible, a proof-of-concept. You will receive an acknowledgement within 72 hours.
@@ -183,13 +200,6 @@ Biblioteka is released under the [MIT License](LICENSE).
 
 ```
 Copyright (c) 2026 Damian Kokot
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions: …
 ```
 
 ## Credits
