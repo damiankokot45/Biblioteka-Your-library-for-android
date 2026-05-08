@@ -57,51 +57,13 @@ function SettingItem({ icon: Icon, title, subtitle, onClick, rightElement, class
   );
 }
 
-type SettingsScreen = 'MAIN' | 'APPEARANCE' | 'LANGUAGE' | 'BACKUP' | 'ABOUT' | 'THIRD_PARTY_LICENSES' | 'TERMS_CONDITIONS' | 'PRIVACY_POLICY';
-
-const SCREEN_PARENT: Partial<Record<SettingsScreen, SettingsScreen>> = {
-  APPEARANCE: 'MAIN',
-  LANGUAGE: 'MAIN',
-  BACKUP: 'MAIN',
-  ABOUT: 'MAIN',
-  THIRD_PARTY_LICENSES: 'ABOUT',
-  TERMS_CONDITIONS: 'ABOUT',
-  PRIVACY_POLICY: 'ABOUT',
-};
-
-interface LicenseEntry {
-  name: string;
-  license: string;
-  copyright: string;
-  url: string;
-}
-
-const THIRD_PARTY_LIBS: LicenseEntry[] = [
-  { name: 'React & React DOM', license: 'MIT', copyright: '© Meta Platforms, Inc. and affiliates', url: 'https://react.dev' },
-  { name: 'Vite', license: 'MIT', copyright: '© Evan You & Vite Contributors', url: 'https://vitejs.dev' },
-  { name: 'Tailwind CSS', license: 'MIT', copyright: '© Tailwind Labs, Inc.', url: 'https://tailwindcss.com' },
-  { name: 'Capacitor (Core, Android, App, Filesystem, Share)', license: 'MIT', copyright: '© Ionic', url: 'https://capacitorjs.com' },
-  { name: '@google/genai', license: 'Apache 2.0', copyright: '© Google LLC', url: 'https://github.com/googleapis/js-genai' },
-  { name: '@hello-pangea/dnd', license: 'Apache 2.0', copyright: '© hello-pangea', url: 'https://github.com/hello-pangea/dnd' },
-  { name: '@material/material-color-utilities', license: 'Apache 2.0', copyright: '© Google LLC', url: 'https://github.com/material-foundation/material-color-utilities' },
-  { name: 'lucide-react', license: 'ISC', copyright: '© Lucide Contributors', url: 'https://lucide.dev' },
-  { name: 'Motion (Framer Motion)', license: 'MIT', copyright: '© Framer B.V.', url: 'https://motion.dev' },
-  { name: 'Recharts', license: 'MIT', copyright: '© recharts group', url: 'https://recharts.org' },
-  { name: 'html5-qrcode', license: 'Apache 2.0', copyright: '© Minhaz', url: 'https://github.com/mebjas/html5-qrcode' },
-  { name: 'dotenv', license: 'BSD-2-Clause', copyright: '© Scott Motte', url: 'https://github.com/motdotla/dotenv' },
-  { name: 'Express', license: 'MIT', copyright: '© TJ Holowaychuk', url: 'https://expressjs.com' },
-];
+type SettingsScreen = 'MAIN' | 'APPEARANCE' | 'LANGUAGE' | 'BACKUP' | 'ABOUT';
 
 export function SettingsModal({ settings, onChange, onClose, books, onImport, onClearAllData }: SettingsModalProps) {
   const { t } = useTranslation();
   const [activeScreen, setActiveScreen] = useState<SettingsScreen>('MAIN');
   const isCustomColor = !COLOR_OPTIONS.find(c => c.value.toLowerCase() === settings.colorTheme.toLowerCase());
   const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const goBack = () => {
-    const parent = SCREEN_PARENT[activeScreen];
-    setActiveScreen(parent ?? 'MAIN');
-  };
 
   const THEME_OPTIONS: { value: AppThemeMode, label: string, icon: any }[] = [
     { value: 'system', label: t('themeSystem'), icon: Monitor },
@@ -194,19 +156,15 @@ export function SettingsModal({ settings, onChange, onClose, books, onImport, on
         <div className="flex items-center justify-between p-4 px-5 border-b border-outline-variant bg-surface shrink-0 z-10">
           <div className="flex items-center gap-3">
             {activeScreen !== 'MAIN' && (
-              <button onClick={goBack} className="p-2 -ml-2 bg-surface-variant hover:opacity-80 rounded-full transition-all">
+              <button onClick={() => setActiveScreen('MAIN')} className="p-2 -ml-2 bg-surface-variant hover:opacity-80 rounded-full transition-all">
                 <ArrowLeft className="w-5 h-5 text-on-surface-variant" />
               </button>
             )}
             <h2 className="text-xl font-medium text-on-surface">
-              {activeScreen === 'MAIN' ? t('settings') :
+              {activeScreen === 'MAIN' ? t('settings') : 
                activeScreen === 'APPEARANCE' ? t('appearance') :
                activeScreen === 'LANGUAGE' ? t('language') :
                activeScreen === 'BACKUP' ? t('backup') :
-               activeScreen === 'ABOUT' ? t('aboutApp') :
-               activeScreen === 'THIRD_PARTY_LICENSES' ? t('thirdPartyLicenses') :
-               activeScreen === 'TERMS_CONDITIONS' ? t('termsConditions') :
-               activeScreen === 'PRIVACY_POLICY' ? t('privacyPolicy') :
                t('aboutApp')}
             </h2>
           </div>
@@ -479,160 +437,32 @@ export function SettingsModal({ settings, onChange, onClose, books, onImport, on
                 />
 
                 <div className="bg-surface-variant/50 rounded-2xl p-1 mt-6 border border-outline-variant/30 overflow-hidden flex flex-col">
-                  <SettingItem
-                    icon={FileText}
-                    title={t('thirdPartyLicenses')}
-                    onClick={() => setActiveScreen('THIRD_PARTY_LICENSES')}
+                  <SettingItem 
+                    icon={FileText} 
+                    title={t('thirdPartyLicenses')} 
+                    hideArrow
                     iconBg="bg-transparent"
                     iconColor="text-on-surface-variant"
                   />
                   <div className="h-px bg-outline-variant/30 w-full" />
-                  <SettingItem
-                    icon={FileText}
-                    title={t('termsConditions')}
-                    onClick={() => setActiveScreen('TERMS_CONDITIONS')}
+                  <SettingItem 
+                    icon={FileText} 
+                    title={t('termsConditions')} 
+                    hideArrow
                     iconBg="bg-transparent"
                     iconColor="text-on-surface-variant"
                   />
                   <div className="h-px bg-outline-variant/30 w-full" />
-                  <SettingItem
-                    icon={FileText}
-                    title={t('privacyPolicy')}
-                    onClick={() => setActiveScreen('PRIVACY_POLICY')}
+                  <SettingItem 
+                    icon={FileText} 
+                    title={t('privacyPolicy')} 
+                    hideArrow
                     iconBg="bg-transparent"
                     iconColor="text-on-surface-variant"
                   />
                 </div>
-
+                
                 <div className="h-8 w-full shrink-0"></div>
-              </motion.div>
-            )}
-
-            {activeScreen === 'THIRD_PARTY_LICENSES' && (
-              <motion.div
-                key="THIRD_PARTY_LICENSES"
-                variants={screenVariants}
-                initial="initial" animate="animate" exit="exit"
-                transition={{ duration: 0.2 }}
-                className="p-4 px-5 flex flex-col gap-3 absolute inset-0 h-max"
-              >
-                <p className="text-on-surface-variant text-sm px-1 pb-2">
-                  This app uses the following open-source libraries:
-                </p>
-                {THIRD_PARTY_LIBS.map((lib) => (
-                  <div
-                    key={lib.name}
-                    className="bg-surface-variant/40 rounded-2xl p-4 border border-outline-variant/30 flex flex-col gap-1 cursor-pointer hover:bg-surface-variant/60 transition-colors"
-                    onClick={() => window.open(lib.url, '_blank')}
-                  >
-                    <div className="flex items-start justify-between gap-2">
-                      <span className="text-on-surface font-semibold text-[0.95rem] leading-snug flex-1">{lib.name}</span>
-                      <span className="text-primary text-xs font-bold bg-primary/10 px-2 py-0.5 rounded-full shrink-0 mt-0.5">{lib.license}</span>
-                    </div>
-                    <span className="text-on-surface-variant text-xs">{lib.copyright}</span>
-                  </div>
-                ))}
-                <div className="h-6 w-full shrink-0" />
-              </motion.div>
-            )}
-
-            {activeScreen === 'TERMS_CONDITIONS' && (
-              <motion.div
-                key="TERMS_CONDITIONS"
-                variants={screenVariants}
-                initial="initial" animate="animate" exit="exit"
-                transition={{ duration: 0.2 }}
-                className="p-4 px-5 flex flex-col gap-4 absolute inset-0 h-max"
-              >
-                {[
-                  {
-                    title: '1. Acceptance of Terms',
-                    body: 'By downloading or using the Biblioteka app, you agree to these Terms and Conditions. If you do not agree, please uninstall the app.',
-                  },
-                  {
-                    title: '2. License',
-                    body: 'Biblioteka is free, open-source software distributed under the MIT License. You are free to use, copy, modify, and distribute it in accordance with that license.',
-                  },
-                  {
-                    title: '3. Use of the App',
-                    body: 'The app is provided for personal, non-commercial use to help you track your reading. You agree not to misuse the app or attempt to compromise its integrity.',
-                  },
-                  {
-                    title: '4. AI Features',
-                    body: 'Biblioteka may use the Google Gemini API to provide AI-assisted features (e.g. book summaries or recommendations). By using these features, you agree to Google\'s Terms of Service for Generative AI.',
-                  },
-                  {
-                    title: '5. No Warranty',
-                    body: 'The app is provided "as is", without warranty of any kind. The developer is not responsible for any data loss, device issues, or other damages arising from use of the app.',
-                  },
-                  {
-                    title: '6. Changes',
-                    body: 'These terms may be updated at any time. Continued use of the app after changes constitutes your acceptance of the new terms.',
-                  },
-                  {
-                    title: '7. Contact',
-                    body: 'For questions or concerns, please open an issue on the GitHub repository or contact the developer directly.',
-                  },
-                ].map((section) => (
-                  <div key={section.title} className="flex flex-col gap-1">
-                    <span className="text-on-surface font-semibold text-[0.95rem]">{section.title}</span>
-                    <span className="text-on-surface-variant text-[0.88rem] leading-relaxed">{section.body}</span>
-                  </div>
-                ))}
-                <p className="text-on-surface-variant/50 text-xs pt-2">Last updated: May 2025</p>
-                <div className="h-6 w-full shrink-0" />
-              </motion.div>
-            )}
-
-            {activeScreen === 'PRIVACY_POLICY' && (
-              <motion.div
-                key="PRIVACY_POLICY"
-                variants={screenVariants}
-                initial="initial" animate="animate" exit="exit"
-                transition={{ duration: 0.2 }}
-                className="p-4 px-5 flex flex-col gap-4 absolute inset-0 h-max"
-              >
-                <div className="bg-primary/10 border border-primary/20 rounded-2xl p-4">
-                  <p className="text-primary font-semibold text-sm">Your data stays on your device.</p>
-                  <p className="text-on-surface-variant text-xs mt-1 leading-relaxed">Biblioteka does not collect, transmit, or sell any personal data.</p>
-                </div>
-                {[
-                  {
-                    title: 'Data Storage',
-                    body: 'All your books, notes, and settings are stored exclusively on your device using the browser\'s local storage or the device\'s local filesystem. No account is required.',
-                  },
-                  {
-                    title: 'No Analytics or Tracking',
-                    body: 'We do not use any analytics services, crash reporters, or advertising SDKs. We do not track how you use the app.',
-                  },
-                  {
-                    title: 'Google Gemini API (Optional AI Features)',
-                    body: 'If you use AI-powered features, your book title, author, or notes may be sent to the Google Gemini API to generate a response. This data is processed by Google in accordance with their Privacy Policy. No personally identifying information is intentionally included.',
-                  },
-                  {
-                    title: 'Camera / QR Code Scanner',
-                    body: 'The QR/barcode scanner accesses your device camera only while the scanner is open. No images or video are stored or transmitted.',
-                  },
-                  {
-                    title: 'Permissions',
-                    body: 'On Android, the app may request permissions for storage (to export backups) and camera (for barcode scanning). These permissions are used only for the stated purposes.',
-                  },
-                  {
-                    title: 'Open Source',
-                    body: 'Biblioteka is fully open source. You can inspect all code on GitHub to verify these claims.',
-                  },
-                  {
-                    title: 'Contact',
-                    body: 'If you have any privacy-related questions, please open an issue on GitHub or contact the developer directly.',
-                  },
-                ].map((section) => (
-                  <div key={section.title} className="flex flex-col gap-1">
-                    <span className="text-on-surface font-semibold text-[0.95rem]">{section.title}</span>
-                    <span className="text-on-surface-variant text-[0.88rem] leading-relaxed">{section.body}</span>
-                  </div>
-                ))}
-                <p className="text-on-surface-variant/50 text-xs pt-2">Last updated: May 2025</p>
-                <div className="h-6 w-full shrink-0" />
               </motion.div>
             )}
           </AnimatePresence>
