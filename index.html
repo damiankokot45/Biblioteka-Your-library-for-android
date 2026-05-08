@@ -1,19 +1,27 @@
 <!doctype html>
-<html lang="pl">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="referrer" content="no-referrer" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'none';" />
     <meta name="theme-color" content="#141218" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#FEF7FF" media="(prefers-color-scheme: light)" />
     <title>Biblioteka</title>
     <script>
       try {
         const saved = localStorage.getItem('biblioteka_settings');
-        const settings = saved ? JSON.parse(saved) : { themeMode: 'system' };
-        const isDark = settings.themeMode === 'system' 
-          ? window.matchMedia('(prefers-color-scheme: dark)').matches 
+        const settings = saved ? JSON.parse(saved) : { themeMode: 'system', language: 'en' };
+
+        // Set document language from saved settings
+        if (settings.language) {
+          document.documentElement.lang = settings.language;
+        }
+
+        const isDark = settings.themeMode === 'system'
+          ? window.matchMedia('(prefers-color-scheme: dark)').matches
           : settings.themeMode === 'dark';
-        
+
         if (isDark) {
           document.documentElement.classList.add('dark');
           document.documentElement.style.backgroundColor = '#141218';
@@ -28,4 +36,3 @@
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-

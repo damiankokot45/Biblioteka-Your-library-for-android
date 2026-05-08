@@ -261,7 +261,7 @@ const PRIVACY_ITEMS: Record<string, { title: string; body: string }[]> = {
     },
     {
       title: "Permissions",
-      body: "On Android, the app may request storage permissions for backups. This is used only for the stated purposes.",
+      body: "Biblioteka does not request any runtime Android permission. Backups are written to the app's private cache and shared only when you explicitly tap Share.",
     },
     {
       title: "Open Source",
@@ -283,7 +283,7 @@ const PRIVACY_ITEMS: Record<string, { title: string; body: string }[]> = {
     },
     {
       title: "Uprawnienia",
-      body: "W systemie Android aplikacja może wymagać uprawnień do pamięci masowej w celu robienia kopii zapasowych. Są one używane wyłącznie do tych celów.",
+      body: "Biblioteka nie wymaga żadnych uprawnień systemowych w czasie działania. Kopie zapasowe są zapisywane w prywatnej pamięci podręcznej aplikacji i udostępniane tylko po wyraźnym naciśnięciu przycisku Udostępnij.",
     },
     {
       title: "Open Source",
@@ -305,7 +305,7 @@ const PRIVACY_ITEMS: Record<string, { title: string; body: string }[]> = {
     },
     {
       title: "Autorisations",
-      body: "Sur Android, l'application peut demander des autorisations de stockage pour les sauvegardes. Celles-ci sont utilisées uniquement à ces fins.",
+      body: "Biblioteka ne demande aucune autorisation Android à l'exécution. Les sauvegardes sont écrites dans le cache privé de l'application et partagées uniquement lorsque vous appuyez explicitement sur Partager.",
     },
     {
       title: "Open Source",
@@ -327,7 +327,7 @@ const PRIVACY_ITEMS: Record<string, { title: string; body: string }[]> = {
     },
     {
       title: "Berechtigungen",
-      body: "Unter Android kann die App Speicherberechtigungen für Backups anfordern. Diese werden nur für die angegebenen Zwecke verwendet.",
+      body: "Biblioteka fordert keine Android-Laufzeitberechtigung an. Sicherungen werden in den privaten Cache der App geschrieben und nur geteilt, wenn Sie explizit auf Teilen tippen.",
     },
     {
       title: "Open Source",
@@ -349,7 +349,7 @@ const PRIVACY_ITEMS: Record<string, { title: string; body: string }[]> = {
     },
     {
       title: "Permisos",
-      body: "En Android, la aplicación puede solicitar permisos de almacenamiento para copias de seguridad. Estos se utilizan únicamente para los fines indicados.",
+      body: "Biblioteka no solicita ningún permiso de Android en tiempo de ejecución. Las copias de seguridad se escriben en la caché privada de la aplicación y se comparten solo cuando tocas Compartir explícitamente.",
     },
     {
       title: "Código abierto",
@@ -371,7 +371,7 @@ const PRIVACY_ITEMS: Record<string, { title: string; body: string }[]> = {
     },
     {
       title: "Engedélyek",
-      body: "Androidon az alkalmazás tárolási engedélyeket kérhet a biztonsági mentésekhez. Ezeket kizárólag a megadott célokra használjuk.",
+      body: "A Biblioteka nem kér futásidejű Android-engedélyeket. A biztonsági másolatok az alkalmazás privát gyorsítótárába kerülnek, és csak a Megosztás gomb explicit megérintésekor kerülnek megosztásra.",
     },
     {
       title: "Nyílt forráskód",
@@ -393,7 +393,7 @@ const PRIVACY_ITEMS: Record<string, { title: string; body: string }[]> = {
     },
     {
       title: "Permisiuni",
-      body: "Pe Android, aplicația poate solicita permisiuni de stocare pentru copii de rezervă. Acestea sunt utilizate doar în scopurile declarate.",
+      body: "Biblioteka nu solicită nicio permisiune Android în timp de rulare. Copiile de rezervă sunt scrise în memoria cache privată a aplicației și partajate doar când atingeți explicit Partajare.",
     },
     {
       title: "Sursă deschisă",
@@ -415,7 +415,7 @@ const PRIVACY_ITEMS: Record<string, { title: string; body: string }[]> = {
     },
     {
       title: "Oprávnění",
-      body: "V systému Android může aplikace požadovat oprávnění k úložišti pro zálohování. Používají se pouze k uvedeným účelům.",
+      body: "Biblioteka nevyžaduje žádná oprávnění Android za běhu. Zálohy jsou zapsány do soukromé mezipaměti aplikace a sdíleny pouze tehdy, když explicitně klepnete na Sdílet.",
     },
     {
       title: "Otevřený zdrojový kód",
@@ -426,28 +426,28 @@ const PRIVACY_ITEMS: Record<string, { title: string; body: string }[]> = {
       body: "Máte dotazy ohledně ochrany osobních údajů? Otevřete problém na GitHubu nebo kontaktujte přímo vývojáře na biblioteka@damiankokot.eu.",
     },
   ],
-  fi: [{"title":"Tietojen varastointi","body":"Kaikki kirjasi, muistiinpanosi ja asetuksesi tallennetaan yksinomaan laitteellesi. Tiliä ei tarvita."},{"title":"Ei analytiikkaa tai seurantaa","body":"Emme käytä mitään analytiikkapalveluita, kaatumisraportoijia tai mainos-SDK:ita."},{"title":"Käyttöoikeudet","body":"Androidissa sovellus saattaa pyytää tallennustilan käyttöoikeutta varmuuskopioita varten. Näitä käytetään vain mainittuihin tarkoituksiin."},{"title":"Avoin lähdekoodi","body":"Biblioteka on täysin avoimen lähdekoodin. Voit tarkastaa kaiken koodin GitHubissa näiden väitteiden vahvistamiseksi."},{"title":"Ota yhteyttä","body":"Tietosuojaa koskevia kysymyksiä? Avaa ongelma GitHubissa tai ota yhteyttä suoraan kehittäjään osoitteessa biblioteka@damiankokot.eu."}],
-  sv: [{"title":"Datalagring","body":"Alla dina böcker, anteckningar och inställningar sparas exklusivt på din enhet. Inget konto krävs."},{"title":"Ingen analys eller spårning","body":"Vi använder inga analystjänster, kraschrapporterare eller annons-SDK:er."},{"title":"Behörigheter","body":"På Android kan appen begära lagringsbehörigheter för säkerhetskopior. Dessa används endast för de angivna syftena."},{"title":"Öppen källkod","body":"Biblioteka är helt öppen källkod. Du kan granska all kod på GitHub för att bekräfta dessa påståenden."},{"title":"Kontakt","body":"Frågor om integritet? Öppna ett ärende på GitHub eller kontakta utvecklaren direkt på biblioteka@damiankokot.eu."}],
-  no: [{"title":"Datalagring","body":"Alle bøkene, notatene og innstillingene dine lagres utelukkende på enheten din. Ingen konto kreves."},{"title":"Ingen analyse eller sporing","body":"Vi bruker ikke  analysetjenester, krasjrapporterere eller annonse-SDK-er."},{"title":"Tillatelser","body":"På Android kan appen be om lagringstillatelser for sikkerhetskopiering. Disse brukes kun til de oppgitte formålene."},{"title":"Åpen kildekode","body":"Biblioteka er fullstendig åpen kildekode. Du kan inspisere all kode på GitHub for å bekrefte disse påstandene."},{"title":"Kontakt","body":"Personvernspørsmål? Åpne et problem på GitHub eller kontakt utvikleren direkte på biblioteka@damiankokot.eu."}],
-  da: [{"title":"Datalagring","body":"Alle dine bøger, noter og indstillinger gemmes udelukkende på din enhed. Ingen konto er påkrævet."},{"title":"Ingen analyse eller sporing","body":"Vi bruger ingen analysetjenester, crashrapporterere eller annonce-SDK'er."},{"title":"Tilladelser","body":"På Android anmoder appen muligvis om lageradgang til sikkerhedskopiering. Disse bruges kun til de angivne formål."},{"title":"Open Source","body":"Biblioteka er fuldstændig open source. Du kan inspicere al kode på GitHub for at bekræfte disse påstande."},{"title":"Kontakt","body":"Har du spørgsmål om privatliv? Åbn et problem på GitHub eller kontakt udvikleren direkte på biblioteka@damiankokot.eu."}],
-  nl: [{"title":"Gegevensopslag","body":"Al je boeken, notities en instellingen worden exclusief op je apparaat opgeslagen. Geen account vereist."},{"title":"Geen analytics of tracking","body":"We gebruiken geen analysediensten, crashrapporteurs of advertentie-SDK's."},{"title":"Machtigingen","body":"Op Android kan de app opslagrechten voor back-ups vragen. Deze worden alleen voor de vermelde doeleinden gebruikt."},{"title":"Open Source","body":"Biblioteka is volledig open source. Je kunt alle code inspecteren op GitHub om deze claims te verifiëren."},{"title":"Contact","body":"Vragen over privacy? Open een probleem op GitHub of neem rechtstreeks contact op met de ontwikkelaar via biblioteka@damiankokot.eu."}],
+  fi: [{"title":"Tietojen varastointi","body":"Kaikki kirjasi, muistiinpanosi ja asetuksesi tallennetaan yksinomaan laitteellesi. Tiliä ei tarvita."},{"title":"Ei analytiikkaa tai seurantaa","body":"Emme käytä mitään analytiikkapalveluita, kaatumisraportoijia tai mainos-SDK:ita."},{"title":"Käyttöoikeudet","body":"Biblioteka ei pyydä Android-suoritusaikaisia käyttöoikeuksia. Varmuuskopiot kirjoitetaan sovelluksen yksityiseen välimuistiin ja jaetaan vain kun napautat Jaa-painiketta."},{"title":"Avoin lähdekoodi","body":"Biblioteka on täysin avoimen lähdekoodin. Voit tarkastaa kaiken koodin GitHubissa näiden väitteiden vahvistamiseksi."},{"title":"Ota yhteyttä","body":"Tietosuojaa koskevia kysymyksiä? Avaa ongelma GitHubissa tai ota yhteyttä suoraan kehittäjään osoitteessa biblioteka@damiankokot.eu."}],
+  sv: [{"title":"Datalagring","body":"Alla dina böcker, anteckningar och inställningar sparas exklusivt på din enhet. Inget konto krävs."},{"title":"Ingen analys eller spårning","body":"Vi använder inga analystjänster, kraschrapporterare eller annons-SDK:er."},{"title":"Behörigheter","body":"Biblioteka begär inga Android-körtidsbehörigheter. Säkerhetskopior skrivs till appens privata cache och delas bara när du uttryckligen trycker på Dela."},{"title":"Öppen källkod","body":"Biblioteka är helt öppen källkod. Du kan granska all kod på GitHub för att bekräfta dessa påståenden."},{"title":"Kontakt","body":"Frågor om integritet? Öppna ett ärende på GitHub eller kontakta utvecklaren direkt på biblioteka@damiankokot.eu."}],
+  no: [{"title":"Datalagring","body":"Alle bøkene, notatene og innstillingene dine lagres utelukkende på enheten din. Ingen konto kreves."},{"title":"Ingen analyse eller sporing","body":"Vi bruker ikke  analysetjenester, krasjrapporterere eller annonse-SDK-er."},{"title":"Tillatelser","body":"Biblioteka ber ikke om noen Android-kjøretidstillatelser. Sikkerhetskopier skrives til appens private cache og deles kun når du eksplisitt trykker Del."},{"title":"Åpen kildekode","body":"Biblioteka er fullstendig åpen kildekode. Du kan inspisere all kode på GitHub for å bekrefte disse påstandene."},{"title":"Kontakt","body":"Personvernspørsmål? Åpne et problem på GitHub eller kontakt utvikleren direkte på biblioteka@damiankokot.eu."}],
+  da: [{"title":"Datalagring","body":"Alle dine bøger, noter og indstillinger gemmes udelukkende på din enhed. Ingen konto er påkrævet."},{"title":"Ingen analyse eller sporing","body":"Vi bruger ingen analysetjenester, crashrapporterere eller annonce-SDK'er."},{"title":"Tilladelser","body":"Biblioteka anmoder ikke om nogen Android-køretidstilladelser. Sikkerhedskopier skrives til appens private cache og deles kun, når du eksplicit trykker på Del."},{"title":"Open Source","body":"Biblioteka er fuldstændig open source. Du kan inspicere al kode på GitHub for at bekræfte disse påstande."},{"title":"Kontakt","body":"Har du spørgsmål om privatliv? Åbn et problem på GitHub eller kontakt udvikleren direkte på biblioteka@damiankokot.eu."}],
+  nl: [{"title":"Gegevensopslag","body":"Al je boeken, notities en instellingen worden exclusief op je apparaat opgeslagen. Geen account vereist."},{"title":"Geen analytics of tracking","body":"We gebruiken geen analysediensten, crashrapporteurs of advertentie-SDK's."},{"title":"Machtigingen","body":"Biblioteka vraagt geen Android-runtime-rechten. Back-ups worden naar de privécache van de app geschreven en alleen gedeeld als u expliciet op Delen tikt."},{"title":"Open Source","body":"Biblioteka is volledig open source. Je kunt alle code inspecteren op GitHub om deze claims te verifiëren."},{"title":"Contact","body":"Vragen over privacy? Open een probleem op GitHub of neem rechtstreeks contact op met de ontwikkelaar via biblioteka@damiankokot.eu."}],
   lb: [{"title":"Datespäicherung","body":"All ärt Bicher, Notizen, ans Astellungen sinn just op ärem Apparat respektiv gespäichert. Et ass keen Kont néideg."},{"title":"Keng Analyse oder Tracking","body":"Mir benotze keng Analyseservicer, Crash Reporter oder Reklammen SDK'en."},{"title":"Berechtegungen","body":"Op Android freet d'App vläicht no Späicherrechter fir Backups. Déi ginn just fir den ugekënnegten Zweck benotzt."},{"title":"Open Source","body":"Biblioteka ass komplett Open Source. Dir kënnt de ganze Code op GitHub nokucken, fir dëst ze verifièren."},{"title":"Kontakt","body":"Privatsphär Froen? Erstellt en Issue am GitHub oder kontaktéiert den Entwéckler direk op biblioteka@damiankokot.eu."}],
-  pt: [{"title":"Armazenamento de Dados","body":"Todos os seus livros, notas e configurações são armazenados exclusivamente no seu dispositivo. Nenhuma conta é exigida."},{"title":"Sem Análise ou Rastreamento","body":"Não usamos serviços de análise, repórteres de falhas ou SDKs de publicidade."},{"title":"Permissões","body":"No Android, a app pode solicitar permissões de armazenamento para backups. Elas são usadas apenas para as finalidades indicadas."},{"title":"Código aberto","body":"O Biblioteka é totalmente de código aberto. Pode inspecionar todo o código no GitHub para verificar essas informações."},{"title":"Contacto","body":"Dúvidas sobre privacidade? Abra um problema no GitHub ou contacte o programador diretamente em biblioteka@damiankokot.eu."}],
-  it: [{"title":"Archiviazione dati","body":"Tutti i tuoi libri, appunti e le impostazioni sono archiviati esclusivamente sul tuo dispositivo. Nessun account richiesto."},{"title":"Nessuna analisi o tracciamento","body":"Non utilizziamo servizi di analisi, report degli arresti anomali o SDK pubblicitari."},{"title":"Autorizzazioni","body":"Su Android l'app può richiedere le autorizzazioni per l'archiviazione per il backup. Vengono utilizzate solo per gli scopi dichiarati."},{"title":"Open Source","body":"Biblioteka è completamente open source. Puoi ispezionare tutto il codice su GitHub per verificare."},{"title":"Contatto","body":"Domande sulla privacy? Apri un problema su GitHub o contatta direttamente lo sviluppatore all'indirizzo biblioteka@damiankokot.eu."}],
-  hr: [{"title":"Skladištenje podataka","body":"Sve tvoje knjige, bilješke i postavke spremaju se isključivo na uređaj. Nema potrebe za otvaranjem računa."},{"title":"Bez praćenja i analitike","body":"Ne koristimo nikakve usluge dubinske analize, sustave prijave problema ili SDK-ove za oglase."},{"title":"Dozvol","body":"Na Androidu aplikacija može zatražiti dozvole za pohranu za sigurnosne kopije. To se koristi isključivo za navedene svrhe."},{"title":"Softver otvorenog koda","body":"Biblioteka je aplikacija otvorenog koda. Sav je kôd objavljen na GitHubu radi potpune transparentnosti."},{"title":"Kontakt","body":"Pitanja o privatnosti? Prijavite ih na GitHubu ili kontaktirajte autora na biblioteka@damiankokot.eu."}],
-  sk: [{"title":"Úložisko Dát","body":"Všetky Vaše knihy, poznámky a nastavenia sú uložené len vo Vašom zariadení. Nevyžaduje sa vytvorenie účtu."},{"title":"Žiadna Analytika Bez Zberu Dát","body":"Nevyužívame nijaké analytické služby, programy hlásenia pádov ani inzerujúce platformy."},{"title":"Prístupové práva","body":"Zariadenia s operačným systémom Android môžu byť podrobené žiadosti na prístupové úložiská. Tento prístup je pre zálohovanie dát a nič iné."},{"title":"Open Source","body":"Biblioteka je kompletne open-source systém. Všetky detaily si môžete otestovať priamo na GitHub-e a preveriť si tak spoľahlivosť."},{"title":"Kontakt","body":"Máte neikaké otázky týkajúce sa súkromia? Otvorte diskusiu na platforme GitHub alebo kontaktujte autora priamo na biblioteka@damiankokot.eu."}],
-  et: [{"title":"Andmesalvestus","body":"Kõiki teie raamatuid, märkmeid ja eelistusi säilitatakse vaid seadme mälus. Mingit kontot pole vaja."},{"title":"Jälgimine ega analüüsid puuduvad","body":"Meie ei kasuta analüüsivahendeid, krahhi raporteerimist ega ka reklaamide tarkvaraarenduskomplekti."},{"title":"Load","body":"Android-süsteemidel võib rakendus tarvitada varukoopiate tegemiseks mälukasutuse valikuid ja lube. Neid õiguseid tarbitakse vaid mainitud tegevuste raames."},{"title":"Avatud Lähtekood","body":"Biblioteka kasutab läbinisti avatud lähtekoodiga lahendusi. Kõike on võimalik Github keskkonnast üle kaeda ning meie aususes veenduda."},{"title":"Kontakt","body":"Tekkis küsimusi isikuandmete ja privaatsuse kohta? Jätke küsimus Github keskkonda või kontakteeruge loojaga aadressil biblioteka@damiankokot.eu."}],
-  lv: [{"title":"Datu Glabāšana","body":"Visām jūsu grāmatām, piezīmēm un iestatījumiem jāglabājas vienīgi jūsu iekārtā. Lietotāja profila nav."},{"title":"Nekādas Analītikas Un Izsekošanas","body":"Mēs neizmantojam analītiskos pakalpojumus, defektu identificēšanas sistēmas vai mārketinga rīkus."},{"title":"Piekļuves Cēloņi","body":"Android operētājsistēmā lietojumprogrammai var būt nepieciešamas krātuves paplašinājumu tiesības rezerves kopiju izveidei. Citu vajadzību nolūkos šī atļauja netiks izmantota."},{"title":"Atvērtā koda programma","body":"Biblioteka programmēšanai izmantots vien atvērtais kods. Dodieties uz GitHub resursu, lai patiesi pārliecinātos par doto faktu."},{"title":"Kontaktinformācija","body":"Jums rodas kādi jautājumus saistībā par doto drošību? Atverat tiketu portālā GitHub vai sazinieties tieši ar pārvaldītāju epastā: biblioteka@damiankokot.eu."}],
-  lt: [{"title":"DuomenųSaugykla","body":"Visos knygos, užrašai ir kiti sistemos nustatymai saugomi tiesiog jūsų naudojamame prietaise. Papildoma paskyra tikrai nėra būtina."},{"title":"SekimoIr Analizės Negalimumas","body":"Mes neužsiimame analitika paremta veikla ir nenaudojame tam skirtų programų asmeninio naudojimo labui."},{"title":"Leidimai","body":"Kopijavimo tikslais operacinėse sistemose kaip Android gali atsirasti prašymų atitinkamų talpinimo ir prisijungimo teisių klausimams."},{"title":"Atviras Kodas","body":"Biblioteka – tai tik atvirojo kodo pagrindu sukurtas produktas. Visi originalus sistemos parametrai egzistuoja atvira prieiga prieinamoje sistemoje, vadinamoje GitHub."},{"title":"Susisiekti","body":"Iškilus skubiems pranešimams apsilankykite GitHub ar išsiuskite informacinį laišką per paštą biblioteka@damiankokot.eu."}],
-  bg: [{"title":"Съхранение на информация","body":"Всички книги, бележки и допълнителни настройки са архивирани във вашето устройство. Не е необходима допълнителна регистрация."},{"title":"Липса на следене или аналитика","body":"Приложението е освободено от спомагателни програми с анализаторски и други подобни функции."},{"title":"Достъп","body":"Достъп до личното ви хранилище в Android се запазва само с цел създаване на резервно копие и не се употребява за допълнителни каузи."},{"title":"Разработен с отворен код","body":"Biblioteka функционира главно чрез отворен код. Можете да прегледате файловете в GitHub."},{"title":"Контакти","body":"Намерете отговор на вашите въпроси или ни потърсете директно на: biblioteka@damiankokot.eu."}],
-  tr: [{"title":"Veri Depolama","body":"Tüm kitaplarınız, notlarınız ve ayarlarınız izne bağlı biçimde yalnızca cihazınızda tutulur. Kullanıcı profili gereksinimi tamamen yok."},{"title":"Abonelik ve Analiz Yapılmamaktadır","body":"Harici sistemlerin sunduğu izleme ağlardan yardım veya benzeri verilerle bağlantımız olmayıp üçüncü kopyalara dahil edilmemiştir."},{"title":"İzinler","body":"Mevcut veriler üzerindeki güncellemiş depolama istekleri kopyalama adımları Android kapsamında belirtilmektedir."},{"title":"Açık Kaynak Kod","body":"Sistemin altyapısı olduğu üzere açık kaynak koduna yönelik tasarımlardan GitHub sekmesinden erişerek yararlanıp öğrenebilir."},{"title":"İletişim","body":"Sizi desteklemek için uyarımıza ilişkin iletileri GitHub bildirimden veyahut yöneticimiz biblioteka@damiankokot.eu bağlantısından sağlayabilirsiniz."}],
-  ko: [{"title":"데이터 저장","body":"귀하의 모든 책, 메모 및 설정은 기기에 독점적으로 보관되며 로그인 계정이 필요치 않습니다."},{"title":"분석 혹은 개인 데이터 추적 없음","body":"당사는 사용자 트래킹에 연관된 소프트웨어 또는 외부 광고 툴을 포함하지 않습니다."},{"title":"권한 설정","body":"본 데이터 백업 시스템 절차에서 안드로이드에 대한 정보 조회 승인을 별도 부여해 주셔야 합니다."},{"title":"오픈 소스 정보","body":"Biblioteka 서비스는 누구나 GitHub를 통해 개발 코드 내역을 확인할 오픈 기반 기능을 공유합니다."},{"title":"추가 연락 사항","body":"모든 시스템이나 이슈 관련 추가 설명이 있으신 경우 GitHub나 관리 파트너 이메일 biblioteka@damiankokot.eu를 방문해 주시기 바랍니다."}],
-  ja: [{"title":"データ保存のしくみ","body":"登録された読書データおよび設定等の詳細は常にユーザー個人のツール上に留められアカウントの保有も必要としません。"},{"title":"情報の追跡は行われません","body":"利用状況監視とデータ流しに関連する特定のサービス等を共有せずに本質的な動作のみの管理を行っています。"},{"title":"アクセス許可について","body":"各種アプリ機能と連携したAndroidデータバックアップ実行環境に対して一部利用許可のお願いをしております。"},{"title":"完全なるオープンソース","body":"Bibliotekaのソース構成はコードを含めて外部ソフトウェアのGitHubで全面的な閲覧が随時可能となっております。"},{"title":"連絡先一覧","body":"もし不明なご指摘またはその他不具合がありましたらGitHubでの通知、およびbiblioteka@damiankokot.euへ直接お問い合わせ願います。"}],
-  is: [{"title":"Gagnageymsla","body":"Allar bækurnar þínar og stillingar verða einungis varðveittar innan staðbundins búnaðar."},{"title":"Engin ytri vefgreining","body":"Öll þjónusta sem tengist aukaauglýsingum eða annarskonar tölfræðigreiningar hugbúnaði eru undanskilin."},{"title":"Aðgangsheimildir","body":"Á Android stýrikerfinu verður öryggisafrit af upplýsingum til reiðu svo lengi sem aðgangur á hlaðrásum sé opinn."},{"title":"Frjáls Opinn Kóði","body":"Biblioteka styðst einvörðungu á opinn grunnkóða sem nálgast má eftir vild á GitHub þjónustunni."},{"title":"Nánari aðstoð","body":"Vinsamlegast nálgist nánari fyrirspurnir í gegnum GitHub vettvanginn eða hafið samband beint á netfangið biblioteka@damiankokot.eu."}],
-  kl: [{"title":"Paasissutissat Tassa","body":"Allat atuakkatit isertuussatit piumasaqaatikkut nammineq pigaarniarlugit toqqorneqarput."},{"title":"Misissuinera Nangeqqaarneq","body":"Internet atorlugu pisartagarnut avatangiisimik ajornartorsiutillu suliaralugillu isumannaatsumut immikkoortiterput."},{"title":"Pisortatigut Aaqqissu","body":"Android ilanngullugit toqqorsivik peqquteqarniarlugu isumannaallisaalluni imminut sillimaffigivoq."},{"title":"Oqaatsit Aaqqissuussaq","body":"Biblioteka siammasissumik piviusunngorluni iluaqutissiivoq, GitHub saqqumsillugu."},{"title":"Saaffiginnissut","body":"Sammisat unammillernartut uaniinnaq naatsorsuunneqarlutik paasissutissiip GitHub-imi imaluunniit biblioteka@damiankokot.eu"}],
+  pt: [{"title":"Armazenamento de Dados","body":"Todos os seus livros, notas e configurações são armazenados exclusivamente no seu dispositivo. Nenhuma conta é exigida."},{"title":"Sem Análise ou Rastreamento","body":"Não usamos serviços de análise, repórteres de falhas ou SDKs de publicidade."},{"title":"Permissões","body":"O Biblioteka não solicita permissões de tempo de execução no Android. As cópias de segurança são escritas na cache privada da aplicação e partilhadas apenas quando toca explicitamente em Partilhar."},{"title":"Código aberto","body":"O Biblioteka é totalmente de código aberto. Pode inspecionar todo o código no GitHub para verificar essas informações."},{"title":"Contacto","body":"Dúvidas sobre privacidade? Abra um problema no GitHub ou contacte o programador diretamente em biblioteka@damiankokot.eu."}],
+  it: [{"title":"Archiviazione dati","body":"Tutti i tuoi libri, appunti e le impostazioni sono archiviati esclusivamente sul tuo dispositivo. Nessun account richiesto."},{"title":"Nessuna analisi o tracciamento","body":"Non utilizziamo servizi di analisi, report degli arresti anomali o SDK pubblicitari."},{"title":"Autorizzazioni","body":"Biblioteka non richiede alcuna autorizzazione Android in fase di esecuzione. I backup vengono scritti nella cache privata dell'app e condivisi solo quando si tocca esplicitamente Condividi."},{"title":"Open Source","body":"Biblioteka è completamente open source. Puoi ispezionare tutto il codice su GitHub per verificare."},{"title":"Contatto","body":"Domande sulla privacy? Apri un problema su GitHub o contatta direttamente lo sviluppatore all'indirizzo biblioteka@damiankokot.eu."}],
+  hr: [{"title":"Skladištenje podataka","body":"Sve tvoje knjige, bilješke i postavke spremaju se isključivo na uređaj. Nema potrebe za otvaranjem računa."},{"title":"Bez praćenja i analitike","body":"Ne koristimo nikakve usluge dubinske analize, sustave prijave problema ili SDK-ove za oglase."},{"title":"Dozvol","body":"Biblioteka ne traži nikakve Android dozvole za izvođenje. Sigurnosne kopije se zapisuju u privatnu predmemoriju aplikacije i dijele se samo kada izričito dodirnete Dijeli."},{"title":"Softver otvorenog koda","body":"Biblioteka je aplikacija otvorenog koda. Sav je kôd objavljen na GitHubu radi potpune transparentnosti."},{"title":"Kontakt","body":"Pitanja o privatnosti? Prijavite ih na GitHubu ili kontaktirajte autora na biblioteka@damiankokot.eu."}],
+  sk: [{"title":"Úložisko Dát","body":"Všetky Vaše knihy, poznámky a nastavenia sú uložené len vo Vašom zariadení. Nevyžaduje sa vytvorenie účtu."},{"title":"Žiadna Analytika Bez Zberu Dát","body":"Nevyužívame nijaké analytické služby, programy hlásenia pádov ani inzerujúce platformy."},{"title":"Prístupové práva","body":"Biblioteka nevyžaduje žiadne Android oprávnenia za behu. Zálohy sú zapísané do súkromnej vyrovnávacej pamäte aplikácie a zdieľané len keď explicitne klepnete na Zdieľať."},{"title":"Open Source","body":"Biblioteka je kompletne open-source systém. Všetky detaily si môžete otestovať priamo na GitHub-e a preveriť si tak spoľahlivosť."},{"title":"Kontakt","body":"Máte neikaké otázky týkajúce sa súkromia? Otvorte diskusiu na platforme GitHub alebo kontaktujte autora priamo na biblioteka@damiankokot.eu."}],
+  et: [{"title":"Andmesalvestus","body":"Kõiki teie raamatuid, märkmeid ja eelistusi säilitatakse vaid seadme mälus. Mingit kontot pole vaja."},{"title":"Jälgimine ega analüüsid puuduvad","body":"Meie ei kasuta analüüsivahendeid, krahhi raporteerimist ega ka reklaamide tarkvaraarenduskomplekti."},{"title":"Load","body":"Biblioteka ei nõua ühtegi Android käitusaegsete õiguste. Varukoopiad kirjutatakse rakenduse privaatsesse vahemällu ja jagatakse ainult siis, kui puudutate selgesõnaliselt Jaga."},{"title":"Avatud Lähtekood","body":"Biblioteka kasutab läbinisti avatud lähtekoodiga lahendusi. Kõike on võimalik Github keskkonnast üle kaeda ning meie aususes veenduda."},{"title":"Kontakt","body":"Tekkis küsimusi isikuandmete ja privaatsuse kohta? Jätke küsimus Github keskkonda või kontakteeruge loojaga aadressil biblioteka@damiankokot.eu."}],
+  lv: [{"title":"Datu Glabāšana","body":"Visām jūsu grāmatām, piezīmēm un iestatījumiem jāglabājas vienīgi jūsu iekārtā. Lietotāja profila nav."},{"title":"Nekādas Analītikas Un Izsekošanas","body":"Mēs neizmantojam analītiskos pakalpojumus, defektu identificēšanas sistēmas vai mārketinga rīkus."},{"title":"Piekļuves Cēloņi","body":"Biblioteka nepieprasa nekādas Android izpildlaika atļaujas. Dublējumi tiek rakstīti lietotnes privātajā kešatmiņā un kopīgoti tikai tad, kad skaidri pieskaraties Kopīgot."},{"title":"Atvērtā koda programma","body":"Biblioteka programmēšanai izmantots vien atvērtais kods. Dodieties uz GitHub resursu, lai patiesi pārliecinātos par doto faktu."},{"title":"Kontaktinformācija","body":"Jums rodas kādi jautājumus saistībā par doto drošību? Atverat tiketu portālā GitHub vai sazinieties tieši ar pārvaldītāju epastā: biblioteka@damiankokot.eu."}],
+  lt: [{"title":"DuomenųSaugykla","body":"Visos knygos, užrašai ir kiti sistemos nustatymai saugomi tiesiog jūsų naudojamame prietaise. Papildoma paskyra tikrai nėra būtina."},{"title":"SekimoIr Analizės Negalimumas","body":"Mes neužsiimame analitika paremta veikla ir nenaudojame tam skirtų programų asmeninio naudojimo labui."},{"title":"Leidimai","body":"Biblioteka nereikalauja jokių Android vykdymo laiko leidimų. Atsarginės kopijos rašomos į privačią programėlės talpyklą ir dalijamasi tik tada, kai aiškiai paliečiate Dalintis."},{"title":"Atviras Kodas","body":"Biblioteka – tai tik atvirojo kodo pagrindu sukurtas produktas. Visi originalus sistemos parametrai egzistuoja atvira prieiga prieinamoje sistemoje, vadinamoje GitHub."},{"title":"Susisiekti","body":"Iškilus skubiems pranešimams apsilankykite GitHub ar išsiuskite informacinį laišką per paštą biblioteka@damiankokot.eu."}],
+  bg: [{"title":"Съхранение на информация","body":"Всички книги, бележки и допълнителни настройки са архивирани във вашето устройство. Не е необходима допълнителна регистрация."},{"title":"Липса на следене или аналитика","body":"Приложението е освободено от спомагателни програми с анализаторски и други подобни функции."},{"title":"Достъп","body":"Biblioteka не изисква никакви Android разрешения по време на изпълнение. Резервните копия се записват в частния кеш на приложението и се споделят само когато изрично натиснете Споделяне."},{"title":"Разработен с отворен код","body":"Biblioteka функционира главно чрез отворен код. Можете да прегледате файловете в GitHub."},{"title":"Контакти","body":"Намерете отговор на вашите въпроси или ни потърсете директно на: biblioteka@damiankokot.eu."}],
+  tr: [{"title":"Veri Depolama","body":"Tüm kitaplarınız, notlarınız ve ayarlarınız izne bağlı biçimde yalnızca cihazınızda tutulur. Kullanıcı profili gereksinimi tamamen yok."},{"title":"Abonelik ve Analiz Yapılmamaktadır","body":"Harici sistemlerin sunduğu izleme ağlardan yardım veya benzeri verilerle bağlantımız olmayıp üçüncü kopyalara dahil edilmemiştir."},{"title":"İzinler","body":"Biblioteka, Android çalışma zamanı izni talep etmez. Yedekler uygulamanın özel önbelleğine yazılır ve yalnızca Paylaş'a açıkça dokunduğunuzda paylaşılır."},{"title":"Açık Kaynak Kod","body":"Sistemin altyapısı olduğu üzere açık kaynak koduna yönelik tasarımlardan GitHub sekmesinden erişerek yararlanıp öğrenebilir."},{"title":"İletişim","body":"Sizi desteklemek için uyarımıza ilişkin iletileri GitHub bildirimden veyahut yöneticimiz biblioteka@damiankokot.eu bağlantısından sağlayabilirsiniz."}],
+  ko: [{"title":"데이터 저장","body":"귀하의 모든 책, 메모 및 설정은 기기에 독점적으로 보관되며 로그인 계정이 필요치 않습니다."},{"title":"분석 혹은 개인 데이터 추적 없음","body":"당사는 사용자 트래킹에 연관된 소프트웨어 또는 외부 광고 툴을 포함하지 않습니다."},{"title":"권한 설정","body":"Biblioteka는 Android 런타임 권한을 요청하지 않습니다. 백업은 앱의 비공개 캐시에 기록되며 공유를 명시적으로 탭할 때만 공유됩니다."},{"title":"오픈 소스 정보","body":"Biblioteka 서비스는 누구나 GitHub를 통해 개발 코드 내역을 확인할 오픈 기반 기능을 공유합니다."},{"title":"추가 연락 사항","body":"모든 시스템이나 이슈 관련 추가 설명이 있으신 경우 GitHub나 관리 파트너 이메일 biblioteka@damiankokot.eu를 방문해 주시기 바랍니다."}],
+  ja: [{"title":"データ保存のしくみ","body":"登録された読書データおよび設定等の詳細は常にユーザー個人のツール上に留められアカウントの保有も必要としません。"},{"title":"情報の追跡は行われません","body":"利用状況監視とデータ流しに関連する特定のサービス等を共有せずに本質的な動作のみの管理を行っています。"},{"title":"アクセス許可について","body":"BibliotekはAndroidの実行時権限を要求しません。バックアップはアプリのプライベートキャッシュに書き込まれ、「共有」を明示的にタップした場合のみ共有されます。"},{"title":"完全なるオープンソース","body":"Bibliotekaのソース構成はコードを含めて外部ソフトウェアのGitHubで全面的な閲覧が随時可能となっております。"},{"title":"連絡先一覧","body":"もし不明なご指摘またはその他不具合がありましたらGitHubでの通知、およびbiblioteka@damiankokot.euへ直接お問い合わせ願います。"}],
+  is: [{"title":"Gagnageymsla","body":"Allar bækurnar þínar og stillingar verða einungis varðveittar innan staðbundins búnaðar."},{"title":"Engin ytri vefgreining","body":"Öll þjónusta sem tengist aukaauglýsingum eða annarskonar tölfræðigreiningar hugbúnaði eru undanskilin."},{"title":"Aðgangsheimildir","body":"Biblioteka biður ekki um neinar Android keyrsluleyfi. Öryggisafrit eru skrifuð í einkabiðminni forritsins og deilt aðeins þegar þú ýtir sérstaklega á Deila."},{"title":"Frjáls Opinn Kóði","body":"Biblioteka styðst einvörðungu á opinn grunnkóða sem nálgast má eftir vild á GitHub þjónustunni."},{"title":"Nánari aðstoð","body":"Vinsamlegast nálgist nánari fyrirspurnir í gegnum GitHub vettvanginn eða hafið samband beint á netfangið biblioteka@damiankokot.eu."}],
+  kl: [{"title":"Paasissutissat Tassa","body":"Allat atuakkatit isertuussatit piumasaqaatikkut nammineq pigaarniarlugit toqqorneqarput."},{"title":"Misissuinera Nangeqqaarneq","body":"Internet atorlugu pisartagarnut avatangiisimik ajornartorsiutillu suliaralugillu isumannaatsumut immikkoortiterput."},{"title":"Pisortatigut Aaqqissu","body":"Biblioteka Android-ip inatsisitigut atugassarsiorsimanngikkaluarluni. Backup-it programip eqqortumik imminnut pigineqartariaqarpoq cache-imminni allatigoorneqassanngikkaluarlutik isikkusimapallaarsimanngikkaluarluni Nalunaarsuiffigeqqinneq touarneqarsinnaasinnaalersitsisariaqarpoq."},{"title":"Oqaatsit Aaqqissuussaq","body":"Biblioteka siammasissumik piviusunngorluni iluaqutissiivoq, GitHub saqqumsillugu."},{"title":"Saaffiginnissut","body":"Sammisat unammillernartut uaniinnaq naatsorsuunneqarlutik paasissutissiip GitHub-imi imaluunniit biblioteka@damiankokot.eu"}],
 
-  sl: [{"title":"Shranjevanje podatkov","body":"Vse vaše knjige, opombe in nastavitve so shranjene izključno na vaši napravi. Ne potrebujete nobenega računa."},{"title":"Brez analitike in sledenja","body":"Ne uporabljamo nobenih analitičnih storitev, orodij za prijavo napak in oglaševalskih komponent."},{"title":"Dovoljenja","body":"Na Androidu lahko aplikacija zahteva dovoljenja za varno shranjevanje. Uporabljena so izključno v navedene namene."},{"title":"Odprta koda","body":"Biblioteka je aplikacija s popolnoma odprto kodo. S kodo se lahko seznanite na GitHubu in vse trditve neodvisno preverite."},{"title":"Kontakt","body":"Imate vprašanja glede zasebnosti? Odprite zahtevek na GitHubu, ali pa nas kontaktirajte prek elektronske pošte: biblioteka@damiankokot.eu."}],
-  el: [{"title":"Αποθήκευση Δεδομένων","body":"Όλα τα βιβλία, οι σημειώσεις και οι ρυθμίσεις σας εξυπηρετούνται αποκλειστικά από την συσκευή σας. Κανένας λογαριασμός μέλους δεν απαιτείται."},{"title":"Καθόλου Analytics/Tracing","body":"Μείνετε ήσυχοι χωρίς προγράμματα λογισμικής ανάλυσης δεδομένων για εμπορικό κοινό και διαφημίσεις."},{"title":"Αδειοδότηση Επαφών","body":"Ρυθμίσεις πρόσβασης ζητούνται προσωρινά μόνο και εφόσον πραγματοποιηθούν ανακτήσεις σε κινητά εξαρτήματα (πχ Android) σεβόμενα τον τελικό σκοπό."},{"title":"Ανοικτός Κώδικας","body":"Όλα τα στάδια διέπονται από λογισμικό ανοιχτού κώδικα προσβάσιμο προς εξακρίβωση στο GitHub για παρατήρηση των δηλώσεων."},{"title":"E-mail Επικοινωνίας","body":"Απαντήσεις ή άμεση μεταφορά παραπόνων/αιτημάτων αποστείλετε στο biblioteka@damiankokot.eu."}],
+  sl: [{"title":"Shranjevanje podatkov","body":"Vse vaše knjige, opombe in nastavitve so shranjene izključno na vaši napravi. Ne potrebujete nobenega računa."},{"title":"Brez analitike in sledenja","body":"Ne uporabljamo nobenih analitičnih storitev, orodij za prijavo napak in oglaševalskih komponent."},{"title":"Dovoljenja","body":"Biblioteka ne zahteva nobenih Android dovoljenj med izvajanjem. Varnostne kopije so zapisane v zasebni predpomnilnik aplikacije in deljene samo, ko izrecno pritisnete Deli."},{"title":"Odprta koda","body":"Biblioteka je aplikacija s popolnoma odprto kodo. S kodo se lahko seznanite na GitHubu in vse trditve neodvisno preverite."},{"title":"Kontakt","body":"Imate vprašanja glede zasebnosti? Odprite zahtevek na GitHubu, ali pa nas kontaktirajte prek elektronske pošte: biblioteka@damiankokot.eu."}],
+  el: [{"title":"Αποθήκευση Δεδομένων","body":"Όλα τα βιβλία, οι σημειώσεις και οι ρυθμίσεις σας εξυπηρετούνται αποκλειστικά από την συσκευή σας. Κανένας λογαριασμός μέλους δεν απαιτείται."},{"title":"Καθόλου Analytics/Tracing","body":"Μείνετε ήσυχοι χωρίς προγράμματα λογισμικής ανάλυσης δεδομένων για εμπορικό κοινό και διαφημίσεις."},{"title":"Αδειοδότηση Επαφών","body":"Η Biblioteka δεν ζητά δικαιώματα εκτέλεσης Android. Τα αντίγραφα ασφαλείας γράφονται στην ιδιωτική κρυφή μνήμη της εφαρμογής και κοινοποιούνται μόνο όταν πατάτε ρητά Κοινοποίηση."},{"title":"Ανοικτός Κώδικας","body":"Όλα τα στάδια διέπονται από λογισμικό ανοιχτού κώδικα προσβάσιμο προς εξακρίβωση στο GitHub για παρατήρηση των δηλώσεων."},{"title":"E-mail Επικοινωνίας","body":"Απαντήσεις ή άμεση μεταφορά παραπόνων/αιτημάτων αποστείλετε στο biblioteka@damiankokot.eu."}],
 
 };
 
@@ -852,12 +852,73 @@ export function SettingsModal({
       try {
         const content = e.target?.result as string;
         const parsed = JSON.parse(content);
-        if (Array.isArray(parsed)) {
-          onImport(parsed);
-          window.alert(t("importSuccess") + parsed.length);
-        } else {
+        if (!Array.isArray(parsed)) {
           window.alert(t("importFormatError"));
+          return;
         }
+
+        const VALID_STATUSES = new Set(["TO_READ", "READING", "READ"]);
+        const MAX_COVER_BYTES = 2 * 1024 * 1024; // 2 MB
+
+        const validated: Book[] = [];
+        let skipped = 0;
+
+        for (const item of parsed) {
+          // Must be a plain object
+          if (!item || typeof item !== "object" || Array.isArray(item)) { skipped++; continue; }
+          // Required string fields
+          if (typeof item.id !== "string" || !item.id.trim()) { skipped++; continue; }
+          if (typeof item.title !== "string" || !item.title.trim()) { skipped++; continue; }
+          if (typeof item.author !== "string") { skipped++; continue; }
+          // Required status
+          if (!VALID_STATUSES.has(item.status)) { skipped++; continue; }
+          // Required timestamp
+          if (typeof item.addedAt !== "number") { skipped++; continue; }
+
+          // Build a clean Book with only known fields — no unknown keys
+          const clean: Book = {
+            id: String(item.id).trim(),
+            title: String(item.title).trim(),
+            author: String(item.author).trim(),
+            status: item.status as Book["status"],
+            addedAt: Number(item.addedAt),
+          };
+
+          if (typeof item.rating === "number" && item.rating >= 1 && item.rating <= 5) {
+            clean.rating = item.rating;
+          }
+          if (typeof item.notes === "string") {
+            clean.notes = item.notes;
+          }
+          if (typeof item.finishedAt === "number") {
+            clean.finishedAt = item.finishedAt;
+          }
+          if (typeof item.isbn === "string") {
+            clean.isbn = item.isbn;
+          }
+          if (typeof item.currentPage === "number" && item.currentPage >= 0) {
+            clean.currentPage = item.currentPage;
+          }
+          if (typeof item.coverImage === "string") {
+            if (item.coverImage.length <= MAX_COVER_BYTES) {
+              clean.coverImage = item.coverImage;
+            }
+            // silently drop oversized cover images
+          }
+
+          validated.push(clean);
+        }
+
+        if (validated.length === 0) {
+          window.alert(t("importFormatError"));
+          return;
+        }
+
+        onImport(validated);
+        const msg = skipped > 0
+          ? `${t("importSuccess")}${validated.length} (${skipped} skipped)`
+          : `${t("importSuccess")}${validated.length}`;
+        window.alert(msg);
       } catch (error) {
         console.error("Failed to parse the imported file:", error);
         window.alert(t("importError"));

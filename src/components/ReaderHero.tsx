@@ -11,13 +11,31 @@ interface ReaderHeroProps {
 
 export function ReaderHero({ onStopReading, books = [] }: ReaderHeroProps) {
   const { t } = useTranslation();
-  const [isReading, setIsReading] = useState(() => localStorage.getItem('biblioteka_isReading') === 'true');
+  const MAX_SESSION_SECONDS = 6 * 60 * 60; // 6-hour cap — silently discard stale timers
+
+  const [isReading, setIsReading] = useState(() => {
+    if (localStorage.getItem('biblioteka_isReading') !== 'true') return false;
+    // If the stored start time is older than MAX_SESSION_SECONDS, treat session as abandoned
+    const start = localStorage.getItem('biblioteka_readingStartTime');
+    if (start) {
+      const elapsed = Math.floor((Date.now() - parseInt(start, 10)) / 1000);
+      if (elapsed > MAX_SESSION_SECONDS) {
+        localStorage.removeItem('biblioteka_readingStartTime');
+        localStorage.setItem('biblioteka_isReading', 'false');
+        return false;
+      }
+    }
+    return true;
+  });
+
   const [seconds, setSeconds] = useState(() => {
     const start = localStorage.getItem('biblioteka_readingStartTime');
     if (start && localStorage.getItem('biblioteka_isReading') === 'true') {
       const startMs = parseInt(start, 10);
       if (!isNaN(startMs)) {
-         return Math.floor((Date.now() - startMs) / 1000);
+        const elapsed = Math.floor((Date.now() - startMs) / 1000);
+        // Cap at MAX_SESSION_SECONDS so stale sessions don't show absurd durations
+        return Math.min(elapsed, MAX_SESSION_SECONDS);
       }
     }
     return 0;

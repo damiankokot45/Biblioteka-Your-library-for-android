@@ -48,6 +48,9 @@ export default function App() {
   // Session state
   const [isSessionModalOpen, setIsSessionModalOpen] = useState(false);
 
+  // Clear-data confirmation modal
+  const [isClearConfirmOpen, setIsClearConfirmOpen] = useState(false);
+
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [settings, setSettings] = useState<UserSettings>(() => {
     const saved = localStorage.getItem('biblioteka_settings');
@@ -102,7 +105,10 @@ export default function App() {
     };
 
     applyAppTheme();
-    
+
+    // Keep <html lang="..."> in sync with the selected language
+    document.documentElement.lang = settings.language;
+
     if (settings.themeMode === 'system') {
       const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
       mediaQuery.addEventListener('change', applyAppTheme);
@@ -232,16 +238,15 @@ export default function App() {
   const t = (key: string) => getTranslation(settings.language, key);
 
   const handleClearAllData = () => {
-    if (confirm(t('confirmClearData'))) {
-      localStorage.removeItem('biblioteka_books');
-      localStorage.removeItem('biblioteka_isReading');
-      localStorage.removeItem('biblioteka_readingStartTime');
-      // We keep settings (language/theme) for better UX unless they specifically want a factory reset
-      // but if we want to be thorough:
-      // localStorage.clear();
-      
-      window.location.reload();
-    }
+    setIsClearConfirmOpen(true);
+  };
+
+  const handleConfirmClear = () => {
+    localStorage.removeItem('biblioteka_books');
+    localStorage.removeItem('biblioteka_isReading');
+    localStorage.removeItem('biblioteka_readingStartTime');
+    setIsClearConfirmOpen(false);
+    window.location.reload();
   };
 
   return (
@@ -475,6 +480,44 @@ export default function App() {
             onClearAllData={handleClearAllData}
             onClose={() => setIsSettingsOpen(false)}
           />
+        )}
+      </AnimatePresence>
+
+      {/* Clear-all-data confirmation modal */}
+      <AnimatePresence>
+        {isClearConfirmOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[200] flex items-center justify-center bg-black/60 backdrop-blur-sm px-6"
+            onClick={() => setIsClearConfirmOpen(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.92, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.92, opacity: 0 }}
+              onClick={e => e.stopPropagation()}
+              className="bg-surface rounded-[2rem] p-6 w-full max-w-sm shadow-2xl border border-outline-variant/30 flex flex-col gap-4"
+            >
+              <h2 className="text-lg font-semibold text-on-surface">{t('clearData')}</h2>
+              <p className="text-sm text-on-surface-variant">{t('confirmClearData')}</p>
+              <div className="flex gap-3 justify-end mt-2">
+                <button
+                  onClick={() => setIsClearConfirmOpen(false)}
+                  className="px-5 py-2.5 rounded-full text-sm font-medium text-on-surface-variant bg-surface-variant/50 hover:bg-surface-variant transition-colors"
+                >
+                  {t('cancel') || 'Cancel'}
+                </button>
+                <button
+                  onClick={handleConfirmClear}
+                  className="px-5 py-2.5 rounded-full text-sm font-medium text-white bg-error hover:bg-error/90 transition-colors"
+                >
+                  {t('clearData')}
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
         )}
       </AnimatePresence>
 
