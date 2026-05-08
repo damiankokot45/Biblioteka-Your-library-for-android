@@ -1,210 +1,160 @@
 <div align="center">
+   <img src="preview/readme_app_icon.svg" alt="Biblioteka icon" width="150px">
+</div>
 
-# Biblioteka
+<h1 align="center">Biblioteka</h1>
 
-**Your private, offline-first library for Android and the web.**
+<div align="center">
+   <img src="https://img.shields.io/github/license/damiankokot/Biblioteka-Your-library-for-android?style=for-the-badge&color=cba6f7&labelColor=302D41">
+   <img src="https://img.shields.io/github/last-commit/damiankokot/Biblioteka-Your-library-for-android?style=for-the-badge&color=b1d18a&labelColor=1f3701">
+   <img src="https://img.shields.io/github/v/release/damiankokot/Biblioteka-Your-library-for-android?style=for-the-badge&color=dbc66e&labelColor=3a3000">
+   <br>
+   <img src="https://img.shields.io/github/stars/damiankokot/Biblioteka-Your-library-for-android?style=for-the-badge&color=ffb5a0&labelColor=561f0f">
+   <img src="https://img.shields.io/github/downloads/damiankokot/Biblioteka-Your-library-for-android/total?label=Downloads&style=for-the-badge&color=aac7ff&labelColor=0a305f">
+</div>
 
-A beautifully crafted reading tracker that lives entirely on your device — no accounts, no analytics, no cloud, no compromises.
+<div align="center">
+   <h3>Your private, offline-first reading tracker for Android and the web.</h3>
+</div>
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Platform](https://img.shields.io/badge/platform-Android%20%7C%20Web-success)]()
-[![Made with Capacitor](https://img.shields.io/badge/Capacitor-8-119EFF)](https://capacitorjs.com/)
-[![Made with React](https://img.shields.io/badge/React-19-61DAFB)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6)](https://www.typescriptlang.org/)
+<div align="center">
+
+[Features](#-features) • [Privacy](#-privacy) • [Tech Stack](#-tech-stack) • [Getting Started](#-getting-started) • [Contributing](#-contributing) • [License](#%EF%B8%8F-license)
 
 </div>
 
+<br>
+
 ---
 
-## Overview
+## ✨ Features
 
-Biblioteka (Polish for *library*) is a hand-crafted, privacy-first reading companion. It helps you organise your books, track your progress, capture your private notes and visualise your reading habits — all without ever sending a single byte to a remote server. The application is delivered both as a Progressive Web App and as a native Android shell built with Capacitor, sharing the same React 19 / TypeScript codebase.
+- **Three-shelf model** — *To Read*, *Reading*, *Read* — with drag-and-drop re-ordering
+- **Reading session timer** — log how long you spent with a book and the page you reached
+- **Statistics dashboard** — monthly progress charts, average rating and completion streaks powered by Recharts
+- **Quick view & rich edit** — cover image, ISBN, rating (1–5 ★), private notes
+- **Material You theming** — twelve seed colours with dynamic tonal palettes generated on-the-fly
+- **Light, dark and system themes**, persisted per device
+- **29 first-class languages** — English, Polish, French, German, Spanish, Italian, Portuguese, Dutch, Czech, Slovak, Slovenian, Croatian, Hungarian, Romanian, Bulgarian, Greek, Turkish, all Nordic, Baltic, Luxembourgish, Korean, Japanese and Greenlandic
+- **JSON backup & restore** — one tap, using the Android share sheet or a browser file download
+- **PWA-ready** — installable on any modern browser, fully offline via Workbox service worker
+- **Animated, accessible UI** built with `motion/react` and `lucide-react`
 
-The traditional library name *Biblioteka* is intentionally preserved across all 29 supported languages, in homage to the universal idea of a personal book collection.
+---
 
-## Highlights
+## 🔒 Privacy
 
-- **Three-shelf model** — *To Read*, *Reading*, *Read* — with drag-and-drop re-ordering.
-- **Reading session timer** to log how long you actually spent with a book and the page you reached.
-- **Statistics dashboard** with monthly progress charts, average rating, completion streaks and more, powered by Recharts.
-- **Quick view & rich edit** for every book: cover image, ISBN, rating (1–5 ★), private notes.
-- **Material 3 / Material You theming** — twelve seed colours plus dynamic tonal palettes generated on-the-fly via Google's `material-color-utilities`.
-- **Light, dark and system themes**, persisted per device.
-- **29 first-class languages** including English, Polish, French, German, Spanish, Italian, Portuguese, Dutch, Czech, Slovak, Slovenian, Croatian, Hungarian, Romanian, Bulgarian, Greek, Turkish, all Nordic languages (Swedish, Norwegian, Danish, Finnish, Icelandic), Baltic languages (Estonian, Latvian, Lithuanian), Luxembourgish, Korean, Japanese and Greenlandic (Kalaallisut).
-- **JSON backup & restore** with one tap, using the Android share sheet on device or a file download in the browser.
-- **PWA-ready** — installable on any modern browser, fully usable offline thanks to a Workbox service worker.
-- **Animated, accessible UI** built with `motion/react` and `lucide-react` icons.
+Biblioteka is built around one principle: **your data is yours alone.**
 
-## Privacy
+- Everything lives in `localStorage` or, on Android, in the app's private sandbox
+- **No** account · **No** server · **No** analytics · **No** crash reporter · **No** ads
+- The Android build requests **no runtime permissions**
+- The app makes **zero network requests** — no `INTERNET` permission declared
 
-Biblioteka is engineered around a single principle: **your data is yours alone**.
+The full privacy policy is available in-app under *Settings → About*, translated into all 29 supported languages.
 
-- All books, ratings, notes and settings are stored exclusively in the browser's `localStorage` or, on Android, in the app's private sandbox.
-- **No** account, **no** sign-up, **no** server.
-- **No** analytics SDK, **no** crash reporter, **no** advertising library, **no** third-party tracker.
-- The Android build does not request any runtime permission. Backups are written to the app's private cache and only leave the device when *you* explicitly invoke the system share sheet.
-- The app makes zero network requests. `AndroidManifest.xml` declares no `INTERNET` permission.
-- The full privacy policy and terms of use are available in-app under *Settings → About* and are translated into every supported language.
+---
 
-If you are auditing the project, the relevant entry-points are `src/App.tsx`, `src/components/SettingsModal.tsx` (privacy & backup logic) and `vite.config.ts`.
-
-## Tech stack
+## 🛠 Tech Stack
 
 | Layer | Technology |
 |---|---|
 | UI | React 19, TypeScript 5.8, Tailwind CSS v4 |
-| Animation | Motion (formerly Framer Motion) v12 |
+| Animation | Motion v12 (formerly Framer Motion) |
 | Icons | lucide-react |
 | Charts | Recharts 3 |
 | Theming | @material/material-color-utilities |
 | Drag & Drop | @hello-pangea/dnd |
 | Build | Vite 6 + vite-plugin-pwa (Workbox) |
-| Mobile shell | Capacitor 8 (`@capacitor/app`, `@capacitor/filesystem`, `@capacitor/share`) |
-| Android | minSdk 24 (Android 7.0), targetSdk 36, AGP 8.13, Java 21 |
+| Mobile shell | Capacitor 8 |
+| Android | minSdk 24 (Android 7.0), targetSdk 36, Java 21 |
 
-## Project structure
+---
 
-```
-.
-├── src/
-│   ├── App.tsx                    # root component, state, persistence
-│   ├── main.tsx                   # React entry-point
-│   ├── types.ts                   # Book / UserSettings / Language types
-│   ├── components/
-│   │   ├── BookCard.tsx
-│   │   ├── BookForm.tsx
-│   │   ├── BookQuickView.tsx
-│   │   ├── BookShelf.tsx
-│   │   ├── ReaderHero.tsx         # reading session timer
-│   │   ├── ReadingSessionModal.tsx
-│   │   ├── SettingsModal.tsx      # appearance, language, backup, legal
-│   │   └── StatsDashboard.tsx
-│   ├── lib/
-│   │   └── i18n.ts                # 29-language translation table
-│   └── index.css
-├── android/                       # Capacitor Android project
-│   └── app/src/main/
-│       ├── AndroidManifest.xml
-│       ├── java/com/biblioteka/app/
-│       │   └── MainActivity.java
-│       └── res/                   # icons, splash, strings
-├── public/                        # static assets shipped to dist/
-├── capacitor.config.ts
-├── vite.config.ts
-└── package.json
-```
-
-## Getting started
+## 🚀 Getting Started
 
 ### Prerequisites
 
 - Node.js **20 LTS** or newer
 - npm 10+
-- For Android: Android Studio Hedgehog (or newer), Android SDK 36, JDK 21
+- For Android: Android Studio Hedgehog+, Android SDK 36, JDK 21
 
-### 1. Install
+### Install & run
 
 ```bash
 git clone https://github.com/damiankokot/Biblioteka-Your-library-for-android.git
 cd Biblioteka-Your-library-for-android
 npm install
+npm run dev        # dev server at http://localhost:5173
 ```
 
-### 2. Run the web build
+### Build the Android app
 
 ```bash
-npm run dev          # vite dev server on http://localhost:5173
-npm run build        # production bundle in dist/
-npm run preview      # serve the production bundle locally
-npm run lint         # tsc --noEmit type-check
+npm run build
+npx cap sync android
+npx cap open android   # then Build → Generate Signed Bundle in Android Studio
 ```
-
-### 3. Build the Android app
-
-```bash
-npm run build                       # generate dist/
-npx cap sync android                # copy web assets into the native project
-npx cap open android                # opens Android Studio
-```
-
-In Android Studio choose **Build → Generate Signed Bundle / APK** and select *Android App Bundle*.
 
 #### Release signing
 
-Signing credentials are read from `~/.gradle/gradle.properties` — never commit a keystore or passwords to the repository:
+Store credentials in `~/.gradle/gradle.properties` — **never commit keystores to the repo:**
 
 ```properties
-# ~/.gradle/gradle.properties
-BIBLIOTEKA_STORE_FILE=/absolute/path/to/your.jks
+BIBLIOTEKA_STORE_FILE=/path/to/your.jks
 BIBLIOTEKA_STORE_PASSWORD=…
 BIBLIOTEKA_KEY_ALIAS=biblioteka
 BIBLIOTEKA_KEY_PASSWORD=…
 ```
 
-Generate a keystore once with:
+---
 
-```bash
-keytool -genkeypair -v \
-  -keystore ~/biblioteka-release.jks \
-  -keyalg RSA -keysize 2048 -validity 10000 \
-  -alias biblioteka
-```
+## 🌐 Internationalisation
 
-## Data backup
+All strings live in `src/lib/i18n.ts`. To add a new language:
 
-Biblioteka persists everything to `localStorage` under the following keys:
+1. Extend the `Language` union in `src/types.ts`
+2. Add an entry to `LANGUAGES` in `SettingsModal.tsx`
+3. Translate all keys in `i18n.ts`
+4. Translate the legal screens in `SettingsModal.tsx`
 
-| Key | Purpose |
-|---|---|
-| `biblioteka_books` | JSON-serialised array of `Book` objects |
-| `biblioteka_settings` | Theme mode, accent colour and language |
-| `biblioteka_isReading` / `biblioteka_readingStartTime` | Reading-session timer state |
+---
 
-Use **Settings → Backup → Export library** to obtain a portable JSON file. The same screen offers an *Import* action; imported files are validated against the `Book` schema before being merged.
+## 🗺 Roadmap
 
-## Internationalisation
-
-All user-facing strings live in `src/lib/i18n.ts`. The `useTranslation()` hook returns a `t(key)` function bound to the current `Language` from settings.
-Adding a new language is a matter of:
-
-1. Extending the `Language` union in `src/types.ts`.
-2. Adding the language entry to `LANGUAGES` in `SettingsModal.tsx`.
-3. Translating every key inside `i18n.ts`.
-4. Translating the legal screens (`PRIVACY_DISCLAIMER`, `PRIVACY_ITEMS`, `TERMS_ITEMS`, `LAST_UPDATED`) in `SettingsModal.tsx`.
-
-## Roadmap
-
-- [ ] Goodreads / Open Library ISBN lookup (opt-in, single request)
 - [ ] Home-screen widget
-- [ ] iOS target via the same Capacitor configuration
+- [ ] Open Library / ISBN cover lookup (opt-in)
+- [ ] iOS target via Capacitor
 - [ ] WebDAV / Nextcloud sync (opt-in)
 - [ ] CSV import / Goodreads migration
 
-## Contributing
+---
 
-Issues and pull requests are very welcome. Please:
+## 🤝 Contributing
 
-1. Open an issue describing the bug or proposal first.
-2. Fork the repository and create a feature branch.
-3. Run `npm run lint` and make sure the type-check passes.
-4. Add or update translations if you touch user-facing strings.
-5. Submit a PR referencing the issue.
+Issues and pull requests are welcome!
 
-## Security
+1. Open an issue describing the bug or proposal
+2. Fork and create a feature branch
+3. Run `npm run lint` — make sure type-check passes
+4. Update translations if you touch user-facing strings
+5. Submit a PR referencing the issue
 
-If you find a vulnerability, please **do not** open a public issue. Email the maintainer at `biblioteka@damiankokot.eu` with a clear description and, if possible, a proof-of-concept. You will receive an acknowledgement within 72 hours.
+---
 
-## License
+## ✉️ Contact
 
-Biblioteka is released under the [MIT License](LICENSE).
+For questions or feedback, open an issue on GitHub or reach out at
+[biblioteka@damiankokot.eu](mailto:biblioteka@damiankokot.eu)
 
-```
-Copyright (c) 2026 Damian Kokot
-```
+---
 
-## Credits
+## ©️ License
 
-Designed and built by **Damian Kokot**.
-Contact: [`biblioteka@damiankokot.eu`](mailto:biblioteka@damiankokot.eu)
+This project is licensed under the **MIT License**. See the [`LICENSE`](LICENSE) file for details.
 
-> *Designed with care for every detail of a reader's passion.*
+---
+
+<div align="center">
+   Designed and built with ❤️ by <strong>Damian Kokot</strong>
+</div>
