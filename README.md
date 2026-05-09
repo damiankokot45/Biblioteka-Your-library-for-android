@@ -19,7 +19,7 @@
 
 <div align="center">
 
-[Features](#-features) • [Privacy](#-privacy) • [Tech Stack](#-tech-stack) • [Getting Started](#-getting-started) • [Contributing](#-contributing) • [License](#%EF%B8%8F-license)
+[Features](#-features) • [Privacy](#-privacy) • [Tech Stack](#-tech-stack) • [Contact](#%EF%B8%8F-contact) • [License](#%EF%B8%8F-license)
 
 </div>
 
@@ -68,77 +68,6 @@ The full privacy policy is available in-app under *Settings → About*, translat
 | Build | Vite 6 + vite-plugin-pwa (Workbox) |
 | Mobile shell | Capacitor 8 |
 | Android | minSdk 24 (Android 7.0), targetSdk 36, Java 21 |
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js **20 LTS** or newer
-- npm 10+
-- For Android: Android Studio Hedgehog+, Android SDK 36, JDK 21
-
-### Install & run
-
-```bash
-git clone https://github.com/damiankokot/Biblioteka-Your-library-for-android.git
-cd Biblioteka-Your-library-for-android
-npm install
-npm run dev        # dev server at http://localhost:5173
-```
-
-### Build the Android app
-
-```bash
-npm run build
-npx cap sync android
-npx cap open android   # then Build → Generate Signed Bundle in Android Studio
-```
-
-#### Release signing
-
-Store credentials in `~/.gradle/gradle.properties` — **never commit keystores to the repo:**
-
-```properties
-BIBLIOTEKA_STORE_FILE=/path/to/your.jks
-BIBLIOTEKA_STORE_PASSWORD=…
-BIBLIOTEKA_KEY_ALIAS=biblioteka
-BIBLIOTEKA_KEY_PASSWORD=…
-```
-
----
-
-## 🌐 Internationalisation
-
-All strings live in `src/lib/i18n.ts`. To add a new language:
-
-1. Extend the `Language` union in `src/types.ts`
-2. Add an entry to `LANGUAGES` in `SettingsModal.tsx`
-3. Translate all keys in `i18n.ts`
-4. Translate the legal screens in `SettingsModal.tsx`
-
----
-
-## 🗺 Roadmap
-
-- [ ] Home-screen widget
-- [ ] Open Library / ISBN cover lookup (opt-in)
-- [ ] iOS target via Capacitor
-- [ ] WebDAV / Nextcloud sync (opt-in)
-- [ ] CSV import / Goodreads migration
-
----
-
-## 🤝 Contributing
-
-Issues and pull requests are welcome!
-
-1. Open an issue describing the bug or proposal
-2. Fork and create a feature branch
-3. Run `npm run lint` — make sure type-check passes
-4. Update translations if you touch user-facing strings
-5. Submit a PR referencing the issue
 
 ---
 
