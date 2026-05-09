@@ -4,14 +4,6 @@
 
 <h1 align="center">Biblioteka</h1>
 
-<div align="center">
-   <img src="https://img.shields.io/github/license/damiankokot/Biblioteka-Your-library-for-android?style=for-the-badge&color=cba6f7&labelColor=302D41">
-   <img src="https://img.shields.io/github/last-commit/damiankokot/Biblioteka-Your-library-for-android?style=for-the-badge&color=b1d18a&labelColor=1f3701">
-   <img src="https://img.shields.io/github/v/release/damiankokot/Biblioteka-Your-library-for-android?style=for-the-badge&color=dbc66e&labelColor=3a3000">
-   <br>
-   <img src="https://img.shields.io/github/stars/damiankokot/Biblioteka-Your-library-for-android?style=for-the-badge&color=ffb5a0&labelColor=561f0f">
-   <img src="https://img.shields.io/github/downloads/damiankokot/Biblioteka-Your-library-for-android/total?label=Downloads&style=for-the-badge&color=aac7ff&labelColor=0a305f">
-</div>
 
 <div align="center">
    <h3>Your private, offline-first reading tracker for Android and the web.</h3>
@@ -24,6 +16,8 @@
 </div>
 
 <br>
+
+![thumbnail](preview/thumbnail.png)
 
 ---
 
