@@ -113,6 +113,7 @@ export const translations: Translations = {
     importSuccess: "Successfully loaded books: ",
     importFormatError: "Invalid backup file format.",
     importError: "Failed to read file. Make sure it is a valid backup JSON.",
+    storageFullError: "Storage is full. Try removing some book covers or clearing data.",
     onGithub: "On Github",
     mitLicense: "MIT License"
   },
@@ -219,6 +220,7 @@ export const translations: Translations = {
     importSuccess: "Pomyślnie zaimportowano książki: ",
     importFormatError: "Nieprawidłowy format pliku kopii.",
     importError: "Błąd odczytu pliku kopii zapasowej JSON.",
+    storageFullError: "Pamięć jest pełna. Usuń kilka okładek lub wyczyść dane aplikacji.",
     onGithub: "Na Github",
     mitLicense: "Licencja MIT"
   },
@@ -323,6 +325,7 @@ export const translations: Translations = {
     importSuccess: "Livres chargés : ",
     importFormatError: "Format invalide.",
     importError: "Erreur de lecture.",
+    storageFullError: "L'espace de stockage est plein. Supprimez quelques couvertures ou effacez les données.",
     onGithub: "Sur Github",
     mitLicense: "Licence MIT",
     clearDataDesc: "Supprimer tous les livres et réinitialiser",
@@ -429,6 +432,7 @@ export const translations: Translations = {
     importSuccess: "Erfolgreich geladen: ",
     importFormatError: "Ungültiges Format.",
     importError: "Fehler beim Lesen.",
+    storageFullError: "Der Speicher ist voll. Entferne einige Buchcover oder lösche die Daten.",
     onGithub: "Auf Github",
     mitLicense: "MIT Lizenz",
     clearDataDesc: "Alle Bücher löschen und zurücksetzen",
@@ -535,6 +539,7 @@ export const translations: Translations = {
     importSuccess: "Libros cargados: ",
     importFormatError: "Formato no válido.",
     importError: "Error de lectura.",
+    storageFullError: "El almacenamiento está lleno. Elimina algunas portadas o borra los datos.",
     onGithub: "En Github",
     mitLicense: "Licencia MIT",
     clearDataDesc: "Eliminar todos los libros y restablecer",
@@ -641,6 +646,7 @@ export const translations: Translations = {
     importSuccess: "Kész: ",
     importFormatError: "Hiba.",
     importError: "Olvasási hiba.",
+    storageFullError: "A tárhely megtelt. Távolíts el néhány könyvborítót vagy töröld az adatokat.",
     onGithub: "Githubon",
     mitLicense: "MIT licenc",
     clearDataDesc: "Összes könyv törlése és visszaállítás",
@@ -747,6 +753,7 @@ export const translations: Translations = {
     importSuccess: "Gata: ",
     importFormatError: "Eroare.",
     importError: "Eroare citire.",
+    storageFullError: "Stocarea este plină. Elimină câteva coperți de carte sau șterge datele.",
     onGithub: "Pe Github",
     mitLicense: "Licență MIT",
     clearDataDesc: "Ștergeți toate cărțile și resetați",
@@ -853,6 +860,7 @@ export const translations: Translations = {
     importSuccess: "Hotovo: ",
     importFormatError: "Chyba.",
     importError: "Chyba čtení.",
+    storageFullError: "Úložiště je plné. Odstraň některé obálky knih nebo vymaž data.",
     onGithub: "Na Githubu",
     mitLicense: "MIT licence",
     clearDataDesc: "Smazat všechny knihy a resetovat",
@@ -961,6 +969,7 @@ export const translations: Translations = {
     importSuccess: "Ladataan kirjat: ",
     importFormatError: "Virheellinen varmuuskopion tiedostomuoto.",
     importError: "Tiedoston luku epäonnistui. Varmista, että se on kelvollinen varmuuskopio-JSON.",
+    storageFullError: "Tallennustila on täynnä. Poista joitakin kansikuvia tai tyhjennä tiedot.",
     onGithub: "Githubissa",
     mitLicense: "MIT-lisenssi"
 },
@@ -1067,6 +1076,7 @@ export const translations: Translations = {
     importSuccess: "Fullfört: ",
     importFormatError: "Ogiltigt format på säkerhetskopian.",
     importError: "Fel vid läsning av filen. Kontrollera att det är en giltig JSON.",
+    storageFullError: "Lagringen är full. Ta bort några bokomslag eller rensa data.",
     onGithub: "På Github",
     mitLicense: "MIT Licens"
 },
@@ -1173,6 +1183,7 @@ export const translations: Translations = {
     importSuccess: "Fullført: ",
     importFormatError: "Ugyldig sikkerhetskopi-format.",
     importError: "Fant ikke gyldig JSON.",
+    storageFullError: "Lagringen er full. Fjern noen bokomslag eller slett dataene.",
     onGithub: "På Github",
     mitLicense: "MIT-lisens"
 },
@@ -1279,6 +1290,7 @@ export const translations: Translations = {
     importSuccess: "Bøger blev indlæst: ",
     importFormatError: "Ugyldigt format for sikkerhedskopiering.",
     importError: "JSON er ikke gyldig.",
+    storageFullError: "Lageret er fuldt. Fjern nogle bogomslag eller ryd dataene.",
     onGithub: "På Github",
     mitLicense: "MIT-licens"
 },
@@ -1385,6 +1397,7 @@ export const translations: Translations = {
     importSuccess: "Boeken succesvol geladen: ",
     importFormatError: "Ongeldig formaat.",
     importError: "Lezen mislukt. Zorg dat het een geldige JSON is.",
+    storageFullError: "De opslag is vol. Verwijder enkele boekomslagen of wis de gegevens.",
     onGithub: "Op Github",
     mitLicense: "MIT Licentie"
 },
@@ -1491,6 +1504,7 @@ export const translations: Translations = {
     importSuccess: "Gelueden Bicher: ",
     importFormatError: "Pandatioun Feeler.",
     importError: "Feeler bei der Datei.",
+    storageFullError: "De Späicher ass voll. Läscht e puer Bicherkoppele oder läscht d'Daten.",
     onGithub: "Op Github",
     mitLicense: "MIT Lizenz"
 },
@@ -1597,6 +1611,7 @@ export const translations: Translations = {
     importSuccess: "Livros carregados: ",
     importFormatError: "Formato inválido de backup.",
     importError: "Erro ao ler. Certifique-se que o JSON é válido.",
+    storageFullError: "O armazenamento está cheio. Remova algumas capas ou limpe os dados.",
     onGithub: "No Github",
     mitLicense: "Licença MIT"
 },
@@ -1703,6 +1718,7 @@ export const translations: Translations = {
     importSuccess: "Importazione completata: ",
     importFormatError: "Formato non valido.",
     importError: "Errore json.",
+    storageFullError: "Lo spazio è pieno. Rimuovi alcune copertine o cancella i dati.",
     onGithub: "Su Github",
     mitLicense: "Licenza MIT"
 },
@@ -1809,6 +1825,7 @@ export const translations: Translations = {
     importSuccess: "Uspjeh: ",
     importFormatError: "Krivi format.",
     importError: "Greška.",
+    storageFullError: "Pohrana je puna. Ukloni neke naslovnice knjiga ili izbriši podatke.",
     onGithub: "Na Githubu",
     mitLicense: "MIT licenca"
 },
@@ -1915,6 +1932,7 @@ export const translations: Translations = {
     importSuccess: "USpešne: ",
     importFormatError: "Chybný format.",
     importError: "Chyba.",
+    storageFullError: "Úložisko je plné. Odstráň niektoré obálky kníh alebo vymaž dáta.",
     onGithub: "Na Github",
     mitLicense: "MIT licencie"
 },
@@ -2021,6 +2039,7 @@ export const translations: Translations = {
     importSuccess: "Edu: ",
     importFormatError: "Vigane.",
     importError: "Viga.",
+    storageFullError: "Salvestusruum on täis. Eemalda mõned raamatukaaned või kustuta andmed.",
     onGithub: "Githubis",
     mitLicense: "MIT litsents"
 },
@@ -2127,6 +2146,7 @@ export const translations: Translations = {
     importSuccess: "Labi: ",
     importFormatError: "Kļūda.",
     importError: "Kļūda.",
+    storageFullError: "Krātuve ir pilna. Noņem dažus grāmatu vākus vai notīri datus.",
     onGithub: "Github",
     mitLicense: "MIT licence"
 },
@@ -2233,6 +2253,7 @@ export const translations: Translations = {
     importSuccess: "Puiku: ",
     importFormatError: "Klaida.",
     importError: "Klaida.",
+    storageFullError: "Saugykla pilna. Pašalink kai kuriuos knygų viršelius arba išvalyk duomenis.",
     onGithub: "Github",
     mitLicense: "MIT"
 },
@@ -2339,6 +2360,7 @@ export const translations: Translations = {
     importSuccess: "Успех: ",
     importFormatError: "Грешка.",
     importError: "Грешка.",
+    storageFullError: "Хранилището е пълно. Премахни някои корици на книги или изчисти данните.",
     onGithub: "В Github",
     mitLicense: "MIT"
 },
@@ -2445,6 +2467,7 @@ export const translations: Translations = {
     importSuccess: "Başarılı: ",
     importFormatError: "Hatalı format.",
     importError: "Hata.",
+    storageFullError: "Depolama dolu. Bazı kitap kapaklarını kaldır veya verileri temizle.",
     onGithub: "Github'da",
     mitLicense: "MIT lisansı"
 },
@@ -2551,6 +2574,7 @@ export const translations: Translations = {
     importSuccess: "불러오기 성공: ",
     importFormatError: "잘못된 형식입니다.",
     importError: "오류 발생.",
+    storageFullError: "저장 공간이 가득 찼습니다. 일부 표지를 제거하거나 데이터를 지우세요.",
     onGithub: "Github",
     mitLicense: "MIT 라이선스"
 },
@@ -2657,6 +2681,7 @@ export const translations: Translations = {
     importSuccess: "インポート完了：",
     importFormatError: "フォーマットエラー。",
     importError: "エラーです。",
+    storageFullError: "ストレージがいっぱいです。表紙を削除するか、データを消去してください。",
     onGithub: "Github",
     mitLicense: "MITライセンス"
 },
@@ -2763,6 +2788,7 @@ export const translations: Translations = {
     importSuccess: "Tókst: ",
     importFormatError: "Villa.",
     importError: "Villa.",
+    storageFullError: "Geymsla er full. Fjarlægðu einhverjar bókakápur eða hreinsaðu gögn.",
     onGithub: "Github",
     mitLicense: "MIT"
 },
@@ -2869,6 +2895,7 @@ export const translations: Translations = {
     importSuccess: "Aaqqippoq: ",
     importFormatError: "Kukkuneq.",
     importError: "Kukkuneq.",
+    storageFullError: "Toqqortat ulikkupput. Atuagaat saqqaat ilaat peerukit.",
     onGithub: "Github",
     mitLicense: "MIT"
 },
@@ -2977,6 +3004,7 @@ export const translations: Translations = {
     importSuccess: "Uspešno naloženih knjig: ",
     importFormatError: "Neveljaven format datoteke za varnostno kopijo.",
     importError: "Branje datoteke ni uspelo. Prepričajte se, da gre za veljaven varnostni JSON.",
+    storageFullError: "Pomnilnik je poln. Odstrani nekaj naslovnic knjig ali počisti podatke.",
     onGithub: "Na Githubu",
     mitLicense: "MIT licenca"
 },
@@ -3084,6 +3112,7 @@ export const translations: Translations = {
     importSuccess: "Επιτυχής φόρτωση βιβλίων: ",
     importFormatError: "Μη έγκυρη μορφή αρχείου.",
     importError: "Σφάλμα ανάγνωσης. Βεβαιωθείτε ότι είναι έγκυρο αρχείο JSON.",
+    storageFullError: "Ο αποθηκευτικός χώρος είναι γεμάτος. Αφαίρεσε μερικά εξώφυλλα ή διέγραψε τα δεδομένα.",
     onGithub: "Στο Github",
     mitLicense: "Άδεια MIT"
 },

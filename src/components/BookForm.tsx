@@ -23,14 +23,36 @@ export function BookForm({ book, onSave, onDelete, onClose }: BookFormProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setCoverImage(reader.result as string);
-      };
-      reader.readAsDataURL(file);
-    }
+    const input = e.target;
+    const file = input.files?.[0];
+    // Reset so picking the same file again still triggers onChange.
+    input.value = '';
+    if (!file) return;
+
+    // Decode → downscale → re-encode as JPEG to keep covers small enough for
+    // localStorage (raw phone photos are 3–8 MB and quickly blow the quota).
+    const objectUrl = URL.createObjectURL(file);
+    const img = new Image();
+    img.onload = () => {
+      try {
+        const MAX_DIM = 800;
+        const scale = Math.min(1, MAX_DIM / Math.max(img.width, img.height));
+        const w = Math.max(1, Math.round(img.width * scale));
+        const h = Math.max(1, Math.round(img.height * scale));
+        const canvas = document.createElement('canvas');
+        canvas.width = w;
+        canvas.height = h;
+        const ctx = canvas.getContext('2d');
+        if (ctx) {
+          ctx.drawImage(img, 0, 0, w, h);
+          setCoverImage(canvas.toDataURL('image/jpeg', 0.85));
+        }
+      } finally {
+        URL.revokeObjectURL(objectUrl);
+      }
+    };
+    img.onerror = () => URL.revokeObjectURL(objectUrl);
+    img.src = objectUrl;
   };
 
   const handleSubmit = (e: React.FormEvent) => {

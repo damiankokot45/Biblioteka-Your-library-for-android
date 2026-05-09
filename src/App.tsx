@@ -77,8 +77,15 @@ export default function App() {
 
 
   useEffect(() => {
-    localStorage.setItem('biblioteka_books', JSON.stringify(books));
-  }, [books]);
+    try {
+      localStorage.setItem('biblioteka_books', JSON.stringify(books));
+    } catch (e) {
+      // Most likely QuotaExceededError — surface it instead of letting the
+      // effect throw and crash the renderer (which manifests as a black screen).
+      console.error('Failed to save books to localStorage', e);
+      window.alert(getTranslation(settings.language, 'storageFullError') || 'Storage is full. Try removing some book covers or clearing data.');
+    }
+  }, [books, settings.language]);
 
   useEffect(() => {
     localStorage.setItem('biblioteka_settings', JSON.stringify(settings));
