@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Migrated from the web version (src/lib/i18n.ts + SettingsModal.tsx). -->
+<resources>
+    <string name="search_placeholder">Išči knjigo...</string>
+    <string name="sort_by_date">Datum dodajanja</string>
+    <string name="sort_by_title">Naslov</string>
+    <string name="sort_by_author">Avtor</string>
+    <string name="sort_by_rating">Ocena</string>
+    <string name="tab_shelf">Knjižna polica</string>
+    <string name="tab_to_read">Za branje</string>
+    <string name="tab_reading">Trenutno berem</string>
+    <string name="tab_read">Prebrano</string>
+    <string name="tab_stats">Statistika</string>
+    <string name="add_book">Nova knjiga</string>
+    <string name="edit_book">Uredi knjigo</string>
+    <string name="save">Shrani</string>
+    <string name="title">Naslov</string>
+    <string name="title_placeholder">Npr. Gospodar prstanov</string>
+    <string name="author">Avtor</string>
+    <string name="author_placeholder">Npr. J.R.R. Tolkien</string>
+    <string name="status">Status</string>
+    <string name="status_to_read">Za branje</string>
+    <string name="status_reading">Trenutno berem</string>
+    <string name="status_read">Prebrano</string>
+    <string name="rating">Ocena</string>
+    <string name="notes">Opombe</string>
+    <string name="notes_placeholder">Vaše misli, citati...</string>
+    <string name="cover_or_bookmark">Naslovnica / Zaznamek</string>
+    <string name="select_from_gallery">Izberi iz galerije</string>
+    <string name="remove_cover">Izbriši</string>
+    <string name="settings">Nastavitve</string>
+    <string name="appearance">Videz</string>
+    <string name="theme">Tema</string>
+    <string name="theme_system">Sistemska</string>
+    <string name="theme_light">Svetla</string>
+    <string name="theme_dark">Temna</string>
+    <string name="accent_color">Poudarjena barva</string>
+    <string name="language">Jezik</string>
+    <string name="backup">Podatki in varnostna kopija</string>
+    <string name="export_data">Izvozi podatke</string>
+    <string name="import_data">Uvozi podatke</string>
+    <string name="clear_data">Počisti podatke</string>
+    <string name="clear_data_desc">Izbrišite vse knjige in ponastavite aplikacijo</string>
+    <string name="confirm_clear_data">Ali ste prepričani, da želite izbrisati VSE podatke? Tega ni mogoče razveljaviti!</string>
+    <string name="about_app">O aplikaciji</string>
+    <string name="version">Različica</string>
+    <string name="licenses">Licence</string>
+    <string name="email">E-pošta</string>
+    <string name="source_code">Izvorna koda</string>
+    <string name="create_issue">Ustvari zahtevek</string>
+    <string name="third_party_licenses">Licence tretjih oseb</string>
+    <string name="terms_conditions">Pogoji uporabe</string>
+    <string name="privacy_policy">Pravilnik o zasebnosti</string>
+    <string name="close">Zapri</string>
+    <string name="empty_shelf_title">Ni knjig</string>
+    <string name="empty_shelf_desc">Kliknite spodnji gumb in dodajte svojo prvo knjigo na ta seznam.</string>
+    <string name="this_year">Letos</string>
+    <string name="books_read">Prebranih knjig</string>
+    <string name="books_added">Dodanih knjig</string>
+    <string name="pages_read">Prebranih strani</string>
+    <string name="time_spent">Porabljen čas</string>
+    <string name="reading_progress">Napredek branja</string>
+    <string name="page">Stran</string>
+    <string name="start_reading">Začni brati</string>
+    <string name="stop_reading">Ustavi časovnik</string>
+    <string name="cancel">Prekliči</string>
+    <string name="empty_stats_title">Ni podatkov</string>
+    <string name="empty_stats_desc">Dodajte knjige, da vidite svojo statistiko knjižnice.</string>
+    <string name="select_book">Izberite knjigo...</string>
+    <string name="what_book_reading">Katero knjigo ste brali?</string>
+    <string name="what_page_finished">Na kateri strani ste končali?</string>
+    <string name="add_book_first">Nimate knjig s statusom \'Za branje\' ali \'Trenutno berem\'. Najprej dodajte knjigo.</string>
+    <string name="update_progress_message">Branje končano</string>
+    <string name="reading_time_title">Čas za branje?</string>
+    <string name="reading_time_desc_reading">Potopite se v zgodbo...</string>
+    <string name="reading_time_desc_idle">Sprostite se in začnite brati. Merite čas in spremljajte napredek.</string>
+    <string name="import_success">Uspešno naloženih knjig:</string>
+    <string name="import_format_error">Neveljaven format datoteke za varnostno kopijo.</string>
+    <string name="import_error">Branje datoteke ni uspelo. Prepričajte se, da gre za veljaven varnostni JSON.</string>
+    <string name="storage_full_error">Pomnilnik je poln. Odstrani nekaj naslovnic knjig ali počisti podatke.</string>
+    <string name="on_github">Na Githubu</string>
+    <string name="mit_license">MIT licenca</string>
+    <string name="last_updated">Nazadnje posodobljeno: maj 2026</string>
+    <string name="privacy_disclaimer_title">Vaši podatki ostanejo na vaši napravi.</string>
+    <string name="privacy_disclaimer_body">Biblioteka ne zbira, ne prenaša in ne prodaja nobenih osebnih podatkov.</string>
+    <string-array name="privacy_titles">
+        <item>Shranjevanje podatkov</item>
+        <item>Brez analitike in sledenja</item>
+        <item>Dovoljenja</item>
+        <item>Odprta koda</item>
+        <item>Kontakt</item>
+    </string-array>
+    <string-array name="privacy_bodies">
+        <item>Vse vaše knjige, opombe in nastavitve so shranjene izključno na vaši napravi. Ne potrebujete nobenega računa.</item>
+        <item>Ne uporabljamo nobenih analitičnih storitev, orodij za prijavo napak in oglaševalskih komponent.</item>
+        <item>Biblioteka ne zahteva nobenih Android dovoljenj med izvajanjem. Varnostne kopije so zapisane v zasebni predpomnilnik aplikacije in deljene samo, ko izrecno pritisnete Deli.</item>
+        <item>Biblioteka je aplikacija s popolnoma odprto kodo. S kodo se lahko seznanite na GitHubu in vse trditve neodvisno preverite.</item>
+        <item>Imate vprašanja glede zasebnosti? Odprite zahtevek na GitHubu, ali pa nas kontaktirajte prek elektronske pošte: biblioteka@damiankokot.eu.</item>
+    </string-array>
+    <string-array name="terms_titles">
+        <item>1. Sprejem pogojev</item>
+        <item>2. Licenca</item>
+        <item>3. Nameni uporabe</item>
+        <item>4. Odsotnost garancije</item>
+        <item>5. Nadaljnje spremembe</item>
+        <item>6. Pritožbe &amp; podpora</item>
+    </string-array>
+    <string-array name="terms_bodies">
+        <item>Z namestitvijo ali uporabo te aplikacije se strinjate s temi navedenimi pogoji uporabe. V kolikor se z njimi ne strinjate, prosimo odstranite aplikacijo.</item>
+        <item>Aplikacija je odprta koda na voljo kot brezplačna po MIT licenci.</item>
+        <item>Predpisani nameni obljubljeno zagotavljajo storitev brez tveganj zlonamerne uporabe. Obljubljamo, da je ne bomo zlorabili.</item>
+        <item>Biblioteka je uporabnikom zagotovljena brez vsakršnih prevzetih jamstev do povrnjenih stroškov ali posledične izgube baze podatkov.</item>
+        <item>Naslednje posodobitve preteklim odsekom se avtomatsko uveljavljajo dokler so v skladu s tem.</item>
+        <item>Vedno podpiramo pobude zato nas v primeru odkritih problemov ali nasveta kontaktirajte preko biblioteka@damiankokot.eu</item>
+    </string-array>
+</resources>

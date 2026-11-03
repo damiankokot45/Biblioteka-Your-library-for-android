@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Migrated from the web version (src/lib/i18n.ts + SettingsModal.tsx). -->
+<resources>
+    <string name="search_placeholder">Etsi kirjaa...</string>
+    <string name="sort_by_date">Lisäyspäivä</string>
+    <string name="sort_by_title">Otsikko</string>
+    <string name="sort_by_author">Tekijä</string>
+    <string name="sort_by_rating">Arvio</string>
+    <string name="tab_shelf">Hylly</string>
+    <string name="tab_to_read">Luettavat</string>
+    <string name="tab_reading">Luen</string>
+    <string name="tab_read">Luettu</string>
+    <string name="tab_stats">Tilastot</string>
+    <string name="add_book">Uusi kirja</string>
+    <string name="edit_book">Muokkaa</string>
+    <string name="save">Tallenna</string>
+    <string name="title">Otsikko</string>
+    <string name="title_placeholder">Esim. Taru Sormusten Herrasta</string>
+    <string name="author">Tekijä</string>
+    <string name="author_placeholder">Esim. J.R.R. Tolkien</string>
+    <string name="status">Tila</string>
+    <string name="status_to_read">Luettavat</string>
+    <string name="status_reading">Luen</string>
+    <string name="status_read">Luettu</string>
+    <string name="rating">Arvio</string>
+    <string name="notes">Muistiinpanot</string>
+    <string name="notes_placeholder">Ajatuksesi, lainaukset...</string>
+    <string name="cover_or_bookmark">Kansi / Kirjanmerkki</string>
+    <string name="select_from_gallery">Valitse galleriasta</string>
+    <string name="remove_cover">Poista</string>
+    <string name="settings">Asetukset</string>
+    <string name="appearance">Ulkonäkö</string>
+    <string name="theme">Teema</string>
+    <string name="theme_system">Järjestelmä</string>
+    <string name="theme_light">Vaalea</string>
+    <string name="theme_dark">Tumma</string>
+    <string name="accent_color">Korostusväri</string>
+    <string name="language">Kieli</string>
+    <string name="backup">Tiedot ja varmuuskopio</string>
+    <string name="export_data">Vie tiedot</string>
+    <string name="import_data">Tuo tiedot</string>
+    <string name="clear_data">Tyhjennä tiedot</string>
+    <string name="clear_data_desc">Poista kaikki kirjat ja nollaa</string>
+    <string name="confirm_clear_data">Haluatko varmasti poistaa KAIKKI tiedot? Tätä ei voi perua!</string>
+    <string name="about_app">Tietoja sovelluksesta</string>
+    <string name="version">Versio</string>
+    <string name="licenses">Lisenssit</string>
+    <string name="email">Sähköposti</string>
+    <string name="source_code">Lähdekoodi</string>
+    <string name="create_issue">Luo ilmoitus</string>
+    <string name="third_party_licenses">Kolmannen osapuolen lisenssit</string>
+    <string name="terms_conditions">Käyttöehdot</string>
+    <string name="privacy_policy">Tietosuojakäytäntö</string>
+    <string name="close">Sulje</string>
+    <string name="empty_shelf_title">Ei kirjoja</string>
+    <string name="empty_shelf_desc">Klikkaa painiketta lisätäksesi ensimmäisen kirjasi.</string>
+    <string name="this_year">Tänä vuonna</string>
+    <string name="books_read">Luetut kirjat</string>
+    <string name="books_added">Lisätyt kirjat</string>
+    <string name="pages_read">Luetut sivut</string>
+    <string name="time_spent">Käytetty aika</string>
+    <string name="reading_progress">Lukemisen edistyminen</string>
+    <string name="page">Sivu</string>
+    <string name="start_reading">Aloita lukeminen</string>
+    <string name="stop_reading">Lopeta ajastin</string>
+    <string name="cancel">Peruuta</string>
+    <string name="empty_stats_title">Ei tietoja</string>
+    <string name="empty_stats_desc">Lisää kirjoja nähdäksesi kirjastosi tilastot.</string>
+    <string name="select_book">Valitse kirja...</string>
+    <string name="what_book_reading">Mitä kirjaa luit?</string>
+    <string name="what_page_finished">Mille sivulle lopetit?</string>
+    <string name="add_book_first">Sinulla ei ole kirjoja \'Luettavat\'- tai \'Luen\'-tilassa. Lisää kirja ensin.</string>
+    <string name="update_progress_message">Lukeminen suoritettu</string>
+    <string name="reading_time_title">Aikaa lukea?</string>
+    <string name="reading_time_desc_reading">Sukella tarinaan...</string>
+    <string name="reading_time_desc_idle">Rentoudu ja aloita lukeminen. Mittaa aikaasi ja seuraa edistymistäsi.</string>
+    <string name="import_success">Ladataan kirjat:</string>
+    <string name="import_format_error">Virheellinen varmuuskopion tiedostomuoto.</string>
+    <string name="import_error">Tiedoston luku epäonnistui. Varmista, että se on kelvollinen varmuuskopio-JSON.</string>
+    <string name="storage_full_error">Tallennustila on täynnä. Poista joitakin kansikuvia tai tyhjennä tiedot.</string>
+    <string name="on_github">Githubissa</string>
+    <string name="mit_license">MIT-lisenssi</string>
+    <string name="last_updated">Viimeksi päivitetty: Toukokuu 2026</string>
+    <string name="privacy_disclaimer_title">Tietosi pysyvät laitteellasi.</string>
+    <string name="privacy_disclaimer_body">Biblioteka ei kerää, siirrä tai myy henkilökohtaisia ​​tietoja.</string>
+    <string-array name="privacy_titles">
+        <item>Tietojen varastointi</item>
+        <item>Ei analytiikkaa tai seurantaa</item>
+        <item>Käyttöoikeudet</item>
+        <item>Avoin lähdekoodi</item>
+        <item>Ota yhteyttä</item>
+    </string-array>
+    <string-array name="privacy_bodies">
+        <item>Kaikki kirjasi, muistiinpanosi ja asetuksesi tallennetaan yksinomaan laitteellesi. Tiliä ei tarvita.</item>
+        <item>Emme käytä mitään analytiikkapalveluita, kaatumisraportoijia tai mainos-SDK:ita.</item>
+        <item>Biblioteka ei pyydä Android-suoritusaikaisia käyttöoikeuksia. Varmuuskopiot kirjoitetaan sovelluksen yksityiseen välimuistiin ja jaetaan vain kun napautat Jaa-painiketta.</item>
+        <item>Biblioteka on täysin avoimen lähdekoodin. Voit tarkastaa kaiken koodin GitHubissa näiden väitteiden vahvistamiseksi.</item>
+        <item>Tietosuojaa koskevia kysymyksiä? Avaa ongelma GitHubissa tai ota yhteyttä suoraan kehittäjään osoitteessa biblioteka@damiankokot.eu.</item>
+    </string-array>
+    <string-array name="terms_titles">
+        <item>1. Käyttöehtojen hyväksyminen</item>
+        <item>2. Lisenssi</item>
+        <item>3. Sovelluksen käyttö</item>
+        <item>4. Ei takuuta</item>
+        <item>5. Muutokset</item>
+        <item>6. Ota yhteyttä</item>
+    </string-array>
+    <string-array name="terms_bodies">
+        <item>Lataamalla tai käyttämällä Biblioteka-sovellusta hyväksyt nämä käyttöehdot. Jos et hyväksy, poista sovellus.</item>
+        <item>Biblioteka on ilmainen, avoimen lähdekoodin ohjelmisto, jota jaetaan MIT-lisenssillä.</item>
+        <item>Sovellus on tarkoitettu henkilökohtaiseen käyttöön. Sitoudut olemaan väärinkäyttämättä sovellusta.</item>
+        <item>Sovellus tarjotaan \"sellaisenaan\" ilman minkäänlaista takuuta. Kehittäjä ei ole vastuussa mistään tietojen menetyksestä.</item>
+        <item>Näitä ehtoja voidaan päivittää milloin tahansa. Sovelluksen jatkuva käyttö tarkoittaa hyväksyntää.</item>
+        <item>Kysymyksiä tai huolenaiheita varten avaa ongelma GitHubissa tai ota suoraan yhteyttä osoitteeseen biblioteka@damiankokot.eu.</item>
+    </string-array>
+</resources>

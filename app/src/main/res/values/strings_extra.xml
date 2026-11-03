@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Strings that were hard-coded in English in the web version. Other locales fall back to these. -->
+<resources>
+    <string name="app_name" translatable="false">Biblioteka</string>
+    <string name="reading_logged">Reading logged!</string>
+    <string name="great_job_reading">Great job reading</string>
+    <string name="log_progress">Log Progress</string>
+    <string name="page_placeholder">e.g. 150</string>
+    <string name="third_party_intro">This app uses the following open-source libraries:</string>
+    <string name="export_share_title">Biblioteka backup</string>
+    <string name="import_skipped">(%d skipped)</string>
+    <string name="drag_hint">Long-press a book to move it between shelves</string>
+</resources>

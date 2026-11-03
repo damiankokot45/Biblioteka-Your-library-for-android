@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Migrated from the web version (src/lib/i18n.ts + SettingsModal.tsx). -->
+<resources>
+    <string name="search_placeholder">Търсене...</string>
+    <string name="sort_by_date">Добавено</string>
+    <string name="sort_by_title">Заглавие</string>
+    <string name="sort_by_author">Автор</string>
+    <string name="sort_by_rating">Рейтинг</string>
+    <string name="tab_shelf">Рафт</string>
+    <string name="tab_to_read">За четене</string>
+    <string name="tab_reading">Чета</string>
+    <string name="tab_read">Прочетено</string>
+    <string name="tab_stats">Статистика</string>
+    <string name="add_book">Нова книга</string>
+    <string name="edit_book">Редакция</string>
+    <string name="save">Запис</string>
+    <string name="title">Заглавие</string>
+    <string name="title_placeholder">Напр. Властелинът</string>
+    <string name="author">Автор</string>
+    <string name="author_placeholder">Напр. Толкин</string>
+    <string name="status">Статус</string>
+    <string name="status_to_read">За четене</string>
+    <string name="status_reading">Чета</string>
+    <string name="status_read">Прочетено</string>
+    <string name="rating">Рейтинг</string>
+    <string name="notes">Бележки</string>
+    <string name="notes_placeholder">Мисли...</string>
+    <string name="cover_or_bookmark">Корица</string>
+    <string name="select_from_gallery">Галерия</string>
+    <string name="remove_cover">Изтриване</string>
+    <string name="settings">Настройки</string>
+    <string name="appearance">Изглед</string>
+    <string name="theme">Тема</string>
+    <string name="theme_system">Система</string>
+    <string name="theme_light">Светла</string>
+    <string name="theme_dark">Тъмна</string>
+    <string name="accent_color">Цвят</string>
+    <string name="language">Език</string>
+    <string name="backup">Данни</string>
+    <string name="export_data">Експорт</string>
+    <string name="import_data">Импорт</string>
+    <string name="clear_data">Изчисти</string>
+    <string name="clear_data_desc">Изтрий всичко</string>
+    <string name="confirm_clear_data">Сигурни ли сте?</string>
+    <string name="about_app">За приложението</string>
+    <string name="version">Версия</string>
+    <string name="licenses">Лицензи</string>
+    <string name="email">Имейл</string>
+    <string name="source_code">Код</string>
+    <string name="create_issue">Сигнал</string>
+    <string name="third_party_licenses">Трети</string>
+    <string name="terms_conditions">Условия</string>
+    <string name="privacy_policy">Поверителност</string>
+    <string name="close">Затвори</string>
+    <string name="empty_shelf_title">Няма</string>
+    <string name="empty_shelf_desc">Добави.</string>
+    <string name="this_year">Тази година</string>
+    <string name="books_read">Прочетени</string>
+    <string name="books_added">Добавени</string>
+    <string name="pages_read">Страници</string>
+    <string name="time_spent">Време</string>
+    <string name="reading_progress">Прогрес</string>
+    <string name="page">Стр</string>
+    <string name="start_reading">Старт</string>
+    <string name="stop_reading">Стоп</string>
+    <string name="cancel">Отказ</string>
+    <string name="empty_stats_title">Няма</string>
+    <string name="empty_stats_desc">Добави книги.</string>
+    <string name="select_book">Избери...</string>
+    <string name="what_book_reading">Какво четеш?</string>
+    <string name="what_page_finished">Страница?</string>
+    <string name="add_book_first">Добави първо.</string>
+    <string name="update_progress_message">Готово</string>
+    <string name="reading_time_title">Време?</string>
+    <string name="reading_time_desc_reading">Чети...</string>
+    <string name="reading_time_desc_idle">Релакс.</string>
+    <string name="import_success">Успех:</string>
+    <string name="import_format_error">Грешка.</string>
+    <string name="import_error">Грешка.</string>
+    <string name="storage_full_error">Хранилището е пълно. Премахни някои корици на книги или изчисти данните.</string>
+    <string name="on_github">В Github</string>
+    <string name="mit_license">MIT</string>
+    <string name="last_updated">Последна актуализация: Май 2026</string>
+    <string name="privacy_disclaimer_title">Вашите данни остават на вашето устройство.</string>
+    <string name="privacy_disclaimer_body">Biblioteka не събира, не предава и не продава лични данни.</string>
+    <string-array name="privacy_titles">
+        <item>Съхранение на информация</item>
+        <item>Липса на следене или аналитика</item>
+        <item>Достъп</item>
+        <item>Разработен с отворен код</item>
+        <item>Контакти</item>
+    </string-array>
+    <string-array name="privacy_bodies">
+        <item>Всички книги, бележки и допълнителни настройки са архивирани във вашето устройство. Не е необходима допълнителна регистрация.</item>
+        <item>Приложението е освободено от спомагателни програми с анализаторски и други подобни функции.</item>
+        <item>Biblioteka не изисква никакви Android разрешения по време на изпълнение. Резервните копия се записват в частния кеш на приложението и се споделят само когато изрично натиснете Споделяне.</item>
+        <item>Biblioteka функционира главно чрез отворен код. Можете да прегледате файловете в GitHub.</item>
+        <item>Намерете отговор на вашите въпроси или ни потърсете директно на: biblioteka@damiankokot.eu.</item>
+    </string-array>
+    <string-array name="terms_titles">
+        <item>1. Приемане на условията</item>
+        <item>2. Лиценз</item>
+        <item>3. Управление</item>
+        <item>4. Непокрити Задължения</item>
+        <item>5. Последващи Промени</item>
+        <item>6. Обратна Връзка</item>
+    </string-array>
+    <string-array name="terms_bodies">
+        <item>Чрез използването на този софтуер се съгласявате да оперирате адекватно с данните.</item>
+        <item>Платформата има изцяло отворен код споделян основно чрез придобития MIT стандарт.</item>
+        <item>Всеки профил служи персонално в насока защита на основни потребителски търсения.</item>
+        <item>Абсолютно никой съдружник не понася вина за понесени необратими кражби на архивни системи.</item>
+        <item>Отбелязаният съгласител спомага за бързият преход при допълвания на тези точки занапред.</item>
+        <item>За коментари и попреправки разпратете вашите мнения до администраторите към GitHub и biblioteka@damiankokot.eu.</item>
+    </string-array>
+</resources>

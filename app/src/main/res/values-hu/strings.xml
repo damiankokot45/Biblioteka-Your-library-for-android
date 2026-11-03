@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Migrated from the web version (src/lib/i18n.ts + SettingsModal.tsx). -->
+<resources>
+    <string name="search_placeholder">Könyv keresése...</string>
+    <string name="sort_by_date">Hozzáadás dátuma</string>
+    <string name="sort_by_title">Cím</string>
+    <string name="sort_by_author">Szerző</string>
+    <string name="sort_by_rating">Értékelés</string>
+    <string name="tab_shelf">Polc</string>
+    <string name="tab_to_read">Elolvasandó</string>
+    <string name="tab_reading">Olvasás</string>
+    <string name="tab_read">Elolvasva</string>
+    <string name="tab_stats">Statisztikák</string>
+    <string name="add_book">Új könyv</string>
+    <string name="edit_book">Könyv szerkesztése</string>
+    <string name="save">Mentés</string>
+    <string name="title">Cím</string>
+    <string name="title_placeholder">Pl. A Gyűrűk Ura</string>
+    <string name="author">Szerző</string>
+    <string name="author_placeholder">Pl. J.R.R. Tolkien</string>
+    <string name="status">Állapot</string>
+    <string name="status_to_read">Várólista</string>
+    <string name="status_reading">Olvasás alatt</string>
+    <string name="status_read">Kész</string>
+    <string name="rating">Értékelés</string>
+    <string name="notes">Jegyzetek</string>
+    <string name="notes_placeholder">Gondolatok...</string>
+    <string name="cover_or_bookmark">Borító</string>
+    <string name="select_from_gallery">Galéria</string>
+    <string name="remove_cover">Törlés</string>
+    <string name="settings">Beállítások</string>
+    <string name="appearance">Megjelenés</string>
+    <string name="theme">Téma</string>
+    <string name="theme_system">Rendszer</string>
+    <string name="theme_light">Világos</string>
+    <string name="theme_dark">Sötét</string>
+    <string name="accent_color">Kiemelő szín</string>
+    <string name="language">Nyelv</string>
+    <string name="backup">Adatok</string>
+    <string name="export_data">Mentés</string>
+    <string name="import_data">Betöltés</string>
+    <string name="clear_data">Törlés</string>
+    <string name="confirm_clear_data">Biztosan törölsz mindent?</string>
+    <string name="about_app">Névjegy</string>
+    <string name="version">Verzió</string>
+    <string name="licenses">Licencek</string>
+    <string name="email">E-mail</string>
+    <string name="source_code">Forráskód</string>
+    <string name="create_issue">Hiba jelentése</string>
+    <string name="third_party_licenses">Licencek</string>
+    <string name="terms_conditions">Feltételek</string>
+    <string name="privacy_policy">Adatvédelem</string>
+    <string name="close">Bezárás</string>
+    <string name="empty_shelf_title">Üres a polc</string>
+    <string name="empty_shelf_desc">Adj hozzá egy könyvet.</string>
+    <string name="this_year">Idén</string>
+    <string name="books_read">Kész</string>
+    <string name="pages_read">Oldal</string>
+    <string name="time_spent">Idő</string>
+    <string name="reading_progress">Haladás</string>
+    <string name="page">Oldal</string>
+    <string name="start_reading">Elkezdés</string>
+    <string name="stop_reading">Állj</string>
+    <string name="cancel">Mégse</string>
+    <string name="empty_stats_title">Nincs adat</string>
+    <string name="empty_stats_desc">Adj hozzá könyveket.</string>
+    <string name="select_book">Válassz...</string>
+    <string name="what_book_reading">Mit olvastál?</string>
+    <string name="what_page_finished">Hányadik oldalnál?</string>
+    <string name="add_book_first">Előbb adj hozzá könyvet.</string>
+    <string name="update_progress_message">Kész</string>
+    <string name="reading_time_title">Olvasol?</string>
+    <string name="reading_time_desc_reading">Jó szórakozást!</string>
+    <string name="reading_time_desc_idle">Kezdj el olvasni.</string>
+    <string name="import_success">Kész:</string>
+    <string name="import_format_error">Hiba.</string>
+    <string name="import_error">Olvasási hiba.</string>
+    <string name="storage_full_error">A tárhely megtelt. Távolíts el néhány könyvborítót vagy töröld az adatokat.</string>
+    <string name="on_github">Githubon</string>
+    <string name="mit_license">MIT licenc</string>
+    <string name="clear_data_desc">Összes könyv törlése és visszaállítás</string>
+    <string name="books_added">Hozzáadott könyvek</string>
+    <string name="last_updated">Utolsó frissítés: 2026. május</string>
+    <string name="privacy_disclaimer_title">Adataid az eszközödön maradnak.</string>
+    <string name="privacy_disclaimer_body">A Biblioteka nem gyűjt, nem továbbít és nem ad el semmilyen személyes adatot.</string>
+    <string-array name="privacy_titles">
+        <item>Adattárolás</item>
+        <item>Nincs analitika vagy nyomon követés</item>
+        <item>Engedélyek</item>
+        <item>Nyílt forráskód</item>
+        <item>Kapcsolat</item>
+    </string-array>
+    <string-array name="privacy_bodies">
+        <item>Minden könyv, jegyzet és beállítás kizárólag az Ön eszközén tárolódik. Fiók létrehozása nem szükséges.</item>
+        <item>Nem használunk analitikai szolgáltatásokat, hibajelentőket vagy reklám SDK-kat.</item>
+        <item>A Biblioteka nem kér futásidejű Android-engedélyeket. A biztonsági másolatok az alkalmazás privát gyorsítótárába kerülnek, és csak a Megosztás gomb explicit megérintésekor kerülnek megosztásra.</item>
+        <item>A Biblioteka teljesen nyílt forráskódú. Bármikor átvizsgálhatja a kódot a GitHubon ezen állítások ellenőrzéséhez.</item>
+        <item>Kérdése van az adatvédelemmel kapcsolatban? Nyisson egy hibajegyet a GitHubon, vagy lépjen kapcsolatba közvetlenül a fejlesztővel: biblioteka@damiankokot.eu.</item>
+    </string-array>
+    <string-array name="terms_titles">
+        <item>1. Feltételek elfogadása</item>
+        <item>2. Licenc</item>
+        <item>3. Használat</item>
+        <item>4. Garancia kizárása</item>
+        <item>5. Módosítások</item>
+        <item>6. Kapcsolat</item>
+    </string-array>
+    <string-array name="terms_bodies">
+        <item>A Biblioteka használatával elfogadja ezeket a Feltételeket. Ha nem ért egyet, kérjük, távolítsa el az alkalmazást.</item>
+        <item>A Biblioteka MIT licenc alatt áll. A licencnek megfelelően használhatja, módosíthatja és terjesztheti.</item>
+        <item>Az alkalmazás személyes használatra szolgál. Ön vállalja, hogy nem él vissza az alkalmazással.</item>
+        <item>Az alkalmazást \"ahogy van\" biztosítjuk. A fejlesztő nem felelős az adatvesztésért.</item>
+        <item>Ezek a feltételek módosulhatnak. A további használat elfogadást jelent.</item>
+        <item>Kérdés esetén nyisson egy jegyet a GitHubon vagy írjon a biblioteka@damiankokot.eu címre.</item>
+    </string-array>
+</resources>

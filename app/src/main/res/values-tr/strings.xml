@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Migrated from the web version (src/lib/i18n.ts + SettingsModal.tsx). -->
+<resources>
+    <string name="search_placeholder">Ara...</string>
+    <string name="sort_by_date">Eklenme Tarihi</string>
+    <string name="sort_by_title">Başlık</string>
+    <string name="sort_by_author">Yazar</string>
+    <string name="sort_by_rating">Değerlendirme</string>
+    <string name="tab_shelf">Raf</string>
+    <string name="tab_to_read">Okunacak</string>
+    <string name="tab_reading">Okuyorum</string>
+    <string name="tab_read">Okundu</string>
+    <string name="tab_stats">İstatistikler</string>
+    <string name="add_book">Yeni Kitap</string>
+    <string name="edit_book">Düzenle</string>
+    <string name="save">Kaydet</string>
+    <string name="title">Başlık</string>
+    <string name="title_placeholder">Örn. Yüzüklerin Efendisi</string>
+    <string name="author">Yazar</string>
+    <string name="author_placeholder">Örn. J.R.R. Tolkien</string>
+    <string name="status">Durum</string>
+    <string name="status_to_read">Okunacak</string>
+    <string name="status_reading">Okuyorum</string>
+    <string name="status_read">Okundu</string>
+    <string name="rating">Puan</string>
+    <string name="notes">Notlar</string>
+    <string name="notes_placeholder">Fikirlerin...</string>
+    <string name="cover_or_bookmark">Kapak</string>
+    <string name="select_from_gallery">Galeriden seç</string>
+    <string name="remove_cover">Kaldır</string>
+    <string name="settings">Ayarlar</string>
+    <string name="appearance">Görünüm</string>
+    <string name="theme">Tema</string>
+    <string name="theme_system">Sistem</string>
+    <string name="theme_light">Açık</string>
+    <string name="theme_dark">Koyu</string>
+    <string name="accent_color">Renk</string>
+    <string name="language">Dil</string>
+    <string name="backup">Veri</string>
+    <string name="export_data">Dışa Aktar</string>
+    <string name="import_data">İçe Aktar</string>
+    <string name="clear_data">Verileri Temizle</string>
+    <string name="clear_data_desc">Her şeyi sil</string>
+    <string name="confirm_clear_data">Emin misiniz?</string>
+    <string name="about_app">Hakkında</string>
+    <string name="version">Sürüm</string>
+    <string name="licenses">Lisanslar</string>
+    <string name="email">E-posta</string>
+    <string name="source_code">Kaynak Kod</string>
+    <string name="create_issue">Hata Bildir</string>
+    <string name="third_party_licenses">3. Taraf</string>
+    <string name="terms_conditions">Şartlar</string>
+    <string name="privacy_policy">Gizlilik</string>
+    <string name="close">Kapat</string>
+    <string name="empty_shelf_title">Kitap yok</string>
+    <string name="empty_shelf_desc">Kitap ekle.</string>
+    <string name="this_year">Bu Yıl</string>
+    <string name="books_read">Okunan</string>
+    <string name="books_added">Eklenen</string>
+    <string name="pages_read">Sayfa</string>
+    <string name="time_spent">Zaman</string>
+    <string name="reading_progress">İlerleme</string>
+    <string name="page">Sayfa</string>
+    <string name="start_reading">Başla</string>
+    <string name="stop_reading">Durdur</string>
+    <string name="cancel">İptal</string>
+    <string name="empty_stats_title">Veri yok</string>
+    <string name="empty_stats_desc">Kitap ekleyin.</string>
+    <string name="select_book">Seç...</string>
+    <string name="what_book_reading">Ne okudun?</string>
+    <string name="what_page_finished">Hangi sayfa?</string>
+    <string name="add_book_first">Önce kitap ekle.</string>
+    <string name="update_progress_message">Tamamlandı</string>
+    <string name="reading_time_title">Okuma zamanı?</string>
+    <string name="reading_time_desc_reading">Hikayeye dalın...</string>
+    <string name="reading_time_desc_idle">Okumaya başla.</string>
+    <string name="import_success">Başarılı:</string>
+    <string name="import_format_error">Hatalı format.</string>
+    <string name="import_error">Hata.</string>
+    <string name="storage_full_error">Depolama dolu. Bazı kitap kapaklarını kaldır veya verileri temizle.</string>
+    <string name="on_github">Github\'da</string>
+    <string name="mit_license">MIT lisansı</string>
+    <string name="last_updated">Son güncelleme: Mayıs 2026</string>
+    <string name="privacy_disclaimer_title">Verileriniz cihazınızda kalır.</string>
+    <string name="privacy_disclaimer_body">Biblioteka kişisel verileri toplamaz, iletmez veya satmaz.</string>
+    <string-array name="privacy_titles">
+        <item>Veri Depolama</item>
+        <item>Abonelik ve Analiz Yapılmamaktadır</item>
+        <item>İzinler</item>
+        <item>Açık Kaynak Kod</item>
+        <item>İletişim</item>
+    </string-array>
+    <string-array name="privacy_bodies">
+        <item>Tüm kitaplarınız, notlarınız ve ayarlarınız izne bağlı biçimde yalnızca cihazınızda tutulur. Kullanıcı profili gereksinimi tamamen yok.</item>
+        <item>Harici sistemlerin sunduğu izleme ağlardan yardım veya benzeri verilerle bağlantımız olmayıp üçüncü kopyalara dahil edilmemiştir.</item>
+        <item>Biblioteka, Android çalışma zamanı izni talep etmez. Yedekler uygulamanın özel önbelleğine yazılır ve yalnızca Paylaş\'a açıkça dokunduğunuzda paylaşılır.</item>
+        <item>Sistemin altyapısı olduğu üzere açık kaynak koduna yönelik tasarımlardan GitHub sekmesinden erişerek yararlanıp öğrenebilir.</item>
+        <item>Sizi desteklemek için uyarımıza ilişkin iletileri GitHub bildirimden veyahut yöneticimiz biblioteka@damiankokot.eu bağlantısından sağlayabilirsiniz.</item>
+    </string-array>
+    <string-array name="terms_titles">
+        <item>1. Kullanım Sözleşmesi</item>
+        <item>2. Lisans Durumu</item>
+        <item>3. Kullanım Amacı</item>
+        <item>4. Veri Sorumluluk</item>
+        <item>5. Ek Düzenlemeler</item>
+        <item>6. Bağlantı Merkezi</item>
+    </string-array>
+    <string-array name="terms_bodies">
+        <item>Bu platform erişimi başlatan tüm bireyler belirtilen kuralı tüm hatlarıyla desteklemekten kendileri onaylı sayılacaktır.</item>
+        <item>Yalnız ve bütünüyle tam manasıyla MIT formatında yetkilendirilmesi bulunup o yolla ücretsiz şekillenir.</item>
+        <item>Program genel itibarıyla kimsenin sistemi suistimal ve sömürü gerçekleştirmemesini gözetip denetlenmiştir.</item>
+        <item>Sunucudaki herhangi kalıcı hata ihtimalinde uygulamanın garantörü kesin surette mesul tutulamayacaktır.</item>
+        <item>Var olduklarına ilaveten ekli kısımlara yönelik kullanımlara istinaden kurallar güncellemesi sürece uyarlanmış addedilir.</item>
+        <item>Karşılaştığınız engeller olursa direkt yazar konumunda varılan e-postaya (biblioteka@damiankokot.eu) ya da GitHub sayfamızı deneyiniz.</item>
+    </string-array>
+</resources>

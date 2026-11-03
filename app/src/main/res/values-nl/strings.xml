@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Migrated from the web version (src/lib/i18n.ts + SettingsModal.tsx). -->
+<resources>
+    <string name="search_placeholder">Zoek een boek...</string>
+    <string name="sort_by_date">Toevoegdatum</string>
+    <string name="sort_by_title">Titel</string>
+    <string name="sort_by_author">Auteur</string>
+    <string name="sort_by_rating">Beoordeling</string>
+    <string name="tab_shelf">Plank</string>
+    <string name="tab_to_read">Nog lezen</string>
+    <string name="tab_reading">Aan het lezen</string>
+    <string name="tab_read">Gelezen</string>
+    <string name="tab_stats">Statistieken</string>
+    <string name="add_book">Nieuw boek</string>
+    <string name="edit_book">Bewerken</string>
+    <string name="save">Opslaan</string>
+    <string name="title">Titel</string>
+    <string name="title_placeholder">Bijv. In de Ban van de Ring</string>
+    <string name="author">Auteur</string>
+    <string name="author_placeholder">Bijv. J.R.R. Tolkien</string>
+    <string name="status">Status</string>
+    <string name="status_to_read">Nog lezen</string>
+    <string name="status_reading">Lezen</string>
+    <string name="status_read">Gelezen</string>
+    <string name="rating">Beoordeling</string>
+    <string name="notes">Notities</string>
+    <string name="notes_placeholder">Jouw gedachten, citaten...</string>
+    <string name="cover_or_bookmark">Omslag</string>
+    <string name="select_from_gallery">Kies uit galerij</string>
+    <string name="remove_cover">Verwijder</string>
+    <string name="settings">Instellingen</string>
+    <string name="appearance">Weergave</string>
+    <string name="theme">Thema</string>
+    <string name="theme_system">Systeem</string>
+    <string name="theme_light">Licht</string>
+    <string name="theme_dark">Donker</string>
+    <string name="accent_color">Accentkleur</string>
+    <string name="language">Taal</string>
+    <string name="backup">Data &amp; backup</string>
+    <string name="export_data">Exporteer data</string>
+    <string name="import_data">Importeer data</string>
+    <string name="clear_data">Data wissen</string>
+    <string name="clear_data_desc">Wis alle boeken en reset</string>
+    <string name="confirm_clear_data">Weet je zeker dat je ALLE data wilt wissen? Dit kan niet ongedaan worden gemaakt!</string>
+    <string name="about_app">Over de app</string>
+    <string name="version">Versie</string>
+    <string name="licenses">Licenties</string>
+    <string name="email">E-mail</string>
+    <string name="source_code">Broncode</string>
+    <string name="create_issue">Meld een probleem</string>
+    <string name="third_party_licenses">Licenties van derden</string>
+    <string name="terms_conditions">Algemene voorwaarden</string>
+    <string name="privacy_policy">Privacybeleid</string>
+    <string name="close">Sluiten</string>
+    <string name="empty_shelf_title">Geen boeken</string>
+    <string name="empty_shelf_desc">Klik op de knop hieronder om je eerste boek toe te voegen.</string>
+    <string name="this_year">Dit jaar</string>
+    <string name="books_read">Boeken gelezen</string>
+    <string name="books_added">Boeken toegevoegd</string>
+    <string name="pages_read">Pagina\'s gelezen</string>
+    <string name="time_spent">Tijd besteed</string>
+    <string name="reading_progress">Leesvoortgang</string>
+    <string name="page">Pagina</string>
+    <string name="start_reading">Begin met lezen</string>
+    <string name="stop_reading">Stop timer</string>
+    <string name="cancel">Annuleren</string>
+    <string name="empty_stats_title">Geen data</string>
+    <string name="empty_stats_desc">Voeg boeken toe om statistieken te zien.</string>
+    <string name="select_book">Selecteer een boek...</string>
+    <string name="what_book_reading">Welk boek was je aan het lezen?</string>
+    <string name="what_page_finished">Op welke pagina ben je gestopt?</string>
+    <string name="add_book_first">Je hebt nog geen boeken. Voeg er eerst een toe.</string>
+    <string name="update_progress_message">Voortgang bijgewerkt</string>
+    <string name="reading_time_title">Tijd om te lezen?</string>
+    <string name="reading_time_desc_reading">Duik in het verhaal...</string>
+    <string name="reading_time_desc_idle">Ontspan en begin met lezen. Houd je voortgang bij.</string>
+    <string name="import_success">Boeken succesvol geladen:</string>
+    <string name="import_format_error">Ongeldig formaat.</string>
+    <string name="import_error">Lezen mislukt. Zorg dat het een geldige JSON is.</string>
+    <string name="storage_full_error">De opslag is vol. Verwijder enkele boekomslagen of wis de gegevens.</string>
+    <string name="on_github">Op Github</string>
+    <string name="mit_license">MIT Licentie</string>
+    <string name="last_updated">Laatst bijgewerkt: Mei 2026</string>
+    <string name="privacy_disclaimer_title">Je gegevens blijven op je apparaat.</string>
+    <string name="privacy_disclaimer_body">Biblioteka verzamelt, verzendt of verkoopt geen persoonlijke gegevens.</string>
+    <string-array name="privacy_titles">
+        <item>Gegevensopslag</item>
+        <item>Geen analytics of tracking</item>
+        <item>Machtigingen</item>
+        <item>Open Source</item>
+        <item>Contact</item>
+    </string-array>
+    <string-array name="privacy_bodies">
+        <item>Al je boeken, notities en instellingen worden exclusief op je apparaat opgeslagen. Geen account vereist.</item>
+        <item>We gebruiken geen analysediensten, crashrapporteurs of advertentie-SDK\'s.</item>
+        <item>Biblioteka vraagt geen Android-runtime-rechten. Back-ups worden naar de privécache van de app geschreven en alleen gedeeld als u expliciet op Delen tikt.</item>
+        <item>Biblioteka is volledig open source. Je kunt alle code inspecteren op GitHub om deze claims te verifiëren.</item>
+        <item>Vragen over privacy? Open een probleem op GitHub of neem rechtstreeks contact op met de ontwikkelaar via biblioteka@damiankokot.eu.</item>
+    </string-array>
+    <string-array name="terms_titles">
+        <item>1. Acceptatie van Voorwaarden</item>
+        <item>2. Licentie</item>
+        <item>3. Gebruik van de App</item>
+        <item>4. Geen Garantie</item>
+        <item>5. Wijzigingen</item>
+        <item>6. Contact</item>
+    </string-array>
+    <string-array name="terms_bodies">
+        <item>Door Biblioteka te openen, ga je akkoord met deze voorwaarden. Verwijder de app als je niet akkoord gaat.</item>
+        <item>Biblioteka is gratis open-sourcesoftware onder de MIT-licentie.</item>
+        <item>Je mag deze software voor persoonlijke doeleinden gebruiken zonder proberen misbruik te maken.</item>
+        <item>Biblioteka wordt verstrekt \"zoals deze is\" zonder enige garanties ten aanzien van gegevensbescherming.</item>
+        <item>De voorwaarden kunnen worden herzien waardoor deze nieuwe regels overnemen.</item>
+        <item>Voor resterende onduidelijkheden stuur een verzoek via GitHub en/of biblioteka@damiankokot.eu.</item>
+    </string-array>
+</resources>

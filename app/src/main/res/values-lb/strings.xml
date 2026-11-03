@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Migrated from the web version (src/lib/i18n.ts + SettingsModal.tsx). -->
+<resources>
+    <string name="search_placeholder">Sich no engem Buch...</string>
+    <string name="sort_by_date">Datum derbäigesat</string>
+    <string name="sort_by_title">Titel</string>
+    <string name="sort_by_author">Auteur</string>
+    <string name="sort_by_rating">Bewäertung</string>
+    <string name="tab_shelf">Regal</string>
+    <string name="tab_to_read">Fir ze liesen</string>
+    <string name="tab_reading">Am liesen</string>
+    <string name="tab_read">Gelies</string>
+    <string name="tab_stats">Statistiken</string>
+    <string name="add_book">Neit Buch</string>
+    <string name="edit_book">Änneren</string>
+    <string name="save">Späicheren</string>
+    <string name="title">Titel</string>
+    <string name="title_placeholder">Z.B. Herr der Ringe</string>
+    <string name="author">Auteur</string>
+    <string name="author_placeholder">Z.B. J.R.R. Tolkien</string>
+    <string name="status">Status</string>
+    <string name="status_to_read">Fir ze liesen</string>
+    <string name="status_reading">Liesen</string>
+    <string name="status_read">Gelies</string>
+    <string name="rating">Bewäertung</string>
+    <string name="notes">Notizen</string>
+    <string name="notes_placeholder">Deng Gedanken, Zitater...</string>
+    <string name="cover_or_bookmark">Cover / Lieszeechen</string>
+    <string name="select_from_gallery">Aus der Galerie wielen</string>
+    <string name="remove_cover">Läschen</string>
+    <string name="settings">Astellungen</string>
+    <string name="appearance">Ausgesinn</string>
+    <string name="theme">Thema</string>
+    <string name="theme_system">System</string>
+    <string name="theme_light">Hell</string>
+    <string name="theme_dark">Däischter</string>
+    <string name="accent_color">Akzentfaarf</string>
+    <string name="language">Sprooch</string>
+    <string name="backup">Daten &amp; Backup</string>
+    <string name="export_data">Daten exportéieren</string>
+    <string name="import_data">Daten importéieren</string>
+    <string name="clear_data">Datten zrécksetzen</string>
+    <string name="clear_data_desc">All Bicher läschen</string>
+    <string name="confirm_clear_data">Bass du sécher dat selwer geläscht soll ginn? Dëst kann een net ongedoen maachen!</string>
+    <string name="about_app">Iwwert d\'App</string>
+    <string name="version">Versioun</string>
+    <string name="licenses">Lizenzen</string>
+    <string name="email">E-Mail</string>
+    <string name="source_code">Quellcode</string>
+    <string name="create_issue">E Problem mellen</string>
+    <string name="third_party_licenses">Drëtt Partei Lizenzen</string>
+    <string name="terms_conditions">Benotzungsbedingunge</string>
+    <string name="privacy_policy">Dateschutzrichtlinnen</string>
+    <string name="close">Zoumaachen</string>
+    <string name="empty_shelf_title">Keng Bicher</string>
+    <string name="empty_shelf_desc">Klickt de Knäppche fir Äert éischt Buch derbäizesetzen.</string>
+    <string name="this_year">Dëst Joer</string>
+    <string name="books_read">Gelies Bicher</string>
+    <string name="books_added">Bicher derbäigesat</string>
+    <string name="pages_read">Gelies Säiten</string>
+    <string name="time_spent">Zäit verbruecht</string>
+    <string name="reading_progress">Liesfortschrëtt</string>
+    <string name="page">Säit</string>
+    <string name="start_reading">Fänkt un ze liesen</string>
+    <string name="stop_reading">Stopp den Timer</string>
+    <string name="cancel">Ofbriechen</string>
+    <string name="empty_stats_title">Keng Datten</string>
+    <string name="empty_stats_desc">Setzt Bicher derbäi fir Statistiken ze gesinn.</string>
+    <string name="select_book">Wielt e Buch...</string>
+    <string name="what_book_reading">Wat lies du?</string>
+    <string name="what_page_finished">Op wéi enger Säit hues du opgehalen?</string>
+    <string name="add_book_first">Du hues nach keng Bicher.</string>
+    <string name="update_progress_message">Liesen fäerdeg</string>
+    <string name="reading_time_title">Zäit fir ze liesen?</string>
+    <string name="reading_time_desc_reading">Dauch an d\'Geschicht an...</string>
+    <string name="reading_time_desc_idle">Lies a genéis. Mooss deng Zäit.</string>
+    <string name="import_success">Gelueden Bicher:</string>
+    <string name="import_format_error">Pandatioun Feeler.</string>
+    <string name="import_error">Feeler bei der Datei.</string>
+    <string name="storage_full_error">De Späicher ass voll. Läscht e puer Bicherkoppele oder läscht d\'Daten.</string>
+    <string name="on_github">Op Github</string>
+    <string name="mit_license">MIT Lizenz</string>
+    <string name="last_updated">Lescht aktualiséiert: Mee 2026</string>
+    <string name="privacy_disclaimer_title">Är Daten bleiwen op ärem Apparat.</string>
+    <string name="privacy_disclaimer_body">Biblioteka sammelt, iwwerdréit oder verkeeft keng perséinlech Daten.</string>
+    <string-array name="privacy_titles">
+        <item>Datespäicherung</item>
+        <item>Keng Analyse oder Tracking</item>
+        <item>Berechtegungen</item>
+        <item>Open Source</item>
+        <item>Kontakt</item>
+    </string-array>
+    <string-array name="privacy_bodies">
+        <item>All ärt Bicher, Notizen, ans Astellungen sinn just op ärem Apparat respektiv gespäichert. Et ass keen Kont néideg.</item>
+        <item>Mir benotze keng Analyseservicer, Crash Reporter oder Reklammen SDK\'en.</item>
+        <item>Op Android freet d\'App vläicht no Späicherrechter fir Backups. Déi ginn just fir den ugekënnegten Zweck benotzt.</item>
+        <item>Biblioteka ass komplett Open Source. Dir kënnt de ganze Code op GitHub nokucken, fir dëst ze verifièren.</item>
+        <item>Privatsphär Froen? Erstellt en Issue am GitHub oder kontaktéiert den Entwéckler direk op biblioteka@damiankokot.eu.</item>
+    </string-array>
+    <string-array name="terms_titles">
+        <item>1. Zoustëmmung vun de Konditiounen</item>
+        <item>2. Lizenz</item>
+        <item>3. Den Zweck vun der App</item>
+        <item>4. Keng Garantienëffentlechkeet</item>
+        <item>5. Verännerungen</item>
+        <item>6. Kontaktinfo</item>
+    </string-array>
+    <string-array name="terms_bodies">
+        <item>Wann dir de Gebrauch vun däer Biblioteka App start, zitt dir iech déi festgeleet Regelen zou. Soss kënnt dir d\'App erofhuelen.</item>
+        <item>All Code ënnerläit der ëffentlecher MIT Lizenz.</item>
+        <item>D\'Installatioun baséiert um richtege Gebrauch ouni eventuell de System unzegräifen.</item>
+        <item formatted="false">Et kann allzäit onvirgesi Feeler optrieden dofir garantéiert keen eng 100% Dateversëcherung.</item>
+        <item>All Ännerunge wäerten reegelméisseg iwwerschriwwe ginn.</item>
+        <item>Bei alle Froen an eventuelle Proposéierungen benoriichtegt de betraffene Kontakt biblioteka@damiankokot.eu.</item>
+    </string-array>
+</resources>

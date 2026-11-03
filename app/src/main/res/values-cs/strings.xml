@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Migrated from the web version (src/lib/i18n.ts + SettingsModal.tsx). -->
+<resources>
+    <string name="search_placeholder">Hledat knihu...</string>
+    <string name="sort_by_date">Datum přidání</string>
+    <string name="sort_by_title">Název</string>
+    <string name="sort_by_author">Autor</string>
+    <string name="sort_by_rating">Hodnocení</string>
+    <string name="tab_shelf">Polička</string>
+    <string name="tab_to_read">K přečtení</string>
+    <string name="tab_reading">Čtu</string>
+    <string name="tab_read">Přečteno</string>
+    <string name="tab_stats">Statistiky</string>
+    <string name="add_book">Nová kniha</string>
+    <string name="edit_book">Upravit</string>
+    <string name="save">Uložit</string>
+    <string name="title">Název</string>
+    <string name="title_placeholder">Např. Pán prstenů</string>
+    <string name="author">Autor</string>
+    <string name="author_placeholder">Např. J.R.R. Tolkien</string>
+    <string name="status">Stav</string>
+    <string name="status_to_read">Chystám se</string>
+    <string name="status_reading">Čtu</string>
+    <string name="status_read">Přečteno</string>
+    <string name="rating">Hodnocení</string>
+    <string name="notes">Poznámky</string>
+    <string name="notes_placeholder">Tvé postřehy...</string>
+    <string name="cover_or_bookmark">Obal</string>
+    <string name="select_from_gallery">Galerie</string>
+    <string name="remove_cover">Smazat</string>
+    <string name="settings">Nastavení</string>
+    <string name="appearance">Vzhled</string>
+    <string name="theme">Motiv</string>
+    <string name="theme_system">Systém</string>
+    <string name="theme_light">Světlý</string>
+    <string name="theme_dark">Tmavý</string>
+    <string name="accent_color">Barva</string>
+    <string name="language">Jazyk</string>
+    <string name="backup">Data a záloha</string>
+    <string name="export_data">Export</string>
+    <string name="import_data">Import</string>
+    <string name="clear_data">Smazat data</string>
+    <string name="confirm_clear_data">Opravdu smazat vše?</string>
+    <string name="about_app">O aplikaci</string>
+    <string name="version">Verze</string>
+    <string name="licenses">Licence</string>
+    <string name="email">Email</string>
+    <string name="source_code">Zdrojový kód</string>
+    <string name="create_issue">Nahlásit chybu</string>
+    <string name="third_party_licenses">Licence třetích stran</string>
+    <string name="terms_conditions">Podmínky</string>
+    <string name="privacy_policy">Soukromí</string>
+    <string name="close">Zavřít</string>
+    <string name="empty_shelf_title">Žádné knihy</string>
+    <string name="empty_shelf_desc">Přidejte knihu.</string>
+    <string name="this_year">Letos</string>
+    <string name="books_read">Přečteno</string>
+    <string name="pages_read">Strany</string>
+    <string name="time_spent">Čas</string>
+    <string name="reading_progress">Postup</string>
+    <string name="page">Strana</string>
+    <string name="start_reading">Začít číst</string>
+    <string name="stop_reading">Zastavit</string>
+    <string name="cancel">Zrušit</string>
+    <string name="empty_stats_title">Žádná data</string>
+    <string name="empty_stats_desc">Přidejte knihy.</string>
+    <string name="select_book">Vybrat...</string>
+    <string name="what_book_reading">Co jsi četl?</string>
+    <string name="what_page_finished">Na které straně?</string>
+    <string name="add_book_first">Přidejte knihu.</string>
+    <string name="update_progress_message">Hotovo</string>
+    <string name="reading_time_title">Čas číst?</string>
+    <string name="reading_time_desc_reading">Ponoř se do děje...</string>
+    <string name="reading_time_desc_idle">Začni číst.</string>
+    <string name="import_success">Hotovo:</string>
+    <string name="import_format_error">Chyba.</string>
+    <string name="import_error">Chyba čtení.</string>
+    <string name="storage_full_error">Úložiště je plné. Odstraň některé obálky knih nebo vymaž data.</string>
+    <string name="on_github">Na Githubu</string>
+    <string name="mit_license">MIT licence</string>
+    <string name="clear_data_desc">Smazat všechny knihy a resetovat</string>
+    <string name="books_added">Přidané knihy</string>
+    <string name="last_updated">Poslední aktualizace: květen 2026</string>
+    <string name="privacy_disclaimer_title">Vaše data zůstávají ve vašem zařízení.</string>
+    <string name="privacy_disclaimer_body">Biblioteka neshromažďuje, nepřenáší ani neprodává žádné osobní údaje.</string>
+    <string-array name="privacy_titles">
+        <item>Ukládání dat</item>
+        <item>Žádná analytika ani sledování</item>
+        <item>Oprávnění</item>
+        <item>Otevřený zdrojový kód</item>
+        <item>Kontakt</item>
+    </string-array>
+    <string-array name="privacy_bodies">
+        <item>Všechny vaše knihy, poznámky a nastavení jsou uloženy výhradně ve vašem zařízení. Není vyžadován žádný účet.</item>
+        <item>Nepoužíváme žádné analytické služby, hlášení pádů ani reklamní sady SDK.</item>
+        <item>Biblioteka nevyžaduje žádná oprávnění Android za běhu. Zálohy jsou zapsány do soukromé mezipaměti aplikace a sdíleny pouze tehdy, když explicitně klepnete na Sdílet.</item>
+        <item>Biblioteka je plně open source. Veškerý kód můžete zkontrolovat na GitHubu.</item>
+        <item>Máte dotazy ohledně ochrany osobních údajů? Otevřete problém na GitHubu nebo kontaktujte přímo vývojáře na biblioteka@damiankokot.eu.</item>
+    </string-array>
+    <string-array name="terms_titles">
+        <item>1. Přijetí podmínek</item>
+        <item>2. Licence</item>
+        <item>3. Použití aplikace</item>
+        <item>4. Žádná záruka</item>
+        <item>5. Změny</item>
+        <item>6. Kontakt</item>
+    </string-array>
+    <string-array name="terms_bodies">
+        <item>Používáním aplikace Biblioteka souhlasíte s těmito podmínkami. Pokud nesouhlasíte, odinstalujte ji.</item>
+        <item>Biblioteka je software pod licencí MIT. Můžete ji volně používat, upravovat a šířit podle této licence.</item>
+        <item>Aplikace je určena pro osobní použití. Souhlasíte s tím, že ji nebudete zneužívat.</item>
+        <item>Aplikace je poskytována \"jak je\". Vývojář nenese odpovědnost za ztrátu dat.</item>
+        <item>Tyto podmínky se mohou změnit. Další používání znamená jejich přijetí.</item>
+        <item>Případné dotazy směřujte na GitHub nebo na biblioteka@damiankokot.eu.</item>
+    </string-array>
+</resources>

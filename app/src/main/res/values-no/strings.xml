@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Migrated from the web version (src/lib/i18n.ts + SettingsModal.tsx). -->
+<resources>
+    <string name="search_placeholder">Søk etter en bok...</string>
+    <string name="sort_by_date">Dato lagt til</string>
+    <string name="sort_by_title">Tittel</string>
+    <string name="sort_by_author">Forfatter</string>
+    <string name="sort_by_rating">Vurdering</string>
+    <string name="tab_shelf">Hylle</string>
+    <string name="tab_to_read">Å lese</string>
+    <string name="tab_reading">Leser</string>
+    <string name="tab_read">Lest</string>
+    <string name="tab_stats">Statistikk</string>
+    <string name="add_book">Ny bok</string>
+    <string name="edit_book">Rediger</string>
+    <string name="save">Lagre</string>
+    <string name="title">Tittel</string>
+    <string name="title_placeholder">F.eks. Ringenes Herre</string>
+    <string name="author">Forfatter</string>
+    <string name="author_placeholder">F.eks. J.R.R. Tolkien</string>
+    <string name="status">Status</string>
+    <string name="status_to_read">Å lese</string>
+    <string name="status_reading">Leser</string>
+    <string name="status_read">Lest</string>
+    <string name="rating">Vurdering</string>
+    <string name="notes">Notater</string>
+    <string name="notes_placeholder">Dine tanker, sitater...</string>
+    <string name="cover_or_bookmark">Omslag / Bokmerke</string>
+    <string name="select_from_gallery">Velg fra galleriet</string>
+    <string name="remove_cover">Fjern</string>
+    <string name="settings">Innstillinger</string>
+    <string name="appearance">Utseende</string>
+    <string name="theme">Tema</string>
+    <string name="theme_system">System</string>
+    <string name="theme_light">Lyse</string>
+    <string name="theme_dark">Mørkt</string>
+    <string name="accent_color">Aksentfarge</string>
+    <string name="language">Språk</string>
+    <string name="backup">Data og sikkerhetskopiering</string>
+    <string name="export_data">Eksporter data</string>
+    <string name="import_data">Importer data</string>
+    <string name="clear_data">Tøm data</string>
+    <string name="clear_data_desc">Slett alle bøker</string>
+    <string name="confirm_clear_data">Er du sikker på at du vil slette ALL data? Dette kan ikke angres!</string>
+    <string name="about_app">Om appen</string>
+    <string name="version">Versjon</string>
+    <string name="licenses">Lisenser</string>
+    <string name="email">E-post</string>
+    <string name="source_code">Kildekode</string>
+    <string name="create_issue">Opprett sak</string>
+    <string name="third_party_licenses">Tredjepartslisenser</string>
+    <string name="terms_conditions">Vilkår for bruk</string>
+    <string name="privacy_policy">Personvernerklæring</string>
+    <string name="close">Lukk</string>
+    <string name="empty_shelf_title">Ingen bøker</string>
+    <string name="empty_shelf_desc">Klikk på knappen nedenfor for å legge til din første bok.</string>
+    <string name="this_year">I år</string>
+    <string name="books_read">Bøker lest</string>
+    <string name="books_added">Bøker lagt til</string>
+    <string name="pages_read">Sider lest</string>
+    <string name="time_spent">Tid brukt</string>
+    <string name="reading_progress">Lesefremgang</string>
+    <string name="page">Side</string>
+    <string name="start_reading">Begynn å lese</string>
+    <string name="stop_reading">Stopp timer</string>
+    <string name="cancel">Avbryt</string>
+    <string name="empty_stats_title">Ingen data</string>
+    <string name="empty_stats_desc">Legg til bøker for å se stats.</string>
+    <string name="select_book">Velg en bok...</string>
+    <string name="what_book_reading">Hvilken bok leste du?</string>
+    <string name="what_page_finished">På hvilken side sluttet du?</string>
+    <string name="add_book_first">Du har ingen bøker med status \'Å lese\' eller \'Leser\'. Legg til en bok først.</string>
+    <string name="update_progress_message">Lesing fullført</string>
+    <string name="reading_time_title">Tid for å lese?</string>
+    <string name="reading_time_desc_reading">Dykk inn i historien...</string>
+    <string name="reading_time_desc_idle">Slapp av og begynn å lese. Ta tiden og spor fremdriften din.</string>
+    <string name="import_success">Fullført:</string>
+    <string name="import_format_error">Ugyldig sikkerhetskopi-format.</string>
+    <string name="import_error">Fant ikke gyldig JSON.</string>
+    <string name="storage_full_error">Lagringen er full. Fjern noen bokomslag eller slett dataene.</string>
+    <string name="on_github">På Github</string>
+    <string name="mit_license">MIT-lisens</string>
+    <string name="last_updated">Sist oppdatert: Mai 2026</string>
+    <string name="privacy_disclaimer_title">Dataene dine forblir på enheten din.</string>
+    <string name="privacy_disclaimer_body">Biblioteka samler ikke inn, overfører eller selger noen personopplysninger.</string>
+    <string-array name="privacy_titles">
+        <item>Datalagring</item>
+        <item>Ingen analyse eller sporing</item>
+        <item>Tillatelser</item>
+        <item>Åpen kildekode</item>
+        <item>Kontakt</item>
+    </string-array>
+    <string-array name="privacy_bodies">
+        <item>Alle bøkene, notatene og innstillingene dine lagres utelukkende på enheten din. Ingen konto kreves.</item>
+        <item>Vi bruker ikke  analysetjenester, krasjrapporterere eller annonse-SDK-er.</item>
+        <item>Biblioteka ber ikke om noen Android-kjøretidstillatelser. Sikkerhetskopier skrives til appens private cache og deles kun når du eksplisitt trykker Del.</item>
+        <item>Biblioteka er fullstendig åpen kildekode. Du kan inspisere all kode på GitHub for å bekrefte disse påstandene.</item>
+        <item>Personvernspørsmål? Åpne et problem på GitHub eller kontakt utvikleren direkte på biblioteka@damiankokot.eu.</item>
+    </string-array>
+    <string-array name="terms_titles">
+        <item>1. Aksept av vilkår</item>
+        <item>2. Lisens</item>
+        <item>3. Bruk av appen</item>
+        <item>4. Ingen garanti</item>
+        <item>5. Endringer</item>
+        <item>6. Kontakt</item>
+    </string-array>
+    <string-array name="terms_bodies">
+        <item>Ved å laste ned eller bruke Biblioteka-appen, godtar du disse vilkårene. Hvis du ikke er enig, vennligst avinstaller appen.</item>
+        <item>Biblioteka er gratis åpen kildekode programvare distribuert under MIT-lisensen.</item>
+        <item>Appen er for personlig bruk. Du samtykker i å ikke misbruke appen.</item>
+        <item>Appen leveres \"som den er\" uten noen form for garanti. Utvikleren er ikke ansvarlig for tap av data.</item>
+        <item>Disse vilkårene kan oppdateres når som helst. Fortsatt bruk forutsetter at vilkårene aksepteres.</item>
+        <item>For spørsmål eller bekymringer, vennligst åpne et problem på GitHub eller kontakt biblioteka@damiankokot.eu.</item>
+    </string-array>
+</resources>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Migrated from the web version (src/lib/i18n.ts + SettingsModal.tsx). -->
+<resources>
+    <string name="search_placeholder">Buscar um livro...</string>
+    <string name="sort_by_date">Data de Adição</string>
+    <string name="sort_by_title">Título</string>
+    <string name="sort_by_author">Autor</string>
+    <string name="sort_by_rating">Avaliação</string>
+    <string name="tab_shelf">Estante</string>
+    <string name="tab_to_read">Para Ler</string>
+    <string name="tab_reading">Lendo</string>
+    <string name="tab_read">Lido</string>
+    <string name="tab_stats">Estatísticas</string>
+    <string name="add_book">Novo Livro</string>
+    <string name="edit_book">Editar</string>
+    <string name="save">Salvar</string>
+    <string name="title">Título</string>
+    <string name="title_placeholder">Ex. O Senhor dos Anéis</string>
+    <string name="author">Autor</string>
+    <string name="author_placeholder">Ex. J.R.R. Tolkien</string>
+    <string name="status">Status</string>
+    <string name="status_to_read">Para Ler</string>
+    <string name="status_reading">Lendo</string>
+    <string name="status_read">Lido</string>
+    <string name="rating">Avaliação</string>
+    <string name="notes">Notas</string>
+    <string name="notes_placeholder">Seus pensamentos, citações...</string>
+    <string name="cover_or_bookmark">Capa / Marcador</string>
+    <string name="select_from_gallery">Selecionar da galeria</string>
+    <string name="remove_cover">Remover</string>
+    <string name="settings">Configurações</string>
+    <string name="appearance">Aparência</string>
+    <string name="theme">Tema</string>
+    <string name="theme_system">Sistema</string>
+    <string name="theme_light">Claro</string>
+    <string name="theme_dark">Escuro</string>
+    <string name="accent_color">Cor de Destaque</string>
+    <string name="language">Idioma</string>
+    <string name="backup">Dados &amp; Backup</string>
+    <string name="export_data">Exportar dados</string>
+    <string name="import_data">Importar dados</string>
+    <string name="clear_data">Limpar dados</string>
+    <string name="clear_data_desc">Excluir todos os livros</string>
+    <string name="confirm_clear_data">Tem certeza de que deseja excluir TODOS os dados? Isso não pode ser desfeito!</string>
+    <string name="about_app">Sobre o app</string>
+    <string name="version">Versão</string>
+    <string name="licenses">Licenças</string>
+    <string name="email">E-mail</string>
+    <string name="source_code">Código-fonte</string>
+    <string name="create_issue">Reportar problema</string>
+    <string name="third_party_licenses">Licenças de terceiros</string>
+    <string name="terms_conditions">Termos e Condições</string>
+    <string name="privacy_policy">Política de Privacidade</string>
+    <string name="close">Fechar</string>
+    <string name="empty_shelf_title">Sem livros</string>
+    <string name="empty_shelf_desc">Clique no botão para adicionar seu primeiro livro.</string>
+    <string name="this_year">Este Ano</string>
+    <string name="books_read">Livros Lidos</string>
+    <string name="books_added">Livros Adicionados</string>
+    <string name="pages_read">Páginas Lidas</string>
+    <string name="time_spent">Tempo Gasto</string>
+    <string name="reading_progress">Progresso</string>
+    <string name="page">Página</string>
+    <string name="start_reading">Começar a Ler</string>
+    <string name="stop_reading">Parar Tempo</string>
+    <string name="cancel">Cancelar</string>
+    <string name="empty_stats_title">Sem dados</string>
+    <string name="empty_stats_desc">Adicione livros para ver estatísticas.</string>
+    <string name="select_book">Selecione um livro...</string>
+    <string name="what_book_reading">Que livro você estava lendo?</string>
+    <string name="what_page_finished">Em que página você parou?</string>
+    <string name="add_book_first">Adicione um livro primeiro.</string>
+    <string name="update_progress_message">Leitura concluída</string>
+    <string name="reading_time_title">Hora de ler?</string>
+    <string name="reading_time_desc_reading">Mergulhe na história...</string>
+    <string name="reading_time_desc_idle">Comece a ler e acompanhe seu tempo.</string>
+    <string name="import_success">Livros carregados:</string>
+    <string name="import_format_error">Formato inválido de backup.</string>
+    <string name="import_error">Erro ao ler. Certifique-se que o JSON é válido.</string>
+    <string name="storage_full_error">O armazenamento está cheio. Remova algumas capas ou limpe os dados.</string>
+    <string name="on_github">No Github</string>
+    <string name="mit_license">Licença MIT</string>
+    <string name="last_updated">Última atualização: Maio de 2026</string>
+    <string name="privacy_disclaimer_title">Os seus dados permanecem no seu dispositivo.</string>
+    <string name="privacy_disclaimer_body">O Biblioteka não recolhe, transmite ou vende quaisquer dados pessoais.</string>
+    <string-array name="privacy_titles">
+        <item>Armazenamento de Dados</item>
+        <item>Sem Análise ou Rastreamento</item>
+        <item>Permissões</item>
+        <item>Código aberto</item>
+        <item>Contacto</item>
+    </string-array>
+    <string-array name="privacy_bodies">
+        <item>Todos os seus livros, notas e configurações são armazenados exclusivamente no seu dispositivo. Nenhuma conta é exigida.</item>
+        <item>Não usamos serviços de análise, repórteres de falhas ou SDKs de publicidade.</item>
+        <item>O Biblioteka não solicita permissões de tempo de execução no Android. As cópias de segurança são escritas na cache privada da aplicação e partilhadas apenas quando toca explicitamente em Partilhar.</item>
+        <item>O Biblioteka é totalmente de código aberto. Pode inspecionar todo o código no GitHub para verificar essas informações.</item>
+        <item>Dúvidas sobre privacidade? Abra um problema no GitHub ou contacte o programador diretamente em biblioteka@damiankokot.eu.</item>
+    </string-array>
+    <string-array name="terms_titles">
+        <item>1. Aceitação dos Termos</item>
+        <item>2. Licença</item>
+        <item>3. Utilização</item>
+        <item>4. Isenção de Garantia</item>
+        <item>5. Modificações Adicionais</item>
+        <item>6. Suporte Direto</item>
+    </string-array>
+    <string-array name="terms_bodies">
+        <item>Ao utilizar o Biblioteka, concorda com estes termos. Se não concordar, desinstale o aplicativo.</item>
+        <item>O Biblioteka é um software de código aberto licenciado sobre as diretrizes do MIT.</item>
+        <item>Este software existe a penas destinado a tarefas e fins primariamente de característicos pessoais.</item>
+        <item>Nós expressamente excluímos toda ou qualquer outra perda indevida de eventuais corrupções no código e sistemas.</item>
+        <item>O uso estendido reafirma o acordo completo as modificáveis e correntes cláusulas.</item>
+        <item>Contactos devem prosseguir através do GitHub, ou correios eletrónicos alternativos: biblioteka@damiankokot.eu</item>
+    </string-array>
+</resources>

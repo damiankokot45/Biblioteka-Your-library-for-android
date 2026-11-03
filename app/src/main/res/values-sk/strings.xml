@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Migrated from the web version (src/lib/i18n.ts + SettingsModal.tsx). -->
+<resources>
+    <string name="search_placeholder">Hľadať...</string>
+    <string name="sort_by_date">Pridané</string>
+    <string name="sort_by_title">Názov</string>
+    <string name="sort_by_author">Autor</string>
+    <string name="sort_by_rating">Hodnotenie</string>
+    <string name="tab_shelf">Polička</string>
+    <string name="tab_to_read">Na prečítanie</string>
+    <string name="tab_reading">Čítam</string>
+    <string name="tab_read">Prečítané</string>
+    <string name="tab_stats">Štatistiky</string>
+    <string name="add_book">Nová kniha</string>
+    <string name="edit_book">Upraviť</string>
+    <string name="save">Uložiť</string>
+    <string name="title">Názov</string>
+    <string name="title_placeholder">Napr. Pán prsteňov</string>
+    <string name="author">Autor</string>
+    <string name="author_placeholder">Napr. J.R.R. Tolkien</string>
+    <string name="status">Stav</string>
+    <string name="status_to_read">Na prečítanie</string>
+    <string name="status_reading">Čítam</string>
+    <string name="status_read">Prečítané</string>
+    <string name="rating">Hodnotenie</string>
+    <string name="notes">Poznámky</string>
+    <string name="notes_placeholder">Vaše myšlienky...</string>
+    <string name="cover_or_bookmark">Obal</string>
+    <string name="select_from_gallery">Galéria</string>
+    <string name="remove_cover">Odstrániť</string>
+    <string name="settings">Nastavenia</string>
+    <string name="appearance">Vzhľad</string>
+    <string name="theme">Téma</string>
+    <string name="theme_system">Systém</string>
+    <string name="theme_light">Svetlá</string>
+    <string name="theme_dark">Tmavá</string>
+    <string name="accent_color">Farba</string>
+    <string name="language">Jazyk</string>
+    <string name="backup">Dáta</string>
+    <string name="export_data">Export</string>
+    <string name="import_data">Import</string>
+    <string name="clear_data">Zmazať dáta</string>
+    <string name="clear_data_desc">Zmazať všetko</string>
+    <string name="confirm_clear_data">Naozaj? Krok späť nie je možný!</string>
+    <string name="about_app">O aplikácii</string>
+    <string name="version">Verzia</string>
+    <string name="licenses">Licencie</string>
+    <string name="email">Email</string>
+    <string name="source_code">Zdrojový kód</string>
+    <string name="create_issue">Nahlásiť chybu</string>
+    <string name="third_party_licenses">Inštitúcia</string>
+    <string name="terms_conditions">Podmienky</string>
+    <string name="privacy_policy">Súkromie</string>
+    <string name="close">Zavrieť</string>
+    <string name="empty_shelf_title">Žiadne knihy</string>
+    <string name="empty_shelf_desc">Pridať knihu.</string>
+    <string name="this_year">Tento rok</string>
+    <string name="books_read">Prečítané</string>
+    <string name="books_added">Pridané</string>
+    <string name="pages_read">Strán</string>
+    <string name="time_spent">Čas</string>
+    <string name="reading_progress">Progres</string>
+    <string name="page">Str.</string>
+    <string name="start_reading">Začať</string>
+    <string name="stop_reading">Zastaviť</string>
+    <string name="cancel">Zrušiť</string>
+    <string name="empty_stats_title">Prázdne</string>
+    <string name="empty_stats_desc">Potrebuješ knihy.</string>
+    <string name="select_book">Vybrať knihu...</string>
+    <string name="what_book_reading">Čo čítaš?</string>
+    <string name="what_page_finished">Strana?</string>
+    <string name="add_book_first">Pridaj knihu.</string>
+    <string name="update_progress_message">Dokončené</string>
+    <string name="reading_time_title">Čas čítať?</string>
+    <string name="reading_time_desc_reading">Ponor sa...</string>
+    <string name="reading_time_desc_idle">Relax.</string>
+    <string name="import_success">USpešne:</string>
+    <string name="import_format_error">Chybný format.</string>
+    <string name="import_error">Chyba.</string>
+    <string name="storage_full_error">Úložisko je plné. Odstráň niektoré obálky kníh alebo vymaž dáta.</string>
+    <string name="on_github">Na Github</string>
+    <string name="mit_license">MIT licencie</string>
+    <string name="last_updated">Posledná aktualizácia: Máj 2026</string>
+    <string name="privacy_disclaimer_title">Vaše údaje zostávajú na vašom zariadení.</string>
+    <string name="privacy_disclaimer_body">Biblioteka nezhromažďuje, neprenáša ani nepredáva žiadne osobné údaje.</string>
+    <string-array name="privacy_titles">
+        <item>Úložisko Dát</item>
+        <item>Žiadna Analytika Bez Zberu Dát</item>
+        <item>Prístupové práva</item>
+        <item>Open Source</item>
+        <item>Kontakt</item>
+    </string-array>
+    <string-array name="privacy_bodies">
+        <item>Všetky Vaše knihy, poznámky a nastavenia sú uložené len vo Vašom zariadení. Nevyžaduje sa vytvorenie účtu.</item>
+        <item>Nevyužívame nijaké analytické služby, programy hlásenia pádov ani inzerujúce platformy.</item>
+        <item>Biblioteka nevyžaduje žiadne Android oprávnenia za behu. Zálohy sú zapísané do súkromnej vyrovnávacej pamäte aplikácie a zdieľané len keď explicitne klepnete na Zdieľať.</item>
+        <item>Biblioteka je kompletne open-source systém. Všetky detaily si môžete otestovať priamo na GitHub-e a preveriť si tak spoľahlivosť.</item>
+        <item>Máte neikaké otázky týkajúce sa súkromia? Otvorte diskusiu na platforme GitHub alebo kontaktujte autora priamo na biblioteka@damiankokot.eu.</item>
+    </string-array>
+    <string-array name="terms_titles">
+        <item>1. Akceptovanie Ustanovení</item>
+        <item>2. Dostupná Licencia</item>
+        <item>3. Sústredenie Cielov</item>
+        <item>4. Výlučenie Záruk</item>
+        <item>5. Zmene</item>
+        <item>6. Zastihnuteľnosť</item>
+    </string-array>
+    <string-array name="terms_bodies">
+        <item>Otvorením alebo využitím služby Biblioteka plne súhlasíte s predchádzajúcimi dohodami a postupmi.</item>
+        <item>Každá forma obsahu využíva otvorenú doménu v nadeľovanej MIT schéme bez zásadných blokád.</item>
+        <item>Vyjadruje osobné sústredenie snáh o zaznamenávania bez úmyselných zneuzivaní zložiek.</item>
+        <item>Spoločnosť je poistená voči strate i iných chybám bez predpisovania nápravných úkonov majiteľa.</item>
+        <item>Nepretržitosť práce automaticky prizvukuje stála prijímanie zmeneného kódu správania.</item>
+        <item>Napíšete pre bližšie oboznámenie sa priamo email majiteľovi prostredníctvom biblioteka@damiankokot.eu.</item>
+    </string-array>
+</resources>

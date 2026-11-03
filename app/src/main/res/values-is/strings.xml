@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Migrated from the web version (src/lib/i18n.ts + SettingsModal.tsx). -->
+<resources>
+    <string name="search_placeholder">Leita...</string>
+    <string name="sort_by_date">Dagsetning</string>
+    <string name="sort_by_title">Titill</string>
+    <string name="sort_by_author">Höfundur</string>
+    <string name="sort_by_rating">Einkunn</string>
+    <string name="tab_shelf">Hilla</string>
+    <string name="tab_to_read">Að lesa</string>
+    <string name="tab_reading">Les</string>
+    <string name="tab_read">Lesið</string>
+    <string name="tab_stats">Tölfræði</string>
+    <string name="add_book">Ný bók</string>
+    <string name="edit_book">Breyta</string>
+    <string name="save">Vista</string>
+    <string name="title">Titill</string>
+    <string name="title_placeholder">Hringadróttinssaga</string>
+    <string name="author">Höfundur</string>
+    <string name="author_placeholder">J.R.R. Tolkien</string>
+    <string name="status">Staða</string>
+    <string name="status_to_read">Að lesa</string>
+    <string name="status_reading">Les</string>
+    <string name="status_read">Lesið</string>
+    <string name="rating">Einkunn</string>
+    <string name="notes">Glósur</string>
+    <string name="notes_placeholder">Þínar hugsanir...</string>
+    <string name="cover_or_bookmark">Kápa</string>
+    <string name="select_from_gallery">Veldu mynd</string>
+    <string name="remove_cover">Eyða</string>
+    <string name="settings">Stillingar</string>
+    <string name="appearance">Útlit</string>
+    <string name="theme">Þema</string>
+    <string name="theme_system">Kerfi</string>
+    <string name="theme_light">Ljóst</string>
+    <string name="theme_dark">Dökkt</string>
+    <string name="accent_color">Litur</string>
+    <string name="language">Tungumál</string>
+    <string name="backup">Gögn</string>
+    <string name="export_data">Flytja út</string>
+    <string name="import_data">Flytja inn</string>
+    <string name="clear_data">Hreinsa</string>
+    <string name="clear_data_desc">Eyða öllu</string>
+    <string name="confirm_clear_data">Ertu viss?</string>
+    <string name="about_app">Um appið</string>
+    <string name="version">Útgáfa</string>
+    <string name="licenses">Leyfi</string>
+    <string name="email">Netfang</string>
+    <string name="source_code">Kóði</string>
+    <string name="create_issue">Senda</string>
+    <string name="third_party_licenses">Þriðja aðila</string>
+    <string name="terms_conditions">Skilmálar</string>
+    <string name="privacy_policy">Persónuvernd</string>
+    <string name="close">Loka</string>
+    <string name="empty_shelf_title">Engar bækur</string>
+    <string name="empty_shelf_desc">Bæta við bók.</string>
+    <string name="this_year">Í ár</string>
+    <string name="books_read">Lesnar</string>
+    <string name="books_added">Bætt við</string>
+    <string name="pages_read">Hl. síður</string>
+    <string name="time_spent">Tími</string>
+    <string name="reading_progress">Árangur</string>
+    <string name="page">Bls</string>
+    <string name="start_reading">Byrja</string>
+    <string name="stop_reading">Stopp</string>
+    <string name="cancel">Hætta</string>
+    <string name="empty_stats_title">Ekkert</string>
+    <string name="empty_stats_desc">Bættu við bókum.</string>
+    <string name="select_book">Veldu...</string>
+    <string name="what_book_reading">Hvað?</string>
+    <string name="what_page_finished">Á hvaða bls?</string>
+    <string name="add_book_first">Bættu fyrst við.</string>
+    <string name="update_progress_message">Sýnir</string>
+    <string name="reading_time_title">Lestur?</string>
+    <string name="reading_time_desc_reading">Lestu...</string>
+    <string name="reading_time_desc_idle">Lestu.</string>
+    <string name="import_success">Tókst:</string>
+    <string name="import_format_error">Villa.</string>
+    <string name="import_error">Villa.</string>
+    <string name="storage_full_error">Geymsla er full. Fjarlægðu einhverjar bókakápur eða hreinsaðu gögn.</string>
+    <string name="on_github">Github</string>
+    <string name="mit_license">MIT</string>
+    <string name="last_updated">Síðast uppfært: Maí 2026</string>
+    <string name="privacy_disclaimer_title">Gögnin þín eru áfram á tækinu þínu.</string>
+    <string name="privacy_disclaimer_body">Biblioteka safnar hvorki, sendir né selur persónuupplýsingar.</string>
+    <string-array name="privacy_titles">
+        <item>Gagnageymsla</item>
+        <item>Engin ytri vefgreining</item>
+        <item>Aðgangsheimildir</item>
+        <item>Frjáls Opinn Kóði</item>
+        <item>Nánari aðstoð</item>
+    </string-array>
+    <string-array name="privacy_bodies">
+        <item>Allar bækurnar þínar og stillingar verða einungis varðveittar innan staðbundins búnaðar.</item>
+        <item>Öll þjónusta sem tengist aukaauglýsingum eða annarskonar tölfræðigreiningar hugbúnaði eru undanskilin.</item>
+        <item>Biblioteka biður ekki um neinar Android keyrsluleyfi. Öryggisafrit eru skrifuð í einkabiðminni forritsins og deilt aðeins þegar þú ýtir sérstaklega á Deila.</item>
+        <item>Biblioteka styðst einvörðungu á opinn grunnkóða sem nálgast má eftir vild á GitHub þjónustunni.</item>
+        <item>Vinsamlegast nálgist nánari fyrirspurnir í gegnum GitHub vettvanginn eða hafið samband beint á netfangið biblioteka@damiankokot.eu.</item>
+    </string-array>
+    <string-array name="terms_titles">
+        <item>1. Samþykki skilmála</item>
+        <item>2. Hugbúnaðarleyfi</item>
+        <item>3. Meðhöndlun Hugbúnaðarins</item>
+        <item>4. Undanskilið ábyrgð</item>
+        <item>5. Breytingar</item>
+        <item>6. Tölvupóstur Framleiðanda</item>
+    </string-array>
+    <string-array name="terms_bodies">
+        <item>Notkun okkar upplýsingakerfis gengur því í augu að nýta og virkja framantalin grundvallaratriði staðalsins.</item>
+        <item>Alþjóðlegt dreifingarkerfi byggt undir skilyrðum frá samspila opnum kerfum (MIT leyfinu).</item>
+        <item>Þjónustan snertir af stærstu leyti þegna einstakra hluta notendasvæðis í samvinnu með að koma í veg fyrir skemmdir eða svik.</item>
+        <item>Með öllu undanskilum framleiðanda á öllum og hvaða skaða á týndum tölvugögnum sem er af orsök notands hugbúnaðarins.</item>
+        <item>Þeir sem nota appið án viðbragða við seinni breytingar á uppfærslum af regluverkum skulu lítið á vera samþykkjendur þess sama.</item>
+        <item>Aðrir vafalítil málefnin sendist áfram í snertingu til biblioteka@damiankokot.eu eða sjá tæknisvið Github.</item>
+    </string-array>
+</resources>

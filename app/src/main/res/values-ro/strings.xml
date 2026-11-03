@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Migrated from the web version (src/lib/i18n.ts + SettingsModal.tsx). -->
+<resources>
+    <string name="search_placeholder">Caută o carte...</string>
+    <string name="sort_by_date">Data adăugării</string>
+    <string name="sort_by_title">Titlu</string>
+    <string name="sort_by_author">Autor</string>
+    <string name="sort_by_rating">Evaluare</string>
+    <string name="tab_shelf">Raft</string>
+    <string name="tab_to_read">De citit</string>
+    <string name="tab_reading">Citesc</string>
+    <string name="tab_read">Citit</string>
+    <string name="tab_stats">Statistici</string>
+    <string name="add_book">Carte nouă</string>
+    <string name="edit_book">Editare</string>
+    <string name="save">Salvare</string>
+    <string name="title">Titlu</string>
+    <string name="title_placeholder">Ex. Stăpânul Inelelor</string>
+    <string name="author">Autor</string>
+    <string name="author_placeholder">Ex. J.R.R. Tolkien</string>
+    <string name="status">Status</string>
+    <string name="status_to_read">De citit</string>
+    <string name="status_reading">Citesc</string>
+    <string name="status_read">Citite</string>
+    <string name="rating">Evaluare</string>
+    <string name="notes">Note</string>
+    <string name="notes_placeholder">Gânduri...</string>
+    <string name="cover_or_bookmark">Copertă</string>
+    <string name="select_from_gallery">Galerie</string>
+    <string name="remove_cover">Șterge</string>
+    <string name="settings">Setări</string>
+    <string name="appearance">Aspect</string>
+    <string name="theme">Temă</string>
+    <string name="theme_system">Sistem</string>
+    <string name="theme_light">Luminos</string>
+    <string name="theme_dark">Întunecat</string>
+    <string name="accent_color">Culoare</string>
+    <string name="language">Limbă</string>
+    <string name="backup">Date</string>
+    <string name="export_data">Ecxport</string>
+    <string name="import_data">Import</string>
+    <string name="clear_data">Șterge</string>
+    <string name="confirm_clear_data">Ștergi toate datele?</string>
+    <string name="about_app">Despre</string>
+    <string name="version">Versiune</string>
+    <string name="licenses">Licențe</string>
+    <string name="email">Email</string>
+    <string name="source_code">Cod sursă</string>
+    <string name="create_issue">Raportare hiba</string>
+    <string name="third_party_licenses">Licențe</string>
+    <string name="terms_conditions">Termeni</string>
+    <string name="privacy_policy">Confidențialitate</string>
+    <string name="close">Închide</string>
+    <string name="empty_shelf_title">Nicio carte</string>
+    <string name="empty_shelf_desc">Adaugă o carte.</string>
+    <string name="this_year">Anul acesta</string>
+    <string name="books_read">Citite</string>
+    <string name="pages_read">Pagini</string>
+    <string name="time_spent">Timp</string>
+    <string name="reading_progress">Progres</string>
+    <string name="page">Pagina</string>
+    <string name="start_reading">Începe</string>
+    <string name="stop_reading">Oprește</string>
+    <string name="cancel">Anulează</string>
+    <string name="empty_stats_title">Fără date</string>
+    <string name="empty_stats_desc">Adaugă cărți.</string>
+    <string name="select_book">Alege...</string>
+    <string name="what_book_reading">Ce ai citit?</string>
+    <string name="what_page_finished">La ce pagină?</string>
+    <string name="add_book_first">Adaugă o carte.</string>
+    <string name="update_progress_message">Gata</string>
+    <string name="reading_time_title">Citim?</string>
+    <string name="reading_time_desc_reading">Lectură plăcută!</string>
+    <string name="reading_time_desc_idle">Începe să citești.</string>
+    <string name="import_success">Gata:</string>
+    <string name="import_format_error">Eroare.</string>
+    <string name="import_error">Eroare citire.</string>
+    <string name="storage_full_error">Stocarea este plină. Elimină câteva coperți de carte sau șterge datele.</string>
+    <string name="on_github">Pe Github</string>
+    <string name="mit_license">Licență MIT</string>
+    <string name="clear_data_desc">Ștergeți toate cărțile și resetați</string>
+    <string name="books_added">Cărți adăugate</string>
+    <string name="last_updated">Ultima actualizare: mai 2026</string>
+    <string name="privacy_disclaimer_title">Datele tale rămân pe dispozitivul tău.</string>
+    <string name="privacy_disclaimer_body">Biblioteka nu colectează, nu transmite și nu vinde date personale.</string>
+    <string-array name="privacy_titles">
+        <item>Stocarea datelor</item>
+        <item>Fără analitice sau urmărire</item>
+        <item>Permisiuni</item>
+        <item>Sursă deschisă</item>
+        <item>Contact</item>
+    </string-array>
+    <string-array name="privacy_bodies">
+        <item>Toate cărțile, notițele și setările tale sunt stocate exclusiv pe dispozitivul tău. Nu este necesar un cont.</item>
+        <item>Nu folosim servicii de analiză, raportoare de blocaje sau SDK-uri de publicitate.</item>
+        <item>Biblioteka nu solicită nicio permisiune Android în timp de rulare. Copiile de rezervă sunt scrise în memoria cache privată a aplicației și partajate doar când atingeți explicit Partajare.</item>
+        <item>Biblioteka este complet open source. Poți inspecta tot codul pe GitHub pentru a verifica aceste afirmații.</item>
+        <item>Întrebări despre confidențialitate? Deschide o problemă pe GitHub sau contactează direct dezvoltatorul la biblioteka@damiankokot.eu.</item>
+    </string-array>
+    <string-array name="terms_titles">
+        <item>1. Acceptarea Termenilor</item>
+        <item>2. Licență</item>
+        <item>3. Utilizare</item>
+        <item>4. Fără Garanție</item>
+        <item>5. Modificări</item>
+        <item>6. Contact</item>
+    </string-array>
+    <string-array name="terms_bodies">
+        <item>Utilizând Biblioteka, accepți acești Termeni. Dacă nu ești de acord, te rugăm să dezinstalezi aplicația.</item>
+        <item>Biblioteka este sub licența MIT. Ești liber să o utilizezi, modifici și distribui conform acelei licențe.</item>
+        <item>Aplicația este pentru uz personal. Ești de acord să nu folosești greșit aplicația.</item>
+        <item>Aplicația este \"așa cum este\". Dezvoltatorul nu e responsabil pentru pierderea datelor.</item>
+        <item>Aplicația se actualizează. Utilizarea continuă înseamnă acceptarea termenilor.</item>
+        <item>Pentru întrebări, deschide o problemă pe GitHub sau contactează biblioteka@damiankokot.eu.</item>
+    </string-array>
+</resources>

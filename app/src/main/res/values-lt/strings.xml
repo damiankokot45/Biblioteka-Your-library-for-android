@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Migrated from the web version (src/lib/i18n.ts + SettingsModal.tsx). -->
+<resources>
+    <string name="search_placeholder">Ieškoti...</string>
+    <string name="sort_by_date">Pridėta</string>
+    <string name="sort_by_title">Pavadinimas</string>
+    <string name="sort_by_author">Autorius</string>
+    <string name="sort_by_rating">Įvertinimas</string>
+    <string name="tab_shelf">Lentyna</string>
+    <string name="tab_to_read">Skaityti</string>
+    <string name="tab_reading">Skaitoma</string>
+    <string name="tab_read">Perskaityta</string>
+    <string name="tab_stats">Statistika</string>
+    <string name="add_book">Nauja knyga</string>
+    <string name="edit_book">Redaguoti</string>
+    <string name="save">Išsaugoti</string>
+    <string name="title">Pavadinimas</string>
+    <string name="title_placeholder">Pvz. Žiedų valdovas</string>
+    <string name="author">Autorius</string>
+    <string name="author_placeholder">Pvz. J.R.R. Tolkien</string>
+    <string name="status">Būsena</string>
+    <string name="status_to_read">Skaityti</string>
+    <string name="status_reading">Skaitoma</string>
+    <string name="status_read">Perskaityta</string>
+    <string name="rating">Įvertinimas</string>
+    <string name="notes">Pastabos</string>
+    <string name="notes_placeholder">Mintys...</string>
+    <string name="cover_or_bookmark">Viršelis</string>
+    <string name="select_from_gallery">Galerija</string>
+    <string name="remove_cover">Pašalinti</string>
+    <string name="settings">Nustatymai</string>
+    <string name="appearance">Išvaizda</string>
+    <string name="theme">Tema</string>
+    <string name="theme_system">Sistema</string>
+    <string name="theme_light">Šviesi</string>
+    <string name="theme_dark">Tamsi</string>
+    <string name="accent_color">Spalva</string>
+    <string name="language">Kalba</string>
+    <string name="backup">Atsarginė</string>
+    <string name="export_data">Eksportuoti</string>
+    <string name="import_data">Importuoti</string>
+    <string name="clear_data">Išvalyti</string>
+    <string name="clear_data_desc">Trinti</string>
+    <string name="confirm_clear_data">Ar tikrai?</string>
+    <string name="about_app">Apie</string>
+    <string name="version">Versija</string>
+    <string name="licenses">Licencijos</string>
+    <string name="email">El. paštas</string>
+    <string name="source_code">Kodas</string>
+    <string name="create_issue">Pranešti</string>
+    <string name="third_party_licenses">Kitos</string>
+    <string name="terms_conditions">Sąlygos</string>
+    <string name="privacy_policy">Privatumas</string>
+    <string name="close">Uždaryti</string>
+    <string name="empty_shelf_title">Nėra</string>
+    <string name="empty_shelf_desc">Pridėti knygą.</string>
+    <string name="this_year">Šiemet</string>
+    <string name="books_read">Perskaityta</string>
+    <string name="books_added">Pridėta</string>
+    <string name="pages_read">Puslapiai</string>
+    <string name="time_spent">Laikas</string>
+    <string name="reading_progress">Progresas</string>
+    <string name="page">Pusl</string>
+    <string name="start_reading">Pradėti</string>
+    <string name="stop_reading">Sustabdyti</string>
+    <string name="cancel">Atšaukti</string>
+    <string name="empty_stats_title">Tuščia</string>
+    <string name="empty_stats_desc">Pridėk knygą.</string>
+    <string name="select_book">Pasirinkti...</string>
+    <string name="what_book_reading">Ką skaitai?</string>
+    <string name="what_page_finished">Puslapis?</string>
+    <string name="add_book_first">Pridėti.</string>
+    <string name="update_progress_message">Baigta</string>
+    <string name="reading_time_title">Skaityti?</string>
+    <string name="reading_time_desc_reading">Skaityk...</string>
+    <string name="reading_time_desc_idle">Laisvalaikis.</string>
+    <string name="import_success">Puiku:</string>
+    <string name="import_format_error">Klaida.</string>
+    <string name="import_error">Klaida.</string>
+    <string name="storage_full_error">Saugykla pilna. Pašalink kai kuriuos knygų viršelius arba išvalyk duomenis.</string>
+    <string name="on_github">Github</string>
+    <string name="mit_license">MIT</string>
+    <string name="last_updated">Paskutinį kartą atnaujinta: Gegužė 2026</string>
+    <string name="privacy_disclaimer_title">Jūsų duomenys lieka jūsų įrenginyje.</string>
+    <string name="privacy_disclaimer_body">Biblioteka nerenka, neperduoda ir neparduoda jokių asmeninių duomenų.</string>
+    <string-array name="privacy_titles">
+        <item>DuomenųSaugykla</item>
+        <item>SekimoIr Analizės Negalimumas</item>
+        <item>Leidimai</item>
+        <item>Atviras Kodas</item>
+        <item>Susisiekti</item>
+    </string-array>
+    <string-array name="privacy_bodies">
+        <item>Visos knygos, užrašai ir kiti sistemos nustatymai saugomi tiesiog jūsų naudojamame prietaise. Papildoma paskyra tikrai nėra būtina.</item>
+        <item>Mes neužsiimame analitika paremta veikla ir nenaudojame tam skirtų programų asmeninio naudojimo labui.</item>
+        <item>Biblioteka nereikalauja jokių Android vykdymo laiko leidimų. Atsarginės kopijos rašomos į privačią programėlės talpyklą ir dalijamasi tik tada, kai aiškiai paliečiate Dalintis.</item>
+        <item>Biblioteka – tai tik atvirojo kodo pagrindu sukurtas produktas. Visi originalus sistemos parametrai egzistuoja atvira prieiga prieinamoje sistemoje, vadinamoje GitHub.</item>
+        <item>Iškilus skubiems pranešimams apsilankykite GitHub ar išsiuskite informacinį laišką per paštą biblioteka@damiankokot.eu.</item>
+    </string-array>
+    <string-array name="terms_titles">
+        <item>1. Naudojimosi Apibrėžtumas</item>
+        <item>2. Laisva Apimtis</item>
+        <item>3. Kasdieninis Naudojimas</item>
+        <item>4. Jokhio Padengties Suteikimo</item>
+        <item>5. Adaptabilumas</item>
+        <item>6. Kontaktinė Prieiga</item>
+    </string-array>
+    <string-array name="terms_bodies">
+        <item>Kai prisiimate laisvą produkto atisiuntimą taip prisiimate atitinkamus programinės įrangos standartus ir susitarimus.</item>
+        <item>Teisiškai sureguliuotų reikalavimų sistemoje yra prieinamo naudojimo bazinė licenziją (MIT leidimas).</item>
+        <item>Visa ši bazė kurta pačių jūsų paprasčiausių reikalavimų patenkinimams nepažeidžiant vientisumo ar sistemos pagrindų.</item>
+        <item>Tokios apraškos neužtikrina visiško saugumo dingus pagrindinei duomienu atsarginei laikmenai.</item>
+        <item>Regimieji atnaujinimai laikomi sutartyje nebent naudotojas toliam išvengia jų esamos įgyvendinimo apimties.</item>
+        <item>Kiti teikti pasiūlymai GitHub domenyje arba susisiekite nurodytu adresu biblioteka@damiankokot.eu.</item>
+    </string-array>
+</resources>
