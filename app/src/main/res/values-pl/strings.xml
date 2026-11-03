@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Migrated from the web version (src/lib/i18n.ts + SettingsModal.tsx). -->
+<resources>
+    <string name="search_placeholder">Szukaj książki...</string>
+    <string name="sort_by_date">Data dodania</string>
+    <string name="sort_by_title">Tytuł</string>
+    <string name="sort_by_author">Autor</string>
+    <string name="sort_by_rating">Ocena</string>
+    <string name="tab_shelf">Półka</string>
+    <string name="tab_to_read">Będę czytać</string>
+    <string name="tab_reading">Czytam</string>
+    <string name="tab_read">Przeczytane</string>
+    <string name="tab_stats">Statystyki</string>
+    <string name="add_book">Nowa książka</string>
+    <string name="edit_book">Edytuj książkę</string>
+    <string name="save">Zapisz</string>
+    <string name="title">Tytuł</string>
+    <string name="title_placeholder">Np. Władca Pierścieni</string>
+    <string name="author">Autor</string>
+    <string name="author_placeholder">Np. J.R.R. Tolkien</string>
+    <string name="status">Status</string>
+    <string name="status_to_read">Będę czytać</string>
+    <string name="status_reading">Czytam</string>
+    <string name="status_read">Przeczytane</string>
+    <string name="rating">Ocena</string>
+    <string name="notes">Notatki</string>
+    <string name="notes_placeholder">Twoje przemyślenia, cytaty...</string>
+    <string name="cover_or_bookmark">Okładka / Zakładka</string>
+    <string name="select_from_gallery">Wybierz z galerii</string>
+    <string name="remove_cover">Skasuj</string>
+    <string name="settings">Ustawienia</string>
+    <string name="appearance">Wygląd</string>
+    <string name="theme">Motyw</string>
+    <string name="theme_system">Systemowy</string>
+    <string name="theme_light">Jasny</string>
+    <string name="theme_dark">Ciemny</string>
+    <string name="accent_color">Kolor akcentu</string>
+    <string name="language">Język</string>
+    <string name="backup">Dane i kopia</string>
+    <string name="export_data">Eksportuj dane</string>
+    <string name="import_data">Importuj dane</string>
+    <string name="clear_data">Wyczyść dane</string>
+    <string name="clear_data_desc">Usuń wszystkie książki i postęp</string>
+    <string name="confirm_clear_data">Czy na pewno chcesz usunąć WSZYSTKIE dane? Nie można tego cofnąć!</string>
+    <string name="about_app">O aplikacji</string>
+    <string name="version">Wersja</string>
+    <string name="licenses">Licencje</string>
+    <string name="email">Email</string>
+    <string name="source_code">Kod źródłowy</string>
+    <string name="create_issue">Zgłoś problem</string>
+    <string name="third_party_licenses">Licencje stron trzecich</string>
+    <string name="terms_conditions">Regulamin</string>
+    <string name="privacy_policy">Polityka prywatności</string>
+    <string name="close">Zamknij</string>
+    <string name="empty_shelf_title">Brak książek</string>
+    <string name="empty_shelf_desc">Kliknij przycisk poniżej, aby dodać swoją pierwszą książkę na tę listę.</string>
+    <string name="this_year">Ten rok</string>
+    <string name="books_read">Przeczytane</string>
+    <string name="books_added">Dodane</string>
+    <string name="pages_read">Przeczytane strony</string>
+    <string name="time_spent">Czas czytania</string>
+    <string name="reading_progress">Postęp czytania</string>
+    <string name="page">Strona</string>
+    <string name="start_reading">Zacznij czytać</string>
+    <string name="stop_reading">Zatrzymaj licznik</string>
+    <string name="cancel">Anuluj</string>
+    <string name="empty_stats_title">Brak danych</string>
+    <string name="empty_stats_desc">Dodaj książki, aby zobaczyć swoje statystyki.</string>
+    <string name="select_book">Wybierz książkę...</string>
+    <string name="what_book_reading">Co czytałeś?</string>
+    <string name="what_page_finished">Na której stronie skończyłeś?</string>
+    <string name="add_book_first">Nie masz żadnych książek w trakcie czytania. Dodaj książkę najpierw.</string>
+    <string name="update_progress_message">Czytanie zakończone</string>
+    <string name="reading_time_title">Czas na czytanie?</string>
+    <string name="reading_time_desc_reading">Zanurz się w opowieść...</string>
+    <string name="reading_time_desc_idle">Zrelaksuj się i zacznij czytać. Śledź swój czas i postępy.</string>
+    <string name="import_success">Pomyślnie zaimportowano książki:</string>
+    <string name="import_format_error">Nieprawidłowy format pliku kopii.</string>
+    <string name="import_error">Błąd odczytu pliku kopii zapasowej JSON.</string>
+    <string name="storage_full_error">Pamięć jest pełna. Usuń kilka okładek lub wyczyść dane aplikacji.</string>
+    <string name="on_github">Na Github</string>
+    <string name="mit_license">Licencja MIT</string>
+    <string name="last_updated">Ostatnia aktualizacja: maj 2026</string>
+    <string name="privacy_disclaimer_title">Twoje dane pozostają na urządzeniu.</string>
+    <string name="privacy_disclaimer_body">Biblioteka nie zbiera, nie przesyła ani nie sprzedaje żadnych danych osobowych.</string>
+    <string-array name="privacy_titles">
+        <item>Przechowywanie danych</item>
+        <item>Brak analityki i śledzenia</item>
+        <item>Uprawnienia</item>
+        <item>Open Source</item>
+        <item>Kontakt</item>
+    </string-array>
+    <string-array name="privacy_bodies">
+        <item>Wszystkie Twoje książki, notatki i ustawienia są przechowywane wyłącznie na Twoim urządzeniu. Konto nie jest wymagane.</item>
+        <item>Nie korzystamy z żadnych usług analitycznych, raportowania błędów ani pakietów reklamowych.</item>
+        <item>Biblioteka nie wymaga żadnych uprawnień systemowych w czasie działania. Kopie zapasowe są zapisywane w prywatnej pamięci podręcznej aplikacji i udostępniane tylko po wyraźnym naciśnięciu przycisku Udostępnij.</item>
+        <item>Biblioteka jest w pełni oprogramowaniem open source. Możesz sprawdzić kod źródłowy na GitHubie, aby zweryfikować te informacje.</item>
+        <item>Masz pytania o prywatność? Zgłoś problem w serwisie GitHub lub skontaktuj się bezpośrednio z twórcą pod adresem biblioteka@damiankokot.eu.</item>
+    </string-array>
+    <string-array name="terms_titles">
+        <item>1. Akceptacja Warunków</item>
+        <item>2. Licencja</item>
+        <item>3. Korzystanie z aplikacji</item>
+        <item>4. Brak Gwarancji</item>
+        <item>5. Zmiany</item>
+        <item>6. Kontakt</item>
+    </string-array>
+    <string-array name="terms_bodies">
+        <item>Pobierając lub korzystając z aplikacji Biblioteka, wyrażasz zgodę na niniejsze Warunki. Jeśli się z nimi nie zgadzasz, odinstaluj aplikację.</item>
+        <item>Biblioteka to oprogramowanie open source na licencji MIT. Możesz z niego korzystać, kopiować, modyfikować i rozpowszechniać zgodnie z licencją.</item>
+        <item>Aplikacja służy do użytku osobistego. Zgadzasz się nie nadużywać aplikacji ani nie naruszać jej kodu.</item>
+        <item>Aplikacja jest dostarczana \"tak jak jest\", bez jakiejkolwiek gwarancji. Twórca nie odpowiada za ewentualną utratę Twoich danych.</item>
+        <item>Warunki mogą być aktualizowane. Dalsze korzystanie z aplikacji oznacza akceptację nowych warunków.</item>
+        <item>W razie pytań zgłoś usterkę na GitHubie lub skontaktuj się z twórcą pod adresem biblioteka@damiankokot.eu.</item>
+    </string-array>
+</resources>

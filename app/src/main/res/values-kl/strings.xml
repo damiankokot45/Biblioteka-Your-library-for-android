@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Migrated from the web version (src/lib/i18n.ts + SettingsModal.tsx). -->
+<resources>
+    <string name="search_placeholder">Ujarli...</string>
+    <string name="sort_by_date">Ullut</string>
+    <string name="sort_by_title">Qulequtaq</string>
+    <string name="sort_by_author">Atuakkiortoq</string>
+    <string name="sort_by_rating">Naliliineq</string>
+    <string name="tab_shelf">Nerriveqarfik</string>
+    <string name="tab_to_read">Atuarneqartussat</string>
+    <string name="tab_reading">Atuarpara</string>
+    <string name="tab_read">Atuareerlugu</string>
+    <string name="tab_stats">Kisitsisitigut</string>
+    <string name="add_book">Atuagaq</string>
+    <string name="edit_book">Iluarsi</string>
+    <string name="save">Toqqoruk</string>
+    <string name="title">Qulequtaq</string>
+    <string name="title_placeholder">...</string>
+    <string name="author">Atuakkiortoq</string>
+    <string name="author_placeholder">...</string>
+    <string name="status">Sumiiffik</string>
+    <string name="status_to_read">Atuarneqartussat</string>
+    <string name="status_reading">Atuarpara</string>
+    <string name="status_read">Atuareerpoq</string>
+    <string name="rating">Naliliineq</string>
+    <string name="notes">Allattukkat</string>
+    <string name="notes_placeholder">...</string>
+    <string name="cover_or_bookmark">Saqqaa</string>
+    <string name="select_from_gallery">Toqqaagit</string>
+    <string name="remove_cover">Piiaagit</string>
+    <string name="settings">Aaqqissuussinerit</string>
+    <string name="appearance">Isikkoq</string>
+    <string name="theme">Qitiusumik</string>
+    <string name="theme_system">Aaqqissuussisartup</string>
+    <string name="theme_light">Qaamasoq</string>
+    <string name="theme_dark">Taartoq</string>
+    <string name="accent_color">Qillertittoq</string>
+    <string name="language">Oqaatsit</string>
+    <string name="backup">Paasissutissat</string>
+    <string name="export_data">Nassiugit</string>
+    <string name="import_data">Tigugit</string>
+    <string name="clear_data">Nungukkit</string>
+    <string name="clear_data_desc">Tamaasa</string>
+    <string name="confirm_clear_data">Nunguppat?</string>
+    <string name="about_app">Pillugu</string>
+    <string name="version">Immikkoortitsineq</string>
+    <string name="licenses">Akuersissutit</string>
+    <string name="email">Allat</string>
+    <string name="source_code">Suliat</string>
+    <string name="create_issue">Malugiaq</string>
+    <string name="third_party_licenses">Allat</string>
+    <string name="terms_conditions">Aalajangersakkat</string>
+    <string name="privacy_policy">Isumannaallisaaneq</string>
+    <string name="close">Matuuk</string>
+    <string name="empty_shelf_title">Soqangilaq</string>
+    <string name="empty_shelf_desc">Atuagaq ilannguguk.</string>
+    <string name="this_year">Ukioq</string>
+    <string name="books_read">Atuakkat</string>
+    <string name="books_added">Ilanngunneqartut</string>
+    <string name="pages_read">Quppernerit</string>
+    <string name="time_spent">Piffissaq</string>
+    <string name="reading_progress">Atuarneq</string>
+    <string name="page">Qupp</string>
+    <string name="start_reading">Aallarti</string>
+    <string name="stop_reading">Unitsiguk</string>
+    <string name="cancel">Asuu</string>
+    <string name="empty_stats_title">Suunngilaq</string>
+    <string name="empty_stats_desc">Atuakkat.</string>
+    <string name="select_book">Toqqaagit...</string>
+    <string name="what_book_reading">Suna?</string>
+    <string name="what_page_finished">Qupp?</string>
+    <string name="add_book_first">Atuagaqalerit.</string>
+    <string name="update_progress_message">Naammassivoq</string>
+    <string name="reading_time_title">Piffissaq?</string>
+    <string name="reading_time_desc_reading">Atuarit...</string>
+    <string name="reading_time_desc_idle">Atuarit.</string>
+    <string name="import_success">Aaqqippoq:</string>
+    <string name="import_format_error">Kukkuneq.</string>
+    <string name="import_error">Kukkuneq.</string>
+    <string name="storage_full_error">Toqqortat ulikkupput. Atuagaat saqqaat ilaat peerukit.</string>
+    <string name="on_github">Github</string>
+    <string name="mit_license">MIT</string>
+    <string name="last_updated">Kingullermik nutarterpoq: Maaji 2026</string>
+    <string name="privacy_disclaimer_title">Paasissutissat qarasaasiarmiigaapput.</string>
+    <string name="privacy_disclaimer_body">Biblioteka inummut tunngasunik katersinngilaq, tunniussinngilaq imaluunniit tunisineranngilaq.</string>
+    <string-array name="privacy_titles">
+        <item>Paasissutissat Tassa</item>
+        <item>Misissuinera Nangeqqaarneq</item>
+        <item>Pisortatigut Aaqqissu</item>
+        <item>Oqaatsit Aaqqissuussaq</item>
+        <item>Saaffiginnissut</item>
+    </string-array>
+    <string-array name="privacy_bodies">
+        <item>Allat atuakkatit isertuussatit piumasaqaatikkut nammineq pigaarniarlugit toqqorneqarput.</item>
+        <item>Internet atorlugu pisartagarnut avatangiisimik ajornartorsiutillu suliaralugillu isumannaatsumut immikkoortiterput.</item>
+        <item>Biblioteka Android-ip inatsisitigut atugassarsiorsimanngikkaluarluni. Backup-it programip eqqortumik imminnut pigineqartariaqarpoq cache-imminni allatigoorneqassanngikkaluarlutik isikkusimapallaarsimanngikkaluarluni Nalunaarsuiffigeqqinneq touarneqarsinnaasinnaalersitsisariaqarpoq.</item>
+        <item>Biblioteka siammasissumik piviusunngorluni iluaqutissiivoq, GitHub saqqumsillugu.</item>
+        <item>Sammisat unammillernartut uaniinnaq naatsorsuunneqarlutik paasissutissiip GitHub-imi imaluunniit biblioteka@damiankokot.eu</item>
+    </string-array>
+    <string-array name="terms_titles">
+        <item>1. Piumasaqaatit</item>
+        <item>2. Akuersissut</item>
+        <item>3. Atuinera</item>
+        <item>4. Pitsaanngitsut</item>
+        <item>5. Allortariikkut</item>
+        <item>6. Allattoqarfik</item>
+    </string-array>
+    <string-array name="terms_bodies">
+        <item>Atortussat ilanngullugit pilerinnaq namminersorlutit tapersersornartippat qaqutigooraluarit tulluarpoq.</item>
+        <item>Ilasoq Biblioteka ilisimasat najoqqutassat ilisimasat MIT akuersissummik ilanngunneqarpoq.</item>
+        <item>Utoqqat malittarisaliortaat sulisoq unioqqutinngillat nalinginnaasumi atorneqassasoq isumaqatigiiffeqarpugut.</item>
+        <item>Applikationimit naggataatigut akisussaassuseqanngilagut datanut ilisimatitsilluni ajornartorsiutinut.</item>
+        <item>Malittarisassat immikkoortut allannguuteqarnerit atuuttuumatillugit atornera pisarsimasumut atuaqqullugu neriorsugaq.</item>
+        <item>Immikkoortitsinermut tunngasut Github atorneqassappata iserluaruk imaluunniit nalilersukkat biblioteka@damiankokot.eu atorlugu ujartuisi.</item>
+    </string-array>
+</resources>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Migrated from the web version (src/lib/i18n.ts + SettingsModal.tsx). -->
+<resources>
+    <string name="search_placeholder">Pretraži...</string>
+    <string name="sort_by_date">Datum dodavanja</string>
+    <string name="sort_by_title">Naslov</string>
+    <string name="sort_by_author">Autor</string>
+    <string name="sort_by_rating">Ocjena</string>
+    <string name="tab_shelf">Polica</string>
+    <string name="tab_to_read">Za čitanje</string>
+    <string name="tab_reading">Čitam</string>
+    <string name="tab_read">Pročitano</string>
+    <string name="tab_stats">Statistika</string>
+    <string name="add_book">Nova knjiga</string>
+    <string name="edit_book">Uredi</string>
+    <string name="save">Spremi</string>
+    <string name="title">Naslov</string>
+    <string name="title_placeholder">Npr. Gospodar prstenova</string>
+    <string name="author">Autor</string>
+    <string name="author_placeholder">Npr. J.R.R. Tolkien</string>
+    <string name="status">Status</string>
+    <string name="status_to_read">Za čitanje</string>
+    <string name="status_reading">Trenutno čitam</string>
+    <string name="status_read">Pročitano</string>
+    <string name="rating">Ocjena</string>
+    <string name="notes">Bilješke</string>
+    <string name="notes_placeholder">Vaše misli...</string>
+    <string name="cover_or_bookmark">Omot</string>
+    <string name="select_from_gallery">Odaberi</string>
+    <string name="remove_cover">Ukloni</string>
+    <string name="settings">Postavke</string>
+    <string name="appearance">Izgled</string>
+    <string name="theme">Tema</string>
+    <string name="theme_system">Sustav</string>
+    <string name="theme_light">Svijetlo</string>
+    <string name="theme_dark">Tamno</string>
+    <string name="accent_color">Boja</string>
+    <string name="language">Jezik</string>
+    <string name="backup">Podaci</string>
+    <string name="export_data">Izvezi</string>
+    <string name="import_data">Uvezi</string>
+    <string name="clear_data">Izbriši podatke</string>
+    <string name="clear_data_desc">Briše sve</string>
+    <string name="confirm_clear_data">Jeste li sigurni? Ne može se vratiti!</string>
+    <string name="about_app">O aplikaciji</string>
+    <string name="version">Verzija</string>
+    <string name="licenses">Licence</string>
+    <string name="email">E-pošta</string>
+    <string name="source_code">Izvorni kod</string>
+    <string name="create_issue">Prijavi grešku</string>
+    <string name="third_party_licenses">Zakon</string>
+    <string name="terms_conditions">Uvjeti</string>
+    <string name="privacy_policy">Privatnost</string>
+    <string name="close">Zatvori</string>
+    <string name="empty_shelf_title">Nema knjiga</string>
+    <string name="empty_shelf_desc">Dodajte knjigu.</string>
+    <string name="this_year">Ove godine</string>
+    <string name="books_read">Pročitanih</string>
+    <string name="books_added">Dodanih</string>
+    <string name="pages_read">Prok. stranica</string>
+    <string name="time_spent">Vrijeme</string>
+    <string name="reading_progress">Napredak</string>
+    <string name="page">Str.</string>
+    <string name="start_reading">Počni</string>
+    <string name="stop_reading">Stani</string>
+    <string name="cancel">Odustani</string>
+    <string name="empty_stats_title">Nema</string>
+    <string name="empty_stats_desc">Daj knjige za stat.</string>
+    <string name="select_book">Odaberi...</string>
+    <string name="what_book_reading">Što čitaš?</string>
+    <string name="what_page_finished">Koja str?</string>
+    <string name="add_book_first">Dodaj prvo.</string>
+    <string name="update_progress_message">Gotovo.</string>
+    <string name="reading_time_title">Vrijeme za čitanje?</string>
+    <string name="reading_time_desc_reading">Zakorači u priču...</string>
+    <string name="reading_time_desc_idle">Samo čitaj i prati.</string>
+    <string name="import_success">Uspjeh:</string>
+    <string name="import_format_error">Krivi format.</string>
+    <string name="import_error">Greška.</string>
+    <string name="storage_full_error">Pohrana je puna. Ukloni neke naslovnice knjiga ili izbriši podatke.</string>
+    <string name="on_github">Na Githubu</string>
+    <string name="mit_license">MIT licenca</string>
+    <string name="last_updated">Posljednje ažuriranje: Svibanj 2026</string>
+    <string name="privacy_disclaimer_title">Vaši podaci ostaju na vašem uređaju.</string>
+    <string name="privacy_disclaimer_body">Biblioteka ne prikuplja, prenosi ili prodaje bilo kakve osobne podatke.</string>
+    <string-array name="privacy_titles">
+        <item>Skladištenje podataka</item>
+        <item>Bez praćenja i analitike</item>
+        <item>Dozvol</item>
+        <item>Softver otvorenog koda</item>
+        <item>Kontakt</item>
+    </string-array>
+    <string-array name="privacy_bodies">
+        <item>Sve tvoje knjige, bilješke i postavke spremaju se isključivo na uređaj. Nema potrebe za otvaranjem računa.</item>
+        <item>Ne koristimo nikakve usluge dubinske analize, sustave prijave problema ili SDK-ove za oglase.</item>
+        <item>Biblioteka ne traži nikakve Android dozvole za izvođenje. Sigurnosne kopije se zapisuju u privatnu predmemoriju aplikacije i dijele se samo kada izričito dodirnete Dijeli.</item>
+        <item>Biblioteka je aplikacija otvorenog koda. Sav je kôd objavljen na GitHubu radi potpune transparentnosti.</item>
+        <item>Pitanja o privatnosti? Prijavite ih na GitHubu ili kontaktirajte autora na biblioteka@damiankokot.eu.</item>
+    </string-array>
+    <string-array name="terms_titles">
+        <item>1. Prihvaćanje Uvjeta</item>
+        <item>2. Licenciranje</item>
+        <item>3. Sigurnost</item>
+        <item>4. Odbrobljena Zaštita</item>
+        <item>5. Novi Dodaci</item>
+        <item>6. Kontakti</item>
+    </string-array>
+    <string-array name="terms_bodies">
+        <item>Pri uporabi Biblioteka pristajete se i obvezujete pred trenutnim naputcima poslovanja.</item>
+        <item>Aplikacija Biblioteka prilaže open-source prava propisanim putem MIT licence.</item>
+        <item>Preuzimate opću pažnju za osobne operacije tako te spriječavamo daljnju provalu sistema.</item>
+        <item>Nema nikakvih čvrstih garancija ukoliko neočekivane pogreške rezultiraju gubitkom podataka aplikacije.</item>
+        <item>Na vrijeme promjene politike smatrajte kako je prihvaćeno novo i nadopunjeno izdanje pravila.</item>
+        <item>Sve prijedloge isporučite put portala GitHub ili email dopisima direktnom proizvođaču.</item>
+    </string-array>
+</resources>

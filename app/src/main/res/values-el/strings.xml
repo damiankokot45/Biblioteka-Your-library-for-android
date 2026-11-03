@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Migrated from the web version (src/lib/i18n.ts + SettingsModal.tsx). -->
+<resources>
+    <string name="search_placeholder">Αναζήτηση βιβλίου...</string>
+    <string name="sort_by_date">Ημερομηνία Προσθήκης</string>
+    <string name="sort_by_title">Τίτλος</string>
+    <string name="sort_by_author">Συγγραφέας</string>
+    <string name="sort_by_rating">Βαθμολογία</string>
+    <string name="tab_shelf">Ράφι</string>
+    <string name="tab_to_read">Προς Ανάγνωση</string>
+    <string name="tab_reading">Διαβάζω</string>
+    <string name="tab_read">Διαβάστηκε</string>
+    <string name="tab_stats">Στατιστικά</string>
+    <string name="add_book">Νέο Βιβλίο</string>
+    <string name="edit_book">Επεξεργασία Βιβλίου</string>
+    <string name="save">Αποθήκευση</string>
+    <string name="title">Τίτλος</string>
+    <string name="title_placeholder">Π.χ. Ο Άρχοντας των Δαχτυλιδιών</string>
+    <string name="author">Συγγραφέας</string>
+    <string name="author_placeholder">Π.χ. J.R.R. Tolkien</string>
+    <string name="status">Κατάσταση</string>
+    <string name="status_to_read">Προς Ανάγνωση</string>
+    <string name="status_reading">Διαβάζω Τώρα</string>
+    <string name="status_read">Διαβάστηκε</string>
+    <string name="rating">Βαθμολογία</string>
+    <string name="notes">Σημειώσεις</string>
+    <string name="notes_placeholder">Οι σκέψεις σας, αποσπάσματα...</string>
+    <string name="cover_or_bookmark">Εξώφυλλο / Σελιδοδείκτης</string>
+    <string name="select_from_gallery">Επιλογή από γκαλερί</string>
+    <string name="remove_cover">Διαγραφή</string>
+    <string name="settings">Ρυθμίσεις</string>
+    <string name="appearance">Εμφάνιση</string>
+    <string name="theme">Θέμα</string>
+    <string name="theme_system">Σύστημα</string>
+    <string name="theme_light">Φωτεινό</string>
+    <string name="theme_dark">Σκοτεινό</string>
+    <string name="accent_color">Χρώμα ανάδειξης</string>
+    <string name="language">Γλώσσα</string>
+    <string name="backup">Δεδομένα &amp; αντίγραφα</string>
+    <string name="export_data">Εξαγωγή δεδομένων</string>
+    <string name="import_data">Εισαγωγή δεδομένων</string>
+    <string name="clear_data">Εκκαθάριση δεδομένων</string>
+    <string name="clear_data_desc">Διαγραφή όλων των βιβλίων και επαναφορά</string>
+    <string name="confirm_clear_data">Είστε σίγουροι ότι θέλετε να διαγράψετε ΟΛΑ τα δεδομένα; Η ενέργεια δεν αναιρείται!</string>
+    <string name="about_app">Σχετικά με την εφαρμογή</string>
+    <string name="version">Έκδοση</string>
+    <string name="licenses">Άδειες</string>
+    <string name="email">Email</string>
+    <string name="source_code">Πηγαίος κώδικας</string>
+    <string name="create_issue">Αναφορά προβλήματος</string>
+    <string name="third_party_licenses">Άδειες τρίτων</string>
+    <string name="terms_conditions">Όροι και Προϋποθέσεις</string>
+    <string name="privacy_policy">Πολιτική Απορρήτου</string>
+    <string name="close">Κλείσιμο</string>
+    <string name="empty_shelf_title">Κανένα βιβλίο</string>
+    <string name="empty_shelf_desc">Κάντε κλικ στο παρακάτω κουμπί για να προσθέσετε το πρώτο σας βιβλίο.</string>
+    <string name="this_year">Φέτος</string>
+    <string name="books_read">Βιβλία που Διαβάστηκαν</string>
+    <string name="books_added">Βιβλία που Προστέθηκαν</string>
+    <string name="pages_read">Σελίδες που Διαβάστηκαν</string>
+    <string name="time_spent">Χρόνος Ανάγνωσης</string>
+    <string name="reading_progress">Πρόοδος Ανάγνωσης</string>
+    <string name="page">Σελίδα</string>
+    <string name="start_reading">Έναρξη</string>
+    <string name="stop_reading">Διακοπή χρόνου</string>
+    <string name="cancel">Ακύρωση</string>
+    <string name="empty_stats_title">Δεν υπάρχουν δεδομένα</string>
+    <string name="empty_stats_desc">Προσθέστε βιβλία για να δείτε τα στατιστικά σας.</string>
+    <string name="select_book">Επιλέξτε ένα βιβλίο...</string>
+    <string name="what_book_reading">Ποιο βιβλίο διαβάζατε;</string>
+    <string name="what_page_finished">Σε ποια σελίδα τελειώσατε;</string>
+    <string name="add_book_first">Δεν έχετε βιβλία σε κατάσταση \'Προς Ανάγνωση\' ή \'Διαβάζω Τώρα\'. Αρχικά προσθέστε ένα βιβλίο.</string>
+    <string name="update_progress_message">Ολοκλήρωση ανάγνωσης</string>
+    <string name="reading_time_title">Ώρα για ανάγνωση;</string>
+    <string name="reading_time_desc_reading">Βυθιστείτε στην ιστορία...</string>
+    <string name="reading_time_desc_idle">Χαλαρώστε και ξεκινήστε το διάβασμα. Παρακολουθήστε την ανάγνωση σας.</string>
+    <string name="import_success">Επιτυχής φόρτωση βιβλίων:</string>
+    <string name="import_format_error">Μη έγκυρη μορφή αρχείου.</string>
+    <string name="import_error">Σφάλμα ανάγνωσης. Βεβαιωθείτε ότι είναι έγκυρο αρχείο JSON.</string>
+    <string name="storage_full_error">Ο αποθηκευτικός χώρος είναι γεμάτος. Αφαίρεσε μερικά εξώφυλλα ή διέγραψε τα δεδομένα.</string>
+    <string name="on_github">Στο Github</string>
+    <string name="mit_license">Άδεια MIT</string>
+    <string name="last_updated">Τελευταία ενημέρωση: Μάιος 2026</string>
+    <string name="privacy_disclaimer_title">Τα δεδομένα παραμένουν στη συσκευή σας.</string>
+    <string name="privacy_disclaimer_body">Η Biblioteka δεν συλλέγει, δεν μεταδίδει και δεν πουλά προσωπικά δεδομένα.</string>
+    <string-array name="privacy_titles">
+        <item>Αποθήκευση Δεδομένων</item>
+        <item>Καθόλου Analytics/Tracing</item>
+        <item>Αδειοδότηση Επαφών</item>
+        <item>Ανοικτός Κώδικας</item>
+        <item>E-mail Επικοινωνίας</item>
+    </string-array>
+    <string-array name="privacy_bodies">
+        <item>Όλα τα βιβλία, οι σημειώσεις και οι ρυθμίσεις σας εξυπηρετούνται αποκλειστικά από την συσκευή σας. Κανένας λογαριασμός μέλους δεν απαιτείται.</item>
+        <item>Μείνετε ήσυχοι χωρίς προγράμματα λογισμικής ανάλυσης δεδομένων για εμπορικό κοινό και διαφημίσεις.</item>
+        <item>Η Biblioteka δεν ζητά δικαιώματα εκτέλεσης Android. Τα αντίγραφα ασφαλείας γράφονται στην ιδιωτική κρυφή μνήμη της εφαρμογής και κοινοποιούνται μόνο όταν πατάτε ρητά Κοινοποίηση.</item>
+        <item>Όλα τα στάδια διέπονται από λογισμικό ανοιχτού κώδικα προσβάσιμο προς εξακρίβωση στο GitHub για παρατήρηση των δηλώσεων.</item>
+        <item>Απαντήσεις ή άμεση μεταφορά παραπόνων/αιτημάτων αποστείλετε στο biblioteka@damiankokot.eu.</item>
+    </string-array>
+    <string-array name="terms_titles">
+        <item>1. Γενικοί Όροι Αποδοχής</item>
+        <item>2. Σύστημα Άδειας</item>
+        <item>3. Ορθή Χρήση</item>
+        <item>4. Απουσία Εγγυήσεων</item>
+        <item>5. Ενσωματώσεις Προσθηκών</item>
+        <item>6. Περαιτέρω Υποστήριξη</item>
+    </string-array>
+    <string-array name="terms_bodies">
+        <item>Υιοθετώντας το τρέχον λογισμικό συμφωνείτε υπεύθυνα στις προαναφερθείσες διατάξεις από την πλευρά σας.</item>
+        <item>Είστε πλέον αποδέκτης δωρεάν ανοιχτού κώδικα του διεθνούς επιπέδου MIT.</item>
+        <item>Δικαίωμα ατομικής επιδίωξης και απόσυρση σε περιπτώσεις βλαβερών παρεμβολών διασφαλίζονται από την πλευρά μας.</item>
+        <item>Ο διαχειριστής αποποιείται απόζημιώσεις που παρατηρηθούν μετά από ολικές καταστροφές ή χαμένα ηλεκτρονικά αρχεία.</item>
+        <item>Με την πάροδο χρόνου όλοι οι μετέπειτα βελτιωμένοι κανόνες παραμένουν δεσμευτικοί εντός ορίων σε περιβάλλον σεβασμού.</item>
+        <item>Μιλήστε μας δίχως δισταγμό για τεχνικά/λειτουργικά θέματα στέλνοντας μήνυμα στην ίδια την σελίδα ή απευθείας στο biblioteka@damiankokot.eu.</item>
+    </string-array>
+</resources>

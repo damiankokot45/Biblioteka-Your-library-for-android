@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Migrated from the web version (src/lib/i18n.ts + SettingsModal.tsx). -->
+<resources>
+    <string name="search_placeholder">책 검색...</string>
+    <string name="sort_by_date">추가된 날짜</string>
+    <string name="sort_by_title">제목</string>
+    <string name="sort_by_author">저자</string>
+    <string name="sort_by_rating">평점</string>
+    <string name="tab_shelf">책장</string>
+    <string name="tab_to_read">읽을 책</string>
+    <string name="tab_reading">읽는 중</string>
+    <string name="tab_read">읽음</string>
+    <string name="tab_stats">통계</string>
+    <string name="add_book">새 책</string>
+    <string name="edit_book">수정</string>
+    <string name="save">저장</string>
+    <string name="title">제목</string>
+    <string name="title_placeholder">예: 반지의 제왕</string>
+    <string name="author">저자</string>
+    <string name="author_placeholder">예: J.R.R. 톨킨</string>
+    <string name="status">상태</string>
+    <string name="status_to_read">읽을 책</string>
+    <string name="status_reading">읽는 중</string>
+    <string name="status_read">읽음</string>
+    <string name="rating">평점</string>
+    <string name="notes">메모</string>
+    <string name="notes_placeholder">당신의 생각...</string>
+    <string name="cover_or_bookmark">표지</string>
+    <string name="select_from_gallery">갤러리에서 선택</string>
+    <string name="remove_cover">삭제</string>
+    <string name="settings">설정</string>
+    <string name="appearance">외관</string>
+    <string name="theme">테마</string>
+    <string name="theme_system">시스템</string>
+    <string name="theme_light">라이트</string>
+    <string name="theme_dark">다크</string>
+    <string name="accent_color">포인트 색상</string>
+    <string name="language">언어</string>
+    <string name="backup">데이터 및 백업</string>
+    <string name="export_data">데이터 내보내기</string>
+    <string name="import_data">데이터 가져오기</string>
+    <string name="clear_data">데이터 지우기</string>
+    <string name="clear_data_desc">모두 지우기</string>
+    <string name="confirm_clear_data">정말 지우시겠습니까? 되돌릴 수 없습니다!</string>
+    <string name="about_app">앱 정보</string>
+    <string name="version">버전</string>
+    <string name="licenses">라이선스</string>
+    <string name="email">이메일</string>
+    <string name="source_code">소스 코드</string>
+    <string name="create_issue">문제 보고</string>
+    <string name="third_party_licenses">타사 라이선스</string>
+    <string name="terms_conditions">이용 약관</string>
+    <string name="privacy_policy">개인정보처리방침</string>
+    <string name="close">닫기</string>
+    <string name="empty_shelf_title">책이 없습니다</string>
+    <string name="empty_shelf_desc">책을 추가하세요.</string>
+    <string name="this_year">올해</string>
+    <string name="books_read">읽은 책</string>
+    <string name="books_added">추가된 책</string>
+    <string name="pages_read">읽은 페이지</string>
+    <string name="time_spent">보낸 시간</string>
+    <string name="reading_progress">진행 상황</string>
+    <string name="page">페이지</string>
+    <string name="start_reading">읽기 시작</string>
+    <string name="stop_reading">타이머 중지</string>
+    <string name="cancel">취소</string>
+    <string name="empty_stats_title">데이터 없음</string>
+    <string name="empty_stats_desc">책을 추가해 통계를 확인하세요.</string>
+    <string name="select_book">책 선택...</string>
+    <string name="what_book_reading">어떤 책을 읽었나요?</string>
+    <string name="what_page_finished">어느 페이지까지?</string>
+    <string name="add_book_first">책을 먼저 추가하세요.</string>
+    <string name="update_progress_message">완료됨</string>
+    <string name="reading_time_title">읽을 시간?</string>
+    <string name="reading_time_desc_reading">이야기에 빠져보세요...</string>
+    <string name="reading_time_desc_idle">책을 읽어보세요.</string>
+    <string name="import_success">불러오기 성공:</string>
+    <string name="import_format_error">잘못된 형식입니다.</string>
+    <string name="import_error">오류 발생.</string>
+    <string name="storage_full_error">저장 공간이 가득 찼습니다. 일부 표지를 제거하거나 데이터를 지우세요.</string>
+    <string name="on_github">Github</string>
+    <string name="mit_license">MIT 라이선스</string>
+    <string name="last_updated">마지막 업데이트: 2026년 5월</string>
+    <string name="privacy_disclaimer_title">데이터는 기기에 보관됩니다.</string>
+    <string name="privacy_disclaimer_body">Biblioteka는 개인 데이터를 수집, 전송 또는 판매하지 않습니다.</string>
+    <string-array name="privacy_titles">
+        <item>데이터 저장</item>
+        <item>분석 혹은 개인 데이터 추적 없음</item>
+        <item>권한 설정</item>
+        <item>오픈 소스 정보</item>
+        <item>추가 연락 사항</item>
+    </string-array>
+    <string-array name="privacy_bodies">
+        <item>귀하의 모든 책, 메모 및 설정은 기기에 독점적으로 보관되며 로그인 계정이 필요치 않습니다.</item>
+        <item>당사는 사용자 트래킹에 연관된 소프트웨어 또는 외부 광고 툴을 포함하지 않습니다.</item>
+        <item>Biblioteka는 Android 런타임 권한을 요청하지 않습니다. 백업은 앱의 비공개 캐시에 기록되며 공유를 명시적으로 탭할 때만 공유됩니다.</item>
+        <item>Biblioteka 서비스는 누구나 GitHub를 통해 개발 코드 내역을 확인할 오픈 기반 기능을 공유합니다.</item>
+        <item>모든 시스템이나 이슈 관련 추가 설명이 있으신 경우 GitHub나 관리 파트너 이메일 biblioteka@damiankokot.eu를 방문해 주시기 바랍니다.</item>
+    </string-array>
+    <string-array name="terms_titles">
+        <item>1. 기본 약관 준수</item>
+        <item>2. 소스 라이선스</item>
+        <item>3. 정상적 활용 방향</item>
+        <item>4. 사고 및 피해 면책</item>
+        <item>5. 최신화 정책</item>
+        <item>6. 담당자 연락</item>
+    </string-array>
+    <string-array name="terms_bodies">
+        <item>이 프로그램을 활성화하여 이용할 시 위 서술한 정책을 바탕으로 일체의 합법적 조항에 동의함으로 처리됩니다.</item>
+        <item>저희 프로젝트는 개방된 형태의 코드를 준수하는 MIT 라이선스 환경 내 제공이 인증된 결과물입니다.</item>
+        <item>오픈 네트워크 기반인 만큼 개인 용도를 제외하고 시스템 남용 방지 체계 아래 서비스를 운영에 전하게 됩니다.</item>
+        <item>과실 및 서버 데이터 훼손 상태 시 관리자는 정보 보호 책임에서 일부 제외됨을 주의하세요.</item>
+        <item>미래 사용 시 자동으로 수정된 사안이 있을 경우 역시 해당 조율안이 반영됨을 기재합니다.</item>
+        <item>기타 여러 의문사항들을 풀기 위해서 즉각 GitHub 레포지토리를 참조하거나 이메일 메세지로 biblioteka@damiankokot.eu에 질문을 보내시기 바랍니다.</item>
+    </string-array>
+</resources>

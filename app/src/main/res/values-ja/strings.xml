@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Migrated from the web version (src/lib/i18n.ts + SettingsModal.tsx). -->
+<resources>
+    <string name="search_placeholder">検索...</string>
+    <string name="sort_by_date">追加日</string>
+    <string name="sort_by_title">タイトル</string>
+    <string name="sort_by_author">著者</string>
+    <string name="sort_by_rating">評価</string>
+    <string name="tab_shelf">本棚</string>
+    <string name="tab_to_read">読みたい</string>
+    <string name="tab_reading">読書中</string>
+    <string name="tab_read">読了</string>
+    <string name="tab_stats">統計</string>
+    <string name="add_book">新しい本</string>
+    <string name="edit_book">編集</string>
+    <string name="save">保存</string>
+    <string name="title">タイトル</string>
+    <string name="title_placeholder">例: ロード・オブ・ザ・リング</string>
+    <string name="author">著者</string>
+    <string name="author_placeholder">例: J.R.R. トールキン</string>
+    <string name="status">ステータス</string>
+    <string name="status_to_read">読みたい</string>
+    <string name="status_reading">読書中</string>
+    <string name="status_read">読了</string>
+    <string name="rating">評価</string>
+    <string name="notes">メモ</string>
+    <string name="notes_placeholder">あなたの考え...</string>
+    <string name="cover_or_bookmark">カバー</string>
+    <string name="select_from_gallery">画像を選択</string>
+    <string name="remove_cover">削除</string>
+    <string name="settings">設定</string>
+    <string name="appearance">外観</string>
+    <string name="theme">テーマ</string>
+    <string name="theme_system">システム</string>
+    <string name="theme_light">ライト</string>
+    <string name="theme_dark">ダーク</string>
+    <string name="accent_color">アクセントカラー</string>
+    <string name="language">言語</string>
+    <string name="backup">データ</string>
+    <string name="export_data">エクスポート</string>
+    <string name="import_data">インポート</string>
+    <string name="clear_data">データを消去</string>
+    <string name="clear_data_desc">すべて削除</string>
+    <string name="confirm_clear_data">本当に削除しますか？</string>
+    <string name="about_app">アプリについて</string>
+    <string name="version">バージョン</string>
+    <string name="licenses">ライセンス</string>
+    <string name="email">メール</string>
+    <string name="source_code">ソースコード</string>
+    <string name="create_issue">問題を報告</string>
+    <string name="third_party_licenses">サードパーティ</string>
+    <string name="terms_conditions">利用規約</string>
+    <string name="privacy_policy">プライバシー</string>
+    <string name="close">閉じる</string>
+    <string name="empty_shelf_title">本がありません</string>
+    <string name="empty_shelf_desc">本を追加してください。</string>
+    <string name="this_year">今年</string>
+    <string name="books_read">読んだ本</string>
+    <string name="books_added">追加した本</string>
+    <string name="pages_read">読んだページ</string>
+    <string name="time_spent">時間</string>
+    <string name="reading_progress">進行状況</string>
+    <string name="page">ページ</string>
+    <string name="start_reading">読む</string>
+    <string name="stop_reading">停止</string>
+    <string name="cancel">キャンセル</string>
+    <string name="empty_stats_title">データなし</string>
+    <string name="empty_stats_desc">本を追加してください。</string>
+    <string name="select_book">本を選択...</string>
+    <string name="what_book_reading">どの本を読みましたか？</string>
+    <string name="what_page_finished">どのページで終わりましたか？</string>
+    <string name="add_book_first">まずは本を追加してください。</string>
+    <string name="update_progress_message">更新完了</string>
+    <string name="reading_time_title">読書時間？</string>
+    <string name="reading_time_desc_reading">物語へ...</string>
+    <string name="reading_time_desc_idle">読書を始めましょう。</string>
+    <string name="import_success">インポート完了：</string>
+    <string name="import_format_error">フォーマットエラー。</string>
+    <string name="import_error">エラーです。</string>
+    <string name="storage_full_error">ストレージがいっぱいです。表紙を削除するか、データを消去してください。</string>
+    <string name="on_github">Github</string>
+    <string name="mit_license">MITライセンス</string>
+    <string name="last_updated">最終更新日: 2026年5月</string>
+    <string name="privacy_disclaimer_title">データはデバイスに保存されます。</string>
+    <string name="privacy_disclaimer_body">Bibliotekaは個人データを収集、送信、販売することはありません。</string>
+    <string-array name="privacy_titles">
+        <item>データ保存のしくみ</item>
+        <item>情報の追跡は行われません</item>
+        <item>アクセス許可について</item>
+        <item>完全なるオープンソース</item>
+        <item>連絡先一覧</item>
+    </string-array>
+    <string-array name="privacy_bodies">
+        <item>登録された読書データおよび設定等の詳細は常にユーザー個人のツール上に留められアカウントの保有も必要としません。</item>
+        <item>利用状況監視とデータ流しに関連する特定のサービス等を共有せずに本質的な動作のみの管理を行っています。</item>
+        <item>BibliotekはAndroidの実行時権限を要求しません。バックアップはアプリのプライベートキャッシュに書き込まれ、「共有」を明示的にタップした場合のみ共有されます。</item>
+        <item>Bibliotekaのソース構成はコードを含めて外部ソフトウェアのGitHubで全面的な閲覧が随時可能となっております。</item>
+        <item>もし不明なご指摘またはその他不具合がありましたらGitHubでの通知、およびbiblioteka@damiankokot.euへ直接お問い合わせ願います。</item>
+    </string-array>
+    <string-array name="terms_titles">
+        <item>1. 利用諸条件の受諾</item>
+        <item>2. コードのライセンス</item>
+        <item>3. アプリケーション用途</item>
+        <item>4. 責任無制限の表記</item>
+        <item>5. 追加更新</item>
+        <item>6. お客様窓口</item>
+    </string-array>
+    <string-array name="terms_bodies">
+        <item>この機能を利用する場合は以下に基づく要件に対して完全に承諾したものとみなさせていただきます。</item>
+        <item>Bibliotekaの全ては正規のMITライセンス仕様により完全に無料で提供公開されているシステムです。</item>
+        <item>個人的な範囲内の活動としての提供である故システムを不正に利用したり制限を改竄する行為は禁じられています。</item>
+        <item>本プログラムは現在の仕様にて随時稼働しますがユーザーが不意のデータ喪失被害に遭った場合でも製作者負担は免除されます。</item>
+        <item>システムに準じて規約自体も都度対応修正されるため常に新しいバージョンを使用することで全内容遵守としています。</item>
+        <item>ご不満の意見あるいは追加のご希望に関してはGitHubの課題発行ページか直接のメール連絡biblioteka@damiankokot.euをご利用ください。</item>
+    </string-array>
+</resources>

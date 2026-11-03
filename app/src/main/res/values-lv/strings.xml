@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Migrated from the web version (src/lib/i18n.ts + SettingsModal.tsx). -->
+<resources>
+    <string name="search_placeholder">Meklēt...</string>
+    <string name="sort_by_date">Pievienots</string>
+    <string name="sort_by_title">Nosaukums</string>
+    <string name="sort_by_author">Autors</string>
+    <string name="sort_by_rating">Vērtējums</string>
+    <string name="tab_shelf">Plaukts</string>
+    <string name="tab_to_read">Izlasīt</string>
+    <string name="tab_reading">Lasot</string>
+    <string name="tab_read">Izlasīts</string>
+    <string name="tab_stats">Statistika</string>
+    <string name="add_book">Jauna grāmata</string>
+    <string name="edit_book">Rediģēt</string>
+    <string name="save">Saglabāt</string>
+    <string name="title">Nosaukums</string>
+    <string name="title_placeholder">Piem. Gredzenu pavēlnieks</string>
+    <string name="author">Autors</string>
+    <string name="author_placeholder">Piem. J.R.R. Tolkien</string>
+    <string name="status">Statuss</string>
+    <string name="status_to_read">Izlasīt</string>
+    <string name="status_reading">Lasot</string>
+    <string name="status_read">Izlasīts</string>
+    <string name="rating">Vērtējums</string>
+    <string name="notes">Piezīmes</string>
+    <string name="notes_placeholder">Domas...</string>
+    <string name="cover_or_bookmark">Pārvalks</string>
+    <string name="select_from_gallery">Galerija</string>
+    <string name="remove_cover">Nonemt</string>
+    <string name="settings">Iestatījumi</string>
+    <string name="appearance">Izskats</string>
+    <string name="theme">Tēma</string>
+    <string name="theme_system">Sistēma</string>
+    <string name="theme_light">Gaišs</string>
+    <string name="theme_dark">Tumšs</string>
+    <string name="accent_color">Krāsa</string>
+    <string name="language">Valoda</string>
+    <string name="backup">Dati</string>
+    <string name="export_data">Eksportēt</string>
+    <string name="import_data">Importēt</string>
+    <string name="clear_data">Notīrīt</string>
+    <string name="clear_data_desc">Dzēst visu</string>
+    <string name="confirm_clear_data">Tiešām dzēst?</string>
+    <string name="about_app">Par lietotni</string>
+    <string name="version">Versija</string>
+    <string name="licenses">Licences</string>
+    <string name="email">E-pasts</string>
+    <string name="source_code">Pirmkods</string>
+    <string name="create_issue">Ziņot</string>
+    <string name="third_party_licenses">Trešo personu</string>
+    <string name="terms_conditions">Noteikumi</string>
+    <string name="privacy_policy">Privātums</string>
+    <string name="close">Aizvērt</string>
+    <string name="empty_shelf_title">Nav grāmatu</string>
+    <string name="empty_shelf_desc">Pievienot.</string>
+    <string name="this_year">Šogad</string>
+    <string name="books_read">Izlasītās</string>
+    <string name="books_added">Pievienotās</string>
+    <string name="pages_read">Lapas</string>
+    <string name="time_spent">Laiks</string>
+    <string name="reading_progress">Progress</string>
+    <string name="page">Lp</string>
+    <string name="start_reading">Lasīt</string>
+    <string name="stop_reading">Stop</string>
+    <string name="cancel">Atcelt</string>
+    <string name="empty_stats_title">Nekas</string>
+    <string name="empty_stats_desc">Pievieno.</string>
+    <string name="select_book">Izvēlies...</string>
+    <string name="what_book_reading">Ko lasi?</string>
+    <string name="what_page_finished">Lapa?</string>
+    <string name="add_book_first">Pievieno grāmatu.</string>
+    <string name="update_progress_message">Gatavs</string>
+    <string name="reading_time_title">Lasi?</string>
+    <string name="reading_time_desc_reading">Lasi...</string>
+    <string name="reading_time_desc_idle">Lasi.</string>
+    <string name="import_success">Labi:</string>
+    <string name="import_format_error">Kļūda.</string>
+    <string name="import_error">Kļūda.</string>
+    <string name="storage_full_error">Krātuve ir pilna. Noņem dažus grāmatu vākus vai notīri datus.</string>
+    <string name="on_github">Github</string>
+    <string name="mit_license">MIT licence</string>
+    <string name="last_updated">Pēdējo reizi atjaunināts: Maijs 2026</string>
+    <string name="privacy_disclaimer_title">Jūsu dati paliek jūsu ierīcē.</string>
+    <string name="privacy_disclaimer_body">Biblioteka nevāc, nepārsūta un nepārdod nekādus personas datus.</string>
+    <string-array name="privacy_titles">
+        <item>Datu Glabāšana</item>
+        <item>Nekādas Analītikas Un Izsekošanas</item>
+        <item>Piekļuves Cēloņi</item>
+        <item>Atvērtā koda programma</item>
+        <item>Kontaktinformācija</item>
+    </string-array>
+    <string-array name="privacy_bodies">
+        <item>Visām jūsu grāmatām, piezīmēm un iestatījumiem jāglabājas vienīgi jūsu iekārtā. Lietotāja profila nav.</item>
+        <item>Mēs neizmantojam analītiskos pakalpojumus, defektu identificēšanas sistēmas vai mārketinga rīkus.</item>
+        <item>Biblioteka nepieprasa nekādas Android izpildlaika atļaujas. Dublējumi tiek rakstīti lietotnes privātajā kešatmiņā un kopīgoti tikai tad, kad skaidri pieskaraties Kopīgot.</item>
+        <item>Biblioteka programmēšanai izmantots vien atvērtais kods. Dodieties uz GitHub resursu, lai patiesi pārliecinātos par doto faktu.</item>
+        <item>Jums rodas kādi jautājumus saistībā par doto drošību? Atverat tiketu portālā GitHub vai sazinieties tieši ar pārvaldītāju epastā: biblioteka@damiankokot.eu.</item>
+    </string-array>
+    <string-array name="terms_titles">
+        <item>1. Līguma Ievērošana</item>
+        <item>2. Licence</item>
+        <item>3. Lietotnes Funkcijas</item>
+        <item>4. Zaudējumu Atsaukšana</item>
+        <item>5. Pilnveide</item>
+        <item>6. Tālāka Uzziņa</item>
+    </string-array>
+    <string-array name="terms_bodies">
+        <item>Lejupielādējot tiešsaistes lietotnē, atkrīt citas šaubas atzīt platformas noteikto regulējumu.</item>
+        <item>Visu pieejamo avota kodu apliecina autoritatīvā organizācija MIT saskaņā ar licensijas sistēmu.</item>
+        <item>Atbrīvo un ļauj pilnvērtīgi funkcionēt vienkāršos lietotāja un personas pieprasījumos.</item>
+        <item>Ja rodas tehnoloģiski neatgriezeniski bojājumi mēs neuzņemamies tālāku garantējošu rīcību dēļ klienta.</item>
+        <item>Veikti jebkādu jaunu korekciju virkne dod mājienu to spēka uzturēšanai bez jebkādiem izṇēmumiem.</item>
+        <item>Visinteresējošiem uzaicinājumiem un neskaidrībām lūdzu raktīt tiešā veidā adresei e pastā biblioteka@damiankokot.eu.</item>
+    </string-array>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reading_logged">Czytanie zapisane!</string>
+    <string name="great_job_reading">Świetna robota! Czytałeś</string>
+    <string name="log_progress">Zapisz postęp</string>
+    <string name="page_placeholder">np. 150</string>
+    <string name="third_party_intro">Aplikacja korzysta z następujących bibliotek open source:</string>
+    <string name="export_share_title">Kopia zapasowa Biblioteki</string>
+    <string name="import_skipped">(pominięto: %d)</string>
+    <string name="drag_hint">Przytrzymaj książkę, aby przenieść ją na inną półkę</string>
+</resources>
